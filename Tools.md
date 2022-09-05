@@ -1,3 +1,20 @@
+# Interaktywna dokumentacja (swagger)
+
+Udostępniamy dokumentację interaktywną do szybkiego przetestowania wybranych usług.
+
+> [Dokumentacja Interaktywna Swagger Open API 3.0.0](https://app.swaggerhub.com/apis/BioStatDevelopment/Medfile_API_server/1) 
+
+Do testowania potrzebujemy:
+- nadanego dostępu do środowiska testowego
+- wygenerowanego tokenu JWT dla konkretnego przypadku (np. dla recepty wymagany jest organization i practitioner w tokenie, ale do szukania leków tylko practitioner)
+
+Procedura:
+1. Z prawej strony klikamy na listę wyboru `servers` i wybieramy https://dev.services.medfile.pl.
+2. Następnie klikamy `Authorize` i wklejamy utworzony lokalnie token JWT.
+
+Od teraz możliwe jest testowanie interaktywnej dokumentacji.
+
+
 # Słowniki
 
 ## `identifier` dla organizacji i praktyki
@@ -66,7 +83,7 @@ Dopuszczalne wartości:
 
 ## `patient.nfz`
 
-Oddział NFZ do którego należy pacjent.
+Oddział NFZ, do którego należy pacjent.
 
 - 01 - Dolnośląski
 - 02 - Kujawsko-Pomorski

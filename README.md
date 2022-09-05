@@ -4,6 +4,12 @@ Wersja API: `2.3.0`
 
 Kontakt: <integracja@medfile.pl>
 
+## Zmiany w 2.3.1 z dnia 05.09.2022
+
+1. Nowa sekcja: [Jak uzyskać dostęp do API?](IntegrationProcess.md)
+2. Nowa sekcja: [Najczęściej zadawane pytania](FAQ.md)
+3. Nowa sekcja: [Materiały dodatkowe: Narzędzie do testowania integracji (Swagger Open API 3.0.0)](Tools.md#interaktywna-dokumentacja-swagger)
+
 ## Zmiany w 2.3.0 z dnia 28.08.2022
 
 1. Reorganizacja dokumentacji oraz spis treści.
@@ -61,11 +67,13 @@ Kontakt: <integracja@medfile.pl>
 # Spis treści
 
 1. [Wprowadzenie do API](Introduction.md)
+    - [Jak uzyskać dostęp do API?](IntegrationProcess.md)
+    - [Najczęściej zadawane pytania](FAQ.md)
 2. Usługi P1
     - [e-Recepta](Erecepta.md)
     - [e-Skierowanie](Eskierowania.md)
     - [Zdarzenia Medyczne](ZdarzeniaMedyczne.md)
-    - [Index EDM (dokumentacja w trakcie budowy)](XDSRepository.md)
+    - [Index EDM](XDSRepository.md)
     - [Podpis XaDES](Signature.md)
 3. Usługi NFZ
     - [eWUŚ](Ewus.md)
@@ -78,4 +86,6 @@ Kontakt: <integracja@medfile.pl>
     - Baza ICD 9 (dokumentacja w trakcie budowy)
     - Snomed GPS (wkrótce)
 7. [Informacje dodatkowe](Tools.md)
-8. [Asynchroniczna komunikacja](AsynchronousCommunication.md) (dokumentacja w trakcie budowy)
+    - [Interaktywna dokumentacja Swagger Open API 3.0.0](Tools.md#interaktywna-dokumentacja-swagger)
+    - [Dodatkowe słowniki](Tools.md#słowniki)
+8. [Asynchroniczna komunikacja](AsynchronousCommunication.md)
