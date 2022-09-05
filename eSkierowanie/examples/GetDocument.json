@@ -1,0 +1,966 @@
+{
+  "message": "",
+  "body": {
+    "statusSkierowania": "ZREALIZOWANE",
+    "dokumentSkierowania": {
+      "tresc": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPD94bWwtc3R5bGVzaGVldCBocmVmPSJDREFfUExfSUdfMS4zLjEueHNsIiB0eXBlPSJ0ZXh0L3hzbCI\/Pgo8Q2xpbmljYWxEb2N1bWVudCB4bWxucz0idXJuOmhsNy1vcmc6djMiIHhtbG5zOmV4dFBMPSJodHRwOi8vd3d3LmNzaW96Lmdvdi5wbC94c2QvZXh0UEwvcjIiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOnBoYXJtPSJ1cm46aWhlOnBoYXJtIiBjbGFzc0NvZGU9IkRPQ0NMSU4iIG1vb2RDb2RlPSJFVk4iIHhzaTp0eXBlPSJleHRQTDpDbGluaWNhbERvY3VtZW50Ij4KICA8dHlwZUlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjEuMyIgZXh0ZW5zaW9uPSJQT0NEX0hEMDAwMDQwIi8+CiAgPHRlbXBsYXRlSWQgcm9vdD0iMi4xNi44NDAuMS4xMTM4ODMuMy40NDI0LjEzLjEwLjEuNCIgZXh0ZW5zaW9uPSIxLjMuMSIvPgogIDxpZCByb290PSIyLjE2Ljg0MC4xLjExMzg4My4zLjQ0MjQuMi43LjY3LjQuMSIgZXh0ZW5zaW9uPSIwMDAwMDAwMDAwU0sxNjA3NDM2ODYyIiBkaXNwbGF5YWJsZT0iZmFsc2UiLz4KICA8Y29kZSBjb2RlPSI1NzgzMi04IiBjb2RlU3lzdGVtPSIyLjE2Ljg0MC4xLjExMzg4My42LjEiIGNvZGVTeXN0ZW1OYW1lPSJMT0lOQyIgZGlzcGxheU5hbWU9IlByZXNjcmlwdGlvbiBmb3IgZGlhZ25vc3RpYyBvciBzcGVjaWFsaXN0IGNhcmUgRG9jdW1lbnQiPgogICAgPHRyYW5zbGF0aW9uIGNvZGU9IjAyLjEwIiBjb2RlU3lzdGVtPSIyLjE2Ljg0MC4xLjExMzg4My4zLjQ0MjQuMTEuMS4zMiIgY29kZVN5c3RlbU5hbWU9IktMQVNfRE9LX1AxIiBkaXNwbGF5TmFtZT0iU2tpZXJvd2FuaWUgbmEgYmFkYW5pZSBsdWIgbGVjemVuaWUiLz4KICA8L2NvZGU+CiAgPHRpdGxlPlNraWVyb3dhbmllIGRvIHBvcmFkbmkgc3BlY2phbGlzdHljem5lajwvdGl0bGU+CiAgPGVmZmVjdGl2ZVRpbWUgdmFsdWU9IjIwMjAxMjA4Ii8+CiAgPGNvbmZpZGVudGlhbGl0eUNvZGUgY29kZT0iTiIgY29kZVN5c3RlbT0iMi4xNi44NDAuMS4xMTM4ODMuNS4yNSIgZGlzcGxheU5hbWU9Im5vcm1hbCIvPgogIDxsYW5ndWFnZUNvZGUgY29kZT0icGwtUEwiLz4KICA8c2V0SWQgcm9vdD0iMi4xNi44NDAuMS4xMTM4ODMuMy40NDI0LjIuNy42Ny40LjIiIGV4dGVuc2lvbj0iMDAwMDAwMDAwMFNLMTYwNzQzNjg2MiIvPgogIDx2ZXJzaW9uTnVtYmVyIHZhbHVlPSIxIi8+CiAgPHJlY29yZFRhcmdldD4KICAgIDx0ZW1wbGF0ZUlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjMuNDQyNC4xMy4xMC4yLjI2Ii8+CiAgICA8cGF0aWVudFJvbGU+CiAgICAgIDxpZCByb290PSIyLjE2Ljg0MC4xLjExMzg4My4zLjQ0MjQuMS4xLjYxNiIgZXh0ZW5zaW9uPSI0MDAxMDE1MTY3MyIvPgogICAgICA8YWRkcj4KICAgICAgICA8Y291bnRyeT5Qb2xza2E8L2NvdW50cnk+CiAgICAgICAgPGNpdHk+WmllbG9uYSBHw7NyYTwvY2l0eT4KICAgICAgICA8cG9zdGFsQ29kZT4wMC0xODQ8L3Bvc3RhbENvZGU+CiAgICAgICAgPGhvdXNlTnVtYmVyPjExQTwvaG91c2VOdW1iZXI+CiAgICAgICAgPHN0cmVldE5hbWU+V3JvY8WCYXdza2E8L3N0cmVldE5hbWU+CiAgICAgICAgPHVuaXRJRD4zPC91bml0SUQ+CiAgICAgIDwvYWRkcj4KICAgICAgPHBhdGllbnQ+CiAgICAgICAgPG5hbWU+CiAgICAgICAgICA8ZmFtaWx5PlNlbmlvcjwvZmFtaWx5PgogICAgICAgICAgPGdpdmVuPlN5bHdlc3RlcjwvZ2l2ZW4+CiAgICAgICAgPC9uYW1lPgogICAgICAgIDxhZG1pbmlzdHJhdGl2ZUdlbmRlckNvZGUgY29kZT0iTSIgY29kZVN5c3RlbT0iMi4xNi44NDAuMS4xMTM4ODMuNS4xIi8+CiAgICAgICAgPGJpcnRoVGltZSB2YWx1ZT0iMTk0MDAxMDEiLz4KICAgICAgPC9wYXRpZW50PgogICAgPC9wYXRpZW50Um9sZT4KICA8L3JlY29yZFRhcmdldD4KICA8YXV0aG9yPgogICAgPHRlbXBsYXRlSWQgcm9vdD0iMi4xNi44NDAuMS4xMTM4ODMuMy40NDI0LjEzLjEwLjIuODYiLz4KICAgIDxmdW5jdGlvbkNvZGUgY29kZT0iTEVLIiBjb2RlU3lzdGVtPSIyLjE2Ljg0MC4xLjExMzg4My4zLjQ0MjQuMTEuMy4xOCIgZGlzcGxheU5hbWU9Ikxla2FyeiIvPgogICAgPHRpbWUgdmFsdWU9IjIwMjAxMjA4Ii8+CiAgICA8YXNzaWduZWRBdXRob3IgeHNpOnR5cGU9ImV4dFBMOkFzc2lnbmVkQXV0aG9yIj4KICAgICAgPGlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjMuNDQyNC4xLjYuMiIgZXh0ZW5zaW9uPSIxMDQ0NDAxIi8+CiAgICAgIDxjb2RlIGNvZGU9IjA3MTNfMDczMSIgY29kZVN5c3RlbT0iMi4xNi44NDAuMS4xMTM4ODMuMy40NDI0LjExLjMuMy4xIiBkaXNwbGF5TmFtZT0ibWVkeWN5bmEgcm9kemlubmEsIGFsZXJnb2xvZ2lhIi8+CiAgICAgIDxhc3NpZ25lZFBlcnNvbj4KICAgICAgICA8dGVtcGxhdGVJZCByb290PSIyLjE2Ljg0MC4xLjExMzg4My4zLjQ0MjQuMTMuMTAuMi4xIi8+CiAgICAgICAgPG5hbWU+CiAgICAgICAgICA8ZmFtaWx5PkxlY3puaWN6eTwvZmFtaWx5PgogICAgICAgICAgPGdpdmVuPkthcm9sPC9naXZlbj4KICAgICAgICA8L25hbWU+CiAgICAgIDwvYXNzaWduZWRQZXJzb24+CiAgICAgIDxyZXByZXNlbnRlZE9yZ2FuaXphdGlvbj4KICAgICAgICA8dGVtcGxhdGVJZCByb290PSIyLjE2Ljg0MC4xLjExMzg4My4zLjQ0MjQuMTMuMTAuMi4xOCIvPgogICAgICAgIDxpZCByb290PSIyLjE2Ljg0MC4xLjExMzg4My4zLjQ0MjQuMi4zLjMiIGV4dGVuc2lvbj0iMDAwMDAwNzkyMDg3LTAwMSIgZGlzcGxheWFibGU9InRydWUiLz4KICAgICAgICA8bmFtZT5PZ8OzbG5hIGl6YmEgcHJ6eWrEmcSHPC9uYW1lPgogICAgICAgIDx0ZWxlY29tIHZhbHVlPSJ0ZWw6KzQ4MTMxMjMxMjMwIi8+CiAgICAgICAgPGFkZHI+CiAgICAgICAgICA8Y291bnRyeT5wbDwvY291bnRyeT4KICAgICAgICAgIDxjaXR5PldhcnN6YXdhPC9jaXR5PgogICAgICAgICAgPHBvc3RhbENvZGU+MDAtMTg0PC9wb3N0YWxDb2RlPgogICAgICAgICAgPGhvdXNlTnVtYmVyPjVBPC9ob3VzZU51bWJlcj4KICAgICAgICAgIDxzdHJlZXROYW1lPkR1Ym9pczwvc3RyZWV0TmFtZT4KICAgICAgICAgIDx1bml0SUQ+MTM8L3VuaXRJRD4KICAgICAgICA8L2FkZHI+CiAgICAgICAgPGFzT3JnYW5pemF0aW9uUGFydE9mPgogICAgICAgICAgPHdob2xlT3JnYW5pemF0aW9uPgogICAgICAgICAgICA8aWQgcm9vdD0iMi4xNi44NDAuMS4xMTM4ODMuMy40NDI0LjIuMi4yIiBleHRlbnNpb249IjI0MTU0NDQ0MzAwMDA0IiBkaXNwbGF5YWJsZT0idHJ1ZSIvPgogICAgICAgICAgICA8YXNPcmdhbml6YXRpb25QYXJ0T2Y+CiAgICAgICAgICAgICAgPHdob2xlT3JnYW5pemF0aW9uPgogICAgICAgICAgICAgICAgPGlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjMuNDQyNC4yLjMuMSIgZXh0ZW5zaW9uPSIwMDAwMDA3OTIwODciIGRpc3BsYXlhYmxlPSJ0cnVlIi8+CiAgICAgICAgICAgICAgPC93aG9sZU9yZ2FuaXphdGlvbj4KICAgICAgICAgICAgPC9hc09yZ2FuaXphdGlvblBhcnRPZj4KICAgICAgICAgIDwvd2hvbGVPcmdhbml6YXRpb24+CiAgICAgICAgPC9hc09yZ2FuaXphdGlvblBhcnRPZj4KICAgICAgPC9yZXByZXNlbnRlZE9yZ2FuaXphdGlvbj4KICAgIDwvYXNzaWduZWRBdXRob3I+CiAgPC9hdXRob3I+CiAgPGN1c3RvZGlhbj4KICAgIDx0ZW1wbGF0ZUlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjMuNDQyNC4xMy4xMC4yLjIwIi8+CiAgICA8YXNzaWduZWRDdXN0b2RpYW4+CiAgICAgIDxyZXByZXNlbnRlZEN1c3RvZGlhbk9yZ2FuaXphdGlvbj4KICAgICAgICA8aWQgcm9vdD0iMi4xNi44NDAuMS4xMTM4ODMuMy40NDI0IiBhc3NpZ25pbmdBdXRob3JpdHlOYW1lPSJDU0lPWiIgZGlzcGxheWFibGU9InRydWUiLz4KICAgICAgPC9yZXByZXNlbnRlZEN1c3RvZGlhbk9yZ2FuaXphdGlvbj4KICAgIDwvYXNzaWduZWRDdXN0b2RpYW4+CiAgPC9jdXN0b2RpYW4+CiAgPGxlZ2FsQXV0aGVudGljYXRvcj4KICAgIDx0ZW1wbGF0ZUlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjMuNDQyNC4xMy4xMC4yLjYiLz4KICAgIDx0aW1lIHZhbHVlPSIyMDIwMTIwOCIvPgogICAgPHNpZ25hdHVyZUNvZGUgY29kZT0iUyIvPgogICAgPGFzc2lnbmVkRW50aXR5PgogICAgICA8aWQgcm9vdD0iMi4xNi44NDAuMS4xMTM4ODMuMy40NDI0LjEuNi4yIiBleHRlbnNpb249IjEwNDQ0MDEiIGRpc3BsYXlhYmxlPSJ0cnVlIi8+CiAgICA8L2Fzc2lnbmVkRW50aXR5PgogIDwvbGVnYWxBdXRoZW50aWNhdG9yPgogIDxwYXJ0aWNpcGFudCB0eXBlQ29kZT0iSU5EIj4KICAgIDx0ZW1wbGF0ZUlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjMuNDQyNC4xMy4xMC4yLjE5Ii8+CiAgICA8YXNzb2NpYXRlZEVudGl0eSBjbGFzc0NvZGU9IlVORFdSVCI+CiAgICAgIDxpZCByb290PSIyLjE2Ljg0MC4xLjExMzg4My4zLjQ0MjQuMy4xIiBleHRlbnNpb249IjA3IiBkaXNwbGF5YWJsZT0idHJ1ZSIvPgogICAgPC9hc3NvY2lhdGVkRW50aXR5PgogIDwvcGFydGljaXBhbnQ+CiAgPGNvbXBvbmVudD4KICAgIDx0ZW1wbGF0ZUlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjMuNDQyNC4xMy4xMC4yLjI4Ii8+CiAgICA8c3RydWN0dXJlZEJvZHk+CiAgICAgIDxjb21wb25lbnQ+CiAgICAgICAgPHNlY3Rpb24+CiAgICAgICAgICA8dGVtcGxhdGVJZCByb290PSIyLjE2Ljg0MC4xLjExMzg4My4zLjQ0MjQuMTMuMTAuMy42Ii8+CiAgICAgICAgICA8Y29kZSBjb2RlPSI1NzgyOC02IiBjb2RlU3lzdGVtPSIyLjE2Ljg0MC4xLjExMzg4My42LjEiIGNvZGVTeXN0ZW1OYW1lPSJMT0lOQyIgZGlzcGxheU5hbWU9IlByZXNjcmlwdGlvbnMiLz4KICAgICAgICAgIDx0aXRsZT5Jbm5lIGluZm9ybWFjamU8L3RpdGxlPgogICAgICAgICAgPHRleHQgSUQ9IkVOQ18xIj48bGlzdD4KPGNhcHRpb24+UHJvc3rEmSBvIG5hc3TEmXB1asSFY2UgemFiaWVnaTo8L2NhcHRpb24+CjxpdGVtIElEPSJQUk9DXzEiPld6aWVybmlrb3dhbmllIHVjaGE8L2l0ZW0+CjxpdGVtIElEPSJQUk9DXzIiPlDFgnVrYW5pZSB1Y2hhPC9pdGVtPgo8L2xpc3Q+CjxwYXJhZ3JhcGg+PGNhcHRpb24+Q2VsIGJhZGFuaWEgKHV6YXNhZG5pZW5pZSk6PC9jYXB0aW9uPgpEaWFnbm9zdHlrYSBwcnp5Y3p5bnkgbmllZG9rcndpc3RvxZtjaS48L3BhcmFncmFwaD4KPHBhcmFncmFwaD48Y2FwdGlvbj5CYWRhbmlhIGRvdHljaGN6YXMgd3lrb25hbmU6PC9jYXB0aW9uPgpMb3JlbSBpcHN1bSBkb2xvciBzaXQgYW1ldCwgY29uc2VjdGV0dXIgYWRpcGlzY2luZyBlbGl0LiBRdWlzcXVlIHNlZCB1cm5hIG5pYmguCkRvbmVjIGxhY3VzIG1pLCB2YXJpdXMgc2VkIGV4IGF0LCBlbGVtZW50dW0gbWF0dGlzIG1hdXJpcy4gSW4gc2l0IGFtZXQgcXVhbSB2ZWwgc2VtIHBlbGxlbnRlc3F1ZSBldWlzbW9kLjwvcGFyYWdyYXBoPgo8L3RleHQ+CiAgICAgICAgICA8ZW50cnkgdHlwZUNvZGU9IkNPTVAiPgogICAgICAgICAgICA8dGVtcGxhdGVJZCByb290PSIyLjE2Ljg0MC4xLjExMzg4My4zLjQ0MjQuMTMuMTAuNC42Ii8+CiAgICAgICAgICAgIDxlbmNvdW50ZXIgY2xhc3NDb2RlPSJFTkMiIG1vb2RDb2RlPSJSUU8iPgogICAgICAgICAgICAgIDxjb2RlIGNvZGU9IjE2MTAiIGNvZGVTeXN0ZW09IjIuMTYuODQwLjEuMTEzODgzLjMuNDQyNC4xMS4yLjQiIGRpc3BsYXlOYW1lPSJQb3JhZG5pYSBPdG9yeW5vbGFyeW5nb2xvZ2ljem5hIi8+CiAgICAgICAgICAgICAgPHRleHQ+CiAgICAgICAgICAgICAgICA8cmVmZXJlbmNlIHZhbHVlPSIjRU5DXzEiLz4KICAgICAgICAgICAgICA8L3RleHQ+CiAgICAgICAgICAgICAgPHByaW9yaXR5Q29kZSBjb2RlPSJVUiIgY29kZVN5c3RlbT0iMi4xNi44NDAuMS4xMTM4ODMuNS43Ii8+CiAgICAgICAgICAgICAgPGVudHJ5UmVsYXRpb25zaGlwIHR5cGVDb2RlPSJDT01QIj4KICAgICAgICAgICAgICAgIDxwcm9jZWR1cmUgY2xhc3NDb2RlPSJQUk9DIiBtb29kQ29kZT0iUlFPIj4KICAgICAgICAgICAgICAgICAgPGNvZGUgY29kZT0iMTguMTEiIGNvZGVTeXN0ZW09IjIuMTYuODQwLjEuMTEzODgzLjMuNDQyNC4xMS4yLjYiIGRpc3BsYXlOYW1lPSJXemllcm5pa293YW5pZSB1Y2hhIi8+CiAgICAgICAgICAgICAgICAgIDx0ZXh0PgogICAgICAgICAgICAgICAgICAgIDxyZWZlcmVuY2UgdmFsdWU9IiNQUk9DXzEiLz4KICAgICAgICAgICAgICAgICAgPC90ZXh0PgogICAgICAgICAgICAgICAgPC9wcm9jZWR1cmU+CiAgICAgICAgICAgICAgPC9lbnRyeVJlbGF0aW9uc2hpcD4KICAgICAgICAgICAgICA8ZW50cnlSZWxhdGlvbnNoaXAgdHlwZUNvZGU9IkNPTVAiPgogICAgICAgICAgICAgICAgPHByb2NlZHVyZSBjbGFzc0NvZGU9IlBST0MiIG1vb2RDb2RlPSJSUU8iPgogICAgICAgICAgICAgICAgICA8Y29kZSBjb2RlPSI5Ni41MiIgY29kZVN5c3RlbT0iMi4xNi44NDAuMS4xMTM4ODMuMy40NDI0LjExLjIuNiIgZGlzcGxheU5hbWU9IlDFgnVrYW5pZSB1Y2hhIi8+CiAgICAgICAgICAgICAgICAgIDx0ZXh0PgogICAgICAgICAgICAgICAgICAgIDxyZWZlcmVuY2UgdmFsdWU9IiNQUk9DXzIiLz4KICAgICAgICAgICAgICAgICAgPC90ZXh0PgogICAgICAgICAgICAgICAgPC9wcm9jZWR1cmU+CiAgICAgICAgICAgICAgPC9lbnRyeVJlbGF0aW9uc2hpcD4KICAgICAgICAgICAgPC9lbmNvdW50ZXI+CiAgICAgICAgICA8L2VudHJ5PgogICAgICAgIDwvc2VjdGlvbj4KICAgICAgPC9jb21wb25lbnQ+CiAgICAgIDxjb21wb25lbnQ+CiAgICAgICAgPHNlY3Rpb24+CiAgICAgICAgICA8dGVtcGxhdGVJZCByb290PSIyLjE2Ljg0MC4xLjExMzg4My4zLjQ0MjQuMTMuMTAuMy43Ii8+CiAgICAgICAgICA8Y29kZSBjb2RlPSIzMDk1NC0yIiBjb2RlU3lzdGVtPSIyLjE2Ljg0MC4xLjExMzg4My42LjEiIGNvZGVTeXN0ZW1OYW1lPSJMT0lOQyIgZGlzcGxheU5hbWU9IlJlbGV2YW50IGRpYWdub3N0aWMgdGVzdHMvbGFib3JhdG9yeSBkYXRhIi8+CiAgICAgICAgICA8dGl0bGU+QWt0dWFsbmUgd3luaWtpIGJhZGHFhDwvdGl0bGU+CiAgICAgICAgICA8dGV4dD5UZW1wZXJhdHVyYSBjaWHFgmE6IDM2LDYgPHN1cD5vPC9zdXA+Qzxici8+CkNpxZtuaWVuaWUga3J3aTogMTQwLzkwPC90ZXh0PgogICAgICAgIDwvc2VjdGlvbj4KICAgICAgPC9jb21wb25lbnQ+CiAgICAgIDxjb21wb25lbnQ+CiAgICAgICAgPHNlY3Rpb24+CiAgICAgICAgICA8dGVtcGxhdGVJZCByb290PSIyLjE2Ljg0MC4xLjExMzg4My4zLjQ0MjQuMTMuMTAuMy4xIi8+CiAgICAgICAgICA8Y29kZSBjb2RlPSIyOTU0OC01IiBjb2RlU3lzdGVtPSIyLjE2Ljg0MC4xLjExMzg4My42LjEiIGNvZGVTeXN0ZW1OYW1lPSJMT0lOQyIgZGlzcGxheU5hbWU9IkRpYWdub3NpcyIvPgogICAgICAgICAgPHRpdGxlPlJvenBvem5hbmllOjwvdGl0bGU+CiAgICAgICAgICA8dGV4dD48cGFyYWdyYXBoPjxjb250ZW50IElEPSJPQlNfMSI+Um9waWXFhCB1Y2hhIHpld27EmXRyem5lZ288L2NvbnRlbnQ+CjwvcGFyYWdyYXBoPjwvdGV4dD4KICAgICAgICAgIDxlbnRyeSB0eXBlQ29kZT0iQ09NUCI+CiAgICAgICAgICAgIDx0ZW1wbGF0ZUlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjMuNDQyNC4xMy4xMC40LjEiLz4KICAgICAgICAgICAgPG9yZ2FuaXplciBjbGFzc0NvZGU9IkJBVFRFUlkiIG1vb2RDb2RlPSJFVk4iPgogICAgICAgICAgICAgIDxzdGF0dXNDb2RlIGNvZGU9ImNvbXBsZXRlZCIvPgogICAgICAgICAgICAgIDxjb21wb25lbnQ+CiAgICAgICAgICAgICAgICA8b2JzZXJ2YXRpb24gY2xhc3NDb2RlPSJPQlMiIG1vb2RDb2RlPSJFVk4iPgogICAgICAgICAgICAgICAgICA8Y29kZSBjb2RlPSJINjAuMCIgY29kZVN5c3RlbT0iMi4xNi44NDAuMS4xMTM4ODMuNi4zIiBjb2RlU3lzdGVtTmFtZT0iaWNkMTAiIGRpc3BsYXlOYW1lPSJSb3BpZcWEIHVjaGEgemV3bsSZdHJ6bmVnbyIvPgogICAgICAgICAgICAgICAgICA8dGV4dD4KICAgICAgICAgICAgICAgICAgICA8cmVmZXJlbmNlIHZhbHVlPSIjT0JTXzEiLz4KICAgICAgICAgICAgICAgICAgPC90ZXh0PgogICAgICAgICAgICAgICAgPC9vYnNlcnZhdGlvbj4KICAgICAgICAgICAgICA8L2NvbXBvbmVudD4KICAgICAgICAgICAgPC9vcmdhbml6ZXI+CiAgICAgICAgICA8L2VudHJ5PgogICAgICAgIDwvc2VjdGlvbj4KICAgICAgPC9jb21wb25lbnQ+CiAgICA8L3N0cnVjdHVyZWRCb2R5PgogIDwvY29tcG9uZW50Pgo8ZHM6U2lnbmF0dXJlIHhtbG5zOmRzPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjIiB4bWxuczp4YWRlcz0iaHR0cDovL3VyaS5ldHNpLm9yZy8wMTkwMy92MS4zLjIjIiBJZD0ibWVkZmlsZS05YzI0OGUxZi05NDQzLWJiNjUtZGYxZi0xZmRmODY5NDEzMTIiPgogIDxkczpTaWduZWRJbmZvPjxkczpDYW5vbmljYWxpemF0aW9uTWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvVFIvMjAwMS9SRUMteG1sLWMxNG4tMjAwMTAzMTUiLz4KICAgIDxkczpTaWduYXR1cmVNZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjcnNhLXNoYTEiLz4KICA8ZHM6UmVmZXJlbmNlIFVSST0iIj48ZHM6VHJhbnNmb3Jtcz48ZHM6VHJhbnNmb3JtIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnI2VudmVsb3BlZC1zaWduYXR1cmUiLz48L2RzOlRyYW5zZm9ybXM+PGRzOkRpZ2VzdE1ldGhvZCBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyNzaGExIi8+PGRzOkRpZ2VzdFZhbHVlPjN3bkVKMnJiaXRtandrbXYyV2J2MG5HSk5WZz08L2RzOkRpZ2VzdFZhbHVlPjwvZHM6UmVmZXJlbmNlPjxkczpSZWZlcmVuY2UgVVJJPSIjbWVkZmlsZS05YzI0OGUxZi05NDQzLWJiNjUtZGYxZi0xZmRmODY5NDEzMTItc2lnbmVkcHJvcHMiIFR5cGU9Imh0dHA6Ly91cmkuZXRzaS5vcmcvMDE5MDMjU2lnbmVkUHJvcGVydGllcyI+PGRzOlRyYW5zZm9ybXM+PGRzOlRyYW5zZm9ybSBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnL1RSLzIwMDEvUkVDLXhtbC1jMTRuLTIwMDEwMzE1Ii8+PC9kczpUcmFuc2Zvcm1zPjxkczpEaWdlc3RNZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjc2hhMSIvPjxkczpEaWdlc3RWYWx1ZT51SDZEVHVnRkIzSDNRSUM0dHFsN0NMVERBMnM9PC9kczpEaWdlc3RWYWx1ZT48L2RzOlJlZmVyZW5jZT48L2RzOlNpZ25lZEluZm8+PGRzOlNpZ25hdHVyZVZhbHVlPnFmOVNNbitEaGtpdkIydkMrWVhFMVlZVmZhRHZXN2xDRk80dHhTYmZXTzU1dm45Ung2NkxVdFQrcDk5b0k0WlpZWXZhZk9hb2FtaDJGd0lXT1pYZUw2WThsejBBODcyN0NIL0p2Q0R5R0cyK0FyKy9aM0RhNWl2anNHaUhDNkNFR3c2T1hLQlFrTUxnaVdZQ1lrMHUrQTZaWUFVd2ZqcEpJdVArZnpEYTZYS2xVb05OejF4N1dqRjVIOVlkajA2RG5tMk56M1JrZ0JGOUdEaUVGYUJFN29vdEgxeFFTeWZyVkgzdEhEZ3NGRTVZZTBmWWt2M09HMUwxMDhKd2l5MnFmTDZtTGU3ZXpqVmtld2xWYThyMklaM0pXMUVyQ0h1TlhGVXRidEh4UVhZcjg2OWdFVVpHdnVrMmFjQ09MbWdYVXJkR3F6NGlSWWJ2RWJIMUMyMGtOdz09PC9kczpTaWduYXR1cmVWYWx1ZT4KPGRzOktleUluZm8+PGRzOlg1MDlEYXRhPjxkczpYNTA5U3ViamVjdE5hbWU+Qz1QTCxPPUNTSU9aLE9VPVAxIEludGVncmFjeWpuZSxzZXJpYWxOdW1iZXI9UEVTRUw6IDY5MDkwMzA5MTEyLENOPUthcm9sIExlY3puaWN6eTwvZHM6WDUwOVN1YmplY3ROYW1lPjxkczpYNTA5SXNzdWVyU2VyaWFsPjxkczpYNTA5SXNzdWVyTmFtZT5DPVBMLE89Q1NJT1osT1U9UDEgSW50ZWdyYWN5am5lLENOPUNDIFAxIFN1YkNBIFBvZHBpczwvZHM6WDUwOUlzc3Vlck5hbWU+PGRzOlg1MDlTZXJpYWxOdW1iZXI+NDc0NDM2NTk1MTAwMTU1NzEzMjwvZHM6WDUwOVNlcmlhbE51bWJlcj48L2RzOlg1MDlJc3N1ZXJTZXJpYWw+PGRzOlg1MDlDZXJ0aWZpY2F0ZT5NSUlGWWpDQ0EwcWdBd0lCQWdJSVFkZGZzaG5uK0l3d0RRWUpLb1pJaHZjTkFRRU5CUUF3VkRFYk1Ca0dBMVVFQXd3U1EwTWdVREVnVTNWaVEwRWdVRzlrY0dsek1SZ3dGZ1lEVlFRTERBOVFNU0JKYm5SbFozSmhZM2xxYm1VeERqQU1CZ05WQkFvTUJVTlRTVTlhTVFzd0NRWURWUVFHRXdKUVREQWVGdzB5TURBME1EY3hPRFE1TXpsYUZ3MHlNakEwTURjeE9EUTVNemxhTUc0eEdEQVdCZ05WQkFNTUQwdGhjbTlzSUV4bFkzcHVhV042ZVRFYk1Ca0dBMVVFQlJNU1VFVlRSVXc2SURZNU1Ea3dNekE1TVRFeU1SZ3dGZ1lEVlFRTERBOVFNU0JKYm5SbFozSmhZM2xxYm1VeERqQU1CZ05WQkFvTUJVTlRTVTlhTVFzd0NRWURWUVFHRXdKUVREQ0NBU0l3RFFZSktvWklodmNOQVFFQkJRQURnZ0VQQURDQ0FRb0NnZ0VCQUs2VUxOcExlTDFsUVRLUTRMTEhaazQxVVl3Q2lueHBtZzdHcFJuSHkvQnNqTFNDc25oZkN5Wk5jTVd5K3JmU2pST1hIQXNaMGpPTEhGQjFyT0NsTGlXbHViRk04bW9YdlJ1NUV0d0ZLQml0Vk9FQ2NRTHU2MmxOOTkyNjBESTFSYlYrS25ndkwrSEhUdDlwZ0RRZnJsb0NuVnRTaS80NC80NXFXaHpaVWZIWU1XSnFGNys5dmh1VTBvOHVadGo2SGcxeTVaUXNNY0tSWVNGMzZscVJvV3NpdWxXTmdIb2dBYkZaZ080TXorakdWbGVSTUw0aElUSTlBODgzZmN1L2YzeGE0OGRZUHJHS05JbTNnQ0VvNHkzd3VUL2xEZTdjb0krd2p4Z1RxdUx0VTJLaGlBYlZTSWM1M280ME5rTldlMmFyWXF4S3dzWXpTMzJLaUthOE5xRUNBd0VBQWFPQ0FSd3dnZ0VZTUF3R0ExVWRFd0VCL3dRQ01BQXdId1lEVlIwakJCZ3dGb0FVa2tUSlZMdTZROVFQRDZ2NDY3ZzU2enVOQmdvd1hnWURWUjBsQkZjd1ZRWUlLd1lCQlFVSEF3SUdDQ3NHQVFVRkJ3TUVCZ2NyQmdFRkFnTUVCZ2NyQmdFRkFnTUZCZ29yQmdFRUFZSTNDZ01NQmdvckJnRUVBWUkzQ2dNRUJnb3JCZ0VFQVlJM0ZBSUNCZ2txaGtpRzl5OEJBUVV3V0FZRFZSMGZCRkV3VHpCTm9FdWdTWVpIYUhSMGNITTZMeTlwYm5RdGNERXVaWHBrY205M2FXVXVaMjkyTG5Cc0wyTmpjREV2WTNKc0wwTkRVREZKYm5SbFozSmhZM2xxYm1WVGRXSkRRVkJ2WkhCcGN5NWpjbXd3SFFZRFZSME9CQllFRklaM2pIMW9GT2xpbEtWVDQraTA3R21pU05LTU1BNEdBMVVkRHdFQi93UUVBd0lDNURBTkJna3Foa2lHOXcwQkFRMEZBQU9DQWdFQUg0TU1qQXlBTFZqSUx6OEkzV2pPZm9zMkE3TG13bU5NYkRNbHo1d05oNmNObUtBMUg4Rzg2SGppR3UwYnVNTGpHQ2huQVpwSXFBRndyS3FPQmNZOW9iRy9ZZTNjNitCUGdFaWFpeWpXbFlkWnRKeFRocjlaeFZINVA4dEpTN2lncDEya3NNU2cyVFpQY1FJMlp3V21TNldMTGR1S2cydXBaUG5DVGhhT3BLKzlmaUN3YW10ZDhaVDMxNFlJL21LYldRQXJ5eE1KbElwbkR5UVVFMWowSVgxbVFzMDZaRUpTZytaRS9YSW5QNGNGNUZZeVFkeFE0OWcwZ2dOSy91RUtmWm1JQmlzNWxFRU8wWktRRVdZSDVySVl5V3JIV2ZVL0dQbWorTkpwZzhlU3NHeFNmNTgyN3VuOVhLNjhkQ0UyYndhSUtRNk9TZUhmTEVWMmluZG1WZ253QmJ2TXFHeGgvVjIrbytoNTlTTmVlMkhqZUpuYVM5aWNXRllqR3lMcXV4UFdMV01NOEplNTdjSW1ybHJxVmZ4bVpkRE5INGhwS1ExcWt5UjZ2VVVnTitqV2pHUXpFYTZMWGs2ejJHN21jQVZQMXZpaVdBVmt4Z3p6QmZkS0RqL2VxQTAzTko3VlMvNFp3YXBQVWhIbEZVZFhIeXAwS1h6RDRpTmVsR2RsTWk1eVVlVkd3Q2tXZXFGOU13WUFCVk1OeUpucktwQjZ2aHRmTWx5QTZEeGMxd3BPN3JuK0padWlVQjVGNm1hamVmNHZ3K2kvMGpudWR4NGJIWmpLellZMzFvbGl0M2l2NHBqM2Z3NlZiei9Ua1VNTm5zYTAwVEtaNWRIdkV3NUVNemtjZzhuaTYwd3czdm5MYzNJd1Nib3BVbjlMUGRXRjZRL2xOUHRPRDhNPTwvZHM6WDUwOUNlcnRpZmljYXRlPjwvZHM6WDUwOURhdGE+PC9kczpLZXlJbmZvPjxkczpPYmplY3Q+PHhhZGVzOlF1YWxpZnlpbmdQcm9wZXJ0aWVzIHhtbG5zOnhhZGVzPSJodHRwOi8vdXJpLmV0c2kub3JnLzAxOTAzL3YxLjMuMiMiIFRhcmdldD0iI21lZGZpbGUtOWMyNDhlMWYtOTQ0My1iYjY1LWRmMWYtMWZkZjg2OTQxMzEyIj48eGFkZXM6U2lnbmVkUHJvcGVydGllcyBJZD0ibWVkZmlsZS05YzI0OGUxZi05NDQzLWJiNjUtZGYxZi0xZmRmODY5NDEzMTItc2lnbmVkcHJvcHMiPjx4YWRlczpTaWduZWRTaWduYXR1cmVQcm9wZXJ0aWVzPjx4YWRlczpTaWduaW5nVGltZT4yMDIwLTEyLTA4VDE1OjE0OjIzKzAxOjAwPC94YWRlczpTaWduaW5nVGltZT48eGFkZXM6U2lnbmluZ0NlcnRpZmljYXRlPjx4YWRlczpDZXJ0Pjx4YWRlczpDZXJ0RGlnZXN0PjxkczpEaWdlc3RNZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjc2hhMSIvPjxkczpEaWdlc3RWYWx1ZT5Fb004VkRHU1Y3N1lrTHFqRnUwNHJDVVBtZk09PC9kczpEaWdlc3RWYWx1ZT48L3hhZGVzOkNlcnREaWdlc3Q+PHhhZGVzOklzc3VlclNlcmlhbD48ZHM6WDUwOUlzc3Vlck5hbWU+Qz1QTCxPPUNTSU9aLE9VPVAxIEludGVncmFjeWpuZSxDTj1DQyBQMSBTdWJDQSBQb2RwaXM8L2RzOlg1MDlJc3N1ZXJOYW1lPjxkczpYNTA5U2VyaWFsTnVtYmVyPjQ3NDQzNjU5NTEwMDE1NTcxMzI8L2RzOlg1MDlTZXJpYWxOdW1iZXI+PC94YWRlczpJc3N1ZXJTZXJpYWw+PC94YWRlczpDZXJ0Pjx4YWRlczpDZXJ0Pjx4YWRlczpDZXJ0RGlnZXN0PjxkczpEaWdlc3RNZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjc2hhMSIvPjxkczpEaWdlc3RWYWx1ZT5VRlB1dVUzaHBCMTNCVUsyR3JNWS9PNDVwVk09PC9kczpEaWdlc3RWYWx1ZT48L3hhZGVzOkNlcnREaWdlc3Q+PHhhZGVzOklzc3VlclNlcmlhbD48ZHM6WDUwOUlzc3Vlck5hbWU+Qz1QTCxPPUNTSU9aLE9VPVAxIEludGVncmFjeWpuZSxDTj1DQyBQMSBSb290Q0E8L2RzOlg1MDlJc3N1ZXJOYW1lPjxkczpYNTA5U2VyaWFsTnVtYmVyPjc1ODE4Nzk3MjA2MzA2NjAyMjY8L2RzOlg1MDlTZXJpYWxOdW1iZXI+PC94YWRlczpJc3N1ZXJTZXJpYWw+PC94YWRlczpDZXJ0Pjx4YWRlczpDZXJ0Pjx4YWRlczpDZXJ0RGlnZXN0PjxkczpEaWdlc3RNZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjc2hhMSIvPjxkczpEaWdlc3RWYWx1ZT5ObFFVaFJUcEtTT0kzZ3RMdUdrQmFRaU5xbWM9PC9kczpEaWdlc3RWYWx1ZT48L3hhZGVzOkNlcnREaWdlc3Q+PHhhZGVzOklzc3VlclNlcmlhbD48ZHM6WDUwOUlzc3Vlck5hbWU+Qz1QTCxPPUNTSU9aLE9VPVAxIEludGVncmFjeWpuZSxDTj1DQyBQMSBSb290Q0E8L2RzOlg1MDlJc3N1ZXJOYW1lPjxkczpYNTA5U2VyaWFsTnVtYmVyPjIwNTQ2ODczNTQyOTc5MzAzNTQ8L2RzOlg1MDlTZXJpYWxOdW1iZXI+PC94YWRlczpJc3N1ZXJTZXJpYWw+PC94YWRlczpDZXJ0PjwveGFkZXM6U2lnbmluZ0NlcnRpZmljYXRlPjwveGFkZXM6U2lnbmVkU2lnbmF0dXJlUHJvcGVydGllcz48L3hhZGVzOlNpZ25lZFByb3BlcnRpZXM+PC94YWRlczpRdWFsaWZ5aW5nUHJvcGVydGllcz48L2RzOk9iamVjdD48L2RzOlNpZ25hdHVyZT48L0NsaW5pY2FsRG9jdW1lbnQ+Cg=="
+    },
+    "komentarze": [
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "1044401",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-08T15:19:29+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Comment 123"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "1044401",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-09T12:13:04+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Rezygnacja"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "1044401",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-09T12:50:59+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Comment 123"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "1044401",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-09T12:51:15+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Rezygnacja"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "1044401",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-09T13:05:16+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Comment 123"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "1044401",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-09T13:05:30+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Braki"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "1044401",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-09T13:07:58+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Rezygnacja"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "1044401",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-09T13:08:06+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Comment 123"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "1044401",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-09T13:08:07+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Braki"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "1044401",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-09T13:08:35+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Rezygnacja"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "1044401",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-09T13:09:07+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Comment 123"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "1044401",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-09T13:09:08+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Braki"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "1044401",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-09T13:09:09+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Rezygnacja"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "1044401",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-09T13:20:09+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Comment 123"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "1044401",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-09T13:20:10+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Braki"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "1044401",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-09T13:20:12+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Rezygnacja"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "7689753",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-09T16:15:16+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Comment 123"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "7689753",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-09T16:16:19+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Rezygnacja"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "7689753",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-09T16:20:34+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Comment 123"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "7689753",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-10T00:08:54+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Braki"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "7689753",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-10T00:08:55+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Rezygnacja"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "7689753",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-10T09:55:08+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Comment 123"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "7689753",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-10T09:55:31+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Rezygnacja"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "7689753",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-10T11:25:21+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Comment 123"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "7689753",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-10T11:54:01+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Rezygnacja"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "7689753",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-10T11:56:13+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Comment 123"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "7689753",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-10T12:41:14+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Braki"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "7689753",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-10T12:41:38+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Rezygnacja"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "7689753",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-16T21:10:06+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Comment 123"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "7689753",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-16T21:10:07+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Braki"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "7689753",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-16T21:10:09+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Rezygnacja"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "7689753",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2021-01-08T09:05:18+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Komentarz"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "7689753",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2021-01-08T09:15:38+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Rezygnacja"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "7689753",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2021-01-08T09:16:10+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Komentarz"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "7689753",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2021-01-08T09:20:05+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Komentarz - rezygnacja"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "7689753",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2021-01-08T11:50:16+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Komentarz - braki"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "7689753",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2021-01-08T12:56:29+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Komentarz - zakończenie"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "1044401",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-09T12:51:21+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Odmowa"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "1044401",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-09T13:08:38+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Odmowa"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "1044401",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-09T13:20:17+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Odmowa"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "7689753",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-10T00:08:58+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Odmowa"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "7689753",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-16T21:10:14+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Odmowa"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "1044401",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-23T12:36:55+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Odmowa"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "1044401",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-23T12:38:12+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Odmowa"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "1044401",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-23T12:39:05+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Odmowa"
+        }
+      },
+      {
+        "identyfikatorPracownikaPodmiotu": {
+          "extension": "1044401",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "dataWprowadzeniaDoSystemu": "2020-12-23T12:39:24+01:00",
+        "trescKomentarza": {
+          "trescKomentarza": "Odmowa"
+        }
+      }
+    ]
+  },
+  "error": [],
+  "raw": {
+    "skierowanieIWynikWeryfikacjiDoOdczytu": {
+      "dokumentSkierowania": {
+        "tresc": "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPD94bWwtc3R5bGVzaGVldCBocmVmPSJDREFfUExfSUdfMS4zLjEueHNsIiB0eXBlPSJ0ZXh0L3hzbCI\/Pgo8Q2xpbmljYWxEb2N1bWVudCB4bWxucz0idXJuOmhsNy1vcmc6djMiIHhtbG5zOmV4dFBMPSJodHRwOi8vd3d3LmNzaW96Lmdvdi5wbC94c2QvZXh0UEwvcjIiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiIHhtbG5zOnBoYXJtPSJ1cm46aWhlOnBoYXJtIiBjbGFzc0NvZGU9IkRPQ0NMSU4iIG1vb2RDb2RlPSJFVk4iIHhzaTp0eXBlPSJleHRQTDpDbGluaWNhbERvY3VtZW50Ij4KICA8dHlwZUlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjEuMyIgZXh0ZW5zaW9uPSJQT0NEX0hEMDAwMDQwIi8+CiAgPHRlbXBsYXRlSWQgcm9vdD0iMi4xNi44NDAuMS4xMTM4ODMuMy40NDI0LjEzLjEwLjEuNCIgZXh0ZW5zaW9uPSIxLjMuMSIvPgogIDxpZCByb290PSIyLjE2Ljg0MC4xLjExMzg4My4zLjQ0MjQuMi43LjY3LjQuMSIgZXh0ZW5zaW9uPSIwMDAwMDAwMDAwU0sxNjA3NDM2ODYyIiBkaXNwbGF5YWJsZT0iZmFsc2UiLz4KICA8Y29kZSBjb2RlPSI1NzgzMi04IiBjb2RlU3lzdGVtPSIyLjE2Ljg0MC4xLjExMzg4My42LjEiIGNvZGVTeXN0ZW1OYW1lPSJMT0lOQyIgZGlzcGxheU5hbWU9IlByZXNjcmlwdGlvbiBmb3IgZGlhZ25vc3RpYyBvciBzcGVjaWFsaXN0IGNhcmUgRG9jdW1lbnQiPgogICAgPHRyYW5zbGF0aW9uIGNvZGU9IjAyLjEwIiBjb2RlU3lzdGVtPSIyLjE2Ljg0MC4xLjExMzg4My4zLjQ0MjQuMTEuMS4zMiIgY29kZVN5c3RlbU5hbWU9IktMQVNfRE9LX1AxIiBkaXNwbGF5TmFtZT0iU2tpZXJvd2FuaWUgbmEgYmFkYW5pZSBsdWIgbGVjemVuaWUiLz4KICA8L2NvZGU+CiAgPHRpdGxlPlNraWVyb3dhbmllIGRvIHBvcmFkbmkgc3BlY2phbGlzdHljem5lajwvdGl0bGU+CiAgPGVmZmVjdGl2ZVRpbWUgdmFsdWU9IjIwMjAxMjA4Ii8+CiAgPGNvbmZpZGVudGlhbGl0eUNvZGUgY29kZT0iTiIgY29kZVN5c3RlbT0iMi4xNi44NDAuMS4xMTM4ODMuNS4yNSIgZGlzcGxheU5hbWU9Im5vcm1hbCIvPgogIDxsYW5ndWFnZUNvZGUgY29kZT0icGwtUEwiLz4KICA8c2V0SWQgcm9vdD0iMi4xNi44NDAuMS4xMTM4ODMuMy40NDI0LjIuNy42Ny40LjIiIGV4dGVuc2lvbj0iMDAwMDAwMDAwMFNLMTYwNzQzNjg2MiIvPgogIDx2ZXJzaW9uTnVtYmVyIHZhbHVlPSIxIi8+CiAgPHJlY29yZFRhcmdldD4KICAgIDx0ZW1wbGF0ZUlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjMuNDQyNC4xMy4xMC4yLjI2Ii8+CiAgICA8cGF0aWVudFJvbGU+CiAgICAgIDxpZCByb290PSIyLjE2Ljg0MC4xLjExMzg4My4zLjQ0MjQuMS4xLjYxNiIgZXh0ZW5zaW9uPSI0MDAxMDE1MTY3MyIvPgogICAgICA8YWRkcj4KICAgICAgICA8Y291bnRyeT5Qb2xza2E8L2NvdW50cnk+CiAgICAgICAgPGNpdHk+WmllbG9uYSBHw7NyYTwvY2l0eT4KICAgICAgICA8cG9zdGFsQ29kZT4wMC0xODQ8L3Bvc3RhbENvZGU+CiAgICAgICAgPGhvdXNlTnVtYmVyPjExQTwvaG91c2VOdW1iZXI+CiAgICAgICAgPHN0cmVldE5hbWU+V3JvY8WCYXdza2E8L3N0cmVldE5hbWU+CiAgICAgICAgPHVuaXRJRD4zPC91bml0SUQ+CiAgICAgIDwvYWRkcj4KICAgICAgPHBhdGllbnQ+CiAgICAgICAgPG5hbWU+CiAgICAgICAgICA8ZmFtaWx5PlNlbmlvcjwvZmFtaWx5PgogICAgICAgICAgPGdpdmVuPlN5bHdlc3RlcjwvZ2l2ZW4+CiAgICAgICAgPC9uYW1lPgogICAgICAgIDxhZG1pbmlzdHJhdGl2ZUdlbmRlckNvZGUgY29kZT0iTSIgY29kZVN5c3RlbT0iMi4xNi44NDAuMS4xMTM4ODMuNS4xIi8+CiAgICAgICAgPGJpcnRoVGltZSB2YWx1ZT0iMTk0MDAxMDEiLz4KICAgICAgPC9wYXRpZW50PgogICAgPC9wYXRpZW50Um9sZT4KICA8L3JlY29yZFRhcmdldD4KICA8YXV0aG9yPgogICAgPHRlbXBsYXRlSWQgcm9vdD0iMi4xNi44NDAuMS4xMTM4ODMuMy40NDI0LjEzLjEwLjIuODYiLz4KICAgIDxmdW5jdGlvbkNvZGUgY29kZT0iTEVLIiBjb2RlU3lzdGVtPSIyLjE2Ljg0MC4xLjExMzg4My4zLjQ0MjQuMTEuMy4xOCIgZGlzcGxheU5hbWU9Ikxla2FyeiIvPgogICAgPHRpbWUgdmFsdWU9IjIwMjAxMjA4Ii8+CiAgICA8YXNzaWduZWRBdXRob3IgeHNpOnR5cGU9ImV4dFBMOkFzc2lnbmVkQXV0aG9yIj4KICAgICAgPGlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjMuNDQyNC4xLjYuMiIgZXh0ZW5zaW9uPSIxMDQ0NDAxIi8+CiAgICAgIDxjb2RlIGNvZGU9IjA3MTNfMDczMSIgY29kZVN5c3RlbT0iMi4xNi44NDAuMS4xMTM4ODMuMy40NDI0LjExLjMuMy4xIiBkaXNwbGF5TmFtZT0ibWVkeWN5bmEgcm9kemlubmEsIGFsZXJnb2xvZ2lhIi8+CiAgICAgIDxhc3NpZ25lZFBlcnNvbj4KICAgICAgICA8dGVtcGxhdGVJZCByb290PSIyLjE2Ljg0MC4xLjExMzg4My4zLjQ0MjQuMTMuMTAuMi4xIi8+CiAgICAgICAgPG5hbWU+CiAgICAgICAgICA8ZmFtaWx5PkxlY3puaWN6eTwvZmFtaWx5PgogICAgICAgICAgPGdpdmVuPkthcm9sPC9naXZlbj4KICAgICAgICA8L25hbWU+CiAgICAgIDwvYXNzaWduZWRQZXJzb24+CiAgICAgIDxyZXByZXNlbnRlZE9yZ2FuaXphdGlvbj4KICAgICAgICA8dGVtcGxhdGVJZCByb290PSIyLjE2Ljg0MC4xLjExMzg4My4zLjQ0MjQuMTMuMTAuMi4xOCIvPgogICAgICAgIDxpZCByb290PSIyLjE2Ljg0MC4xLjExMzg4My4zLjQ0MjQuMi4zLjMiIGV4dGVuc2lvbj0iMDAwMDAwNzkyMDg3LTAwMSIgZGlzcGxheWFibGU9InRydWUiLz4KICAgICAgICA8bmFtZT5PZ8OzbG5hIGl6YmEgcHJ6eWrEmcSHPC9uYW1lPgogICAgICAgIDx0ZWxlY29tIHZhbHVlPSJ0ZWw6KzQ4MTMxMjMxMjMwIi8+CiAgICAgICAgPGFkZHI+CiAgICAgICAgICA8Y291bnRyeT5wbDwvY291bnRyeT4KICAgICAgICAgIDxjaXR5PldhcnN6YXdhPC9jaXR5PgogICAgICAgICAgPHBvc3RhbENvZGU+MDAtMTg0PC9wb3N0YWxDb2RlPgogICAgICAgICAgPGhvdXNlTnVtYmVyPjVBPC9ob3VzZU51bWJlcj4KICAgICAgICAgIDxzdHJlZXROYW1lPkR1Ym9pczwvc3RyZWV0TmFtZT4KICAgICAgICAgIDx1bml0SUQ+MTM8L3VuaXRJRD4KICAgICAgICA8L2FkZHI+CiAgICAgICAgPGFzT3JnYW5pemF0aW9uUGFydE9mPgogICAgICAgICAgPHdob2xlT3JnYW5pemF0aW9uPgogICAgICAgICAgICA8aWQgcm9vdD0iMi4xNi44NDAuMS4xMTM4ODMuMy40NDI0LjIuMi4yIiBleHRlbnNpb249IjI0MTU0NDQ0MzAwMDA0IiBkaXNwbGF5YWJsZT0idHJ1ZSIvPgogICAgICAgICAgICA8YXNPcmdhbml6YXRpb25QYXJ0T2Y+CiAgICAgICAgICAgICAgPHdob2xlT3JnYW5pemF0aW9uPgogICAgICAgICAgICAgICAgPGlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjMuNDQyNC4yLjMuMSIgZXh0ZW5zaW9uPSIwMDAwMDA3OTIwODciIGRpc3BsYXlhYmxlPSJ0cnVlIi8+CiAgICAgICAgICAgICAgPC93aG9sZU9yZ2FuaXphdGlvbj4KICAgICAgICAgICAgPC9hc09yZ2FuaXphdGlvblBhcnRPZj4KICAgICAgICAgIDwvd2hvbGVPcmdhbml6YXRpb24+CiAgICAgICAgPC9hc09yZ2FuaXphdGlvblBhcnRPZj4KICAgICAgPC9yZXByZXNlbnRlZE9yZ2FuaXphdGlvbj4KICAgIDwvYXNzaWduZWRBdXRob3I+CiAgPC9hdXRob3I+CiAgPGN1c3RvZGlhbj4KICAgIDx0ZW1wbGF0ZUlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjMuNDQyNC4xMy4xMC4yLjIwIi8+CiAgICA8YXNzaWduZWRDdXN0b2RpYW4+CiAgICAgIDxyZXByZXNlbnRlZEN1c3RvZGlhbk9yZ2FuaXphdGlvbj4KICAgICAgICA8aWQgcm9vdD0iMi4xNi44NDAuMS4xMTM4ODMuMy40NDI0IiBhc3NpZ25pbmdBdXRob3JpdHlOYW1lPSJDU0lPWiIgZGlzcGxheWFibGU9InRydWUiLz4KICAgICAgPC9yZXByZXNlbnRlZEN1c3RvZGlhbk9yZ2FuaXphdGlvbj4KICAgIDwvYXNzaWduZWRDdXN0b2RpYW4+CiAgPC9jdXN0b2RpYW4+CiAgPGxlZ2FsQXV0aGVudGljYXRvcj4KICAgIDx0ZW1wbGF0ZUlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjMuNDQyNC4xMy4xMC4yLjYiLz4KICAgIDx0aW1lIHZhbHVlPSIyMDIwMTIwOCIvPgogICAgPHNpZ25hdHVyZUNvZGUgY29kZT0iUyIvPgogICAgPGFzc2lnbmVkRW50aXR5PgogICAgICA8aWQgcm9vdD0iMi4xNi44NDAuMS4xMTM4ODMuMy40NDI0LjEuNi4yIiBleHRlbnNpb249IjEwNDQ0MDEiIGRpc3BsYXlhYmxlPSJ0cnVlIi8+CiAgICA8L2Fzc2lnbmVkRW50aXR5PgogIDwvbGVnYWxBdXRoZW50aWNhdG9yPgogIDxwYXJ0aWNpcGFudCB0eXBlQ29kZT0iSU5EIj4KICAgIDx0ZW1wbGF0ZUlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjMuNDQyNC4xMy4xMC4yLjE5Ii8+CiAgICA8YXNzb2NpYXRlZEVudGl0eSBjbGFzc0NvZGU9IlVORFdSVCI+CiAgICAgIDxpZCByb290PSIyLjE2Ljg0MC4xLjExMzg4My4zLjQ0MjQuMy4xIiBleHRlbnNpb249IjA3IiBkaXNwbGF5YWJsZT0idHJ1ZSIvPgogICAgPC9hc3NvY2lhdGVkRW50aXR5PgogIDwvcGFydGljaXBhbnQ+CiAgPGNvbXBvbmVudD4KICAgIDx0ZW1wbGF0ZUlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjMuNDQyNC4xMy4xMC4yLjI4Ii8+CiAgICA8c3RydWN0dXJlZEJvZHk+CiAgICAgIDxjb21wb25lbnQ+CiAgICAgICAgPHNlY3Rpb24+CiAgICAgICAgICA8dGVtcGxhdGVJZCByb290PSIyLjE2Ljg0MC4xLjExMzg4My4zLjQ0MjQuMTMuMTAuMy42Ii8+CiAgICAgICAgICA8Y29kZSBjb2RlPSI1NzgyOC02IiBjb2RlU3lzdGVtPSIyLjE2Ljg0MC4xLjExMzg4My42LjEiIGNvZGVTeXN0ZW1OYW1lPSJMT0lOQyIgZGlzcGxheU5hbWU9IlByZXNjcmlwdGlvbnMiLz4KICAgICAgICAgIDx0aXRsZT5Jbm5lIGluZm9ybWFjamU8L3RpdGxlPgogICAgICAgICAgPHRleHQgSUQ9IkVOQ18xIj48bGlzdD4KPGNhcHRpb24+UHJvc3rEmSBvIG5hc3TEmXB1asSFY2UgemFiaWVnaTo8L2NhcHRpb24+CjxpdGVtIElEPSJQUk9DXzEiPld6aWVybmlrb3dhbmllIHVjaGE8L2l0ZW0+CjxpdGVtIElEPSJQUk9DXzIiPlDFgnVrYW5pZSB1Y2hhPC9pdGVtPgo8L2xpc3Q+CjxwYXJhZ3JhcGg+PGNhcHRpb24+Q2VsIGJhZGFuaWEgKHV6YXNhZG5pZW5pZSk6PC9jYXB0aW9uPgpEaWFnbm9zdHlrYSBwcnp5Y3p5bnkgbmllZG9rcndpc3RvxZtjaS48L3BhcmFncmFwaD4KPHBhcmFncmFwaD48Y2FwdGlvbj5CYWRhbmlhIGRvdHljaGN6YXMgd3lrb25hbmU6PC9jYXB0aW9uPgpMb3JlbSBpcHN1bSBkb2xvciBzaXQgYW1ldCwgY29uc2VjdGV0dXIgYWRpcGlzY2luZyBlbGl0LiBRdWlzcXVlIHNlZCB1cm5hIG5pYmguCkRvbmVjIGxhY3VzIG1pLCB2YXJpdXMgc2VkIGV4IGF0LCBlbGVtZW50dW0gbWF0dGlzIG1hdXJpcy4gSW4gc2l0IGFtZXQgcXVhbSB2ZWwgc2VtIHBlbGxlbnRlc3F1ZSBldWlzbW9kLjwvcGFyYWdyYXBoPgo8L3RleHQ+CiAgICAgICAgICA8ZW50cnkgdHlwZUNvZGU9IkNPTVAiPgogICAgICAgICAgICA8dGVtcGxhdGVJZCByb290PSIyLjE2Ljg0MC4xLjExMzg4My4zLjQ0MjQuMTMuMTAuNC42Ii8+CiAgICAgICAgICAgIDxlbmNvdW50ZXIgY2xhc3NDb2RlPSJFTkMiIG1vb2RDb2RlPSJSUU8iPgogICAgICAgICAgICAgIDxjb2RlIGNvZGU9IjE2MTAiIGNvZGVTeXN0ZW09IjIuMTYuODQwLjEuMTEzODgzLjMuNDQyNC4xMS4yLjQiIGRpc3BsYXlOYW1lPSJQb3JhZG5pYSBPdG9yeW5vbGFyeW5nb2xvZ2ljem5hIi8+CiAgICAgICAgICAgICAgPHRleHQ+CiAgICAgICAgICAgICAgICA8cmVmZXJlbmNlIHZhbHVlPSIjRU5DXzEiLz4KICAgICAgICAgICAgICA8L3RleHQ+CiAgICAgICAgICAgICAgPHByaW9yaXR5Q29kZSBjb2RlPSJVUiIgY29kZVN5c3RlbT0iMi4xNi44NDAuMS4xMTM4ODMuNS43Ii8+CiAgICAgICAgICAgICAgPGVudHJ5UmVsYXRpb25zaGlwIHR5cGVDb2RlPSJDT01QIj4KICAgICAgICAgICAgICAgIDxwcm9jZWR1cmUgY2xhc3NDb2RlPSJQUk9DIiBtb29kQ29kZT0iUlFPIj4KICAgICAgICAgICAgICAgICAgPGNvZGUgY29kZT0iMTguMTEiIGNvZGVTeXN0ZW09IjIuMTYuODQwLjEuMTEzODgzLjMuNDQyNC4xMS4yLjYiIGRpc3BsYXlOYW1lPSJXemllcm5pa293YW5pZSB1Y2hhIi8+CiAgICAgICAgICAgICAgICAgIDx0ZXh0PgogICAgICAgICAgICAgICAgICAgIDxyZWZlcmVuY2UgdmFsdWU9IiNQUk9DXzEiLz4KICAgICAgICAgICAgICAgICAgPC90ZXh0PgogICAgICAgICAgICAgICAgPC9wcm9jZWR1cmU+CiAgICAgICAgICAgICAgPC9lbnRyeVJlbGF0aW9uc2hpcD4KICAgICAgICAgICAgICA8ZW50cnlSZWxhdGlvbnNoaXAgdHlwZUNvZGU9IkNPTVAiPgogICAgICAgICAgICAgICAgPHByb2NlZHVyZSBjbGFzc0NvZGU9IlBST0MiIG1vb2RDb2RlPSJSUU8iPgogICAgICAgICAgICAgICAgICA8Y29kZSBjb2RlPSI5Ni41MiIgY29kZVN5c3RlbT0iMi4xNi44NDAuMS4xMTM4ODMuMy40NDI0LjExLjIuNiIgZGlzcGxheU5hbWU9IlDFgnVrYW5pZSB1Y2hhIi8+CiAgICAgICAgICAgICAgICAgIDx0ZXh0PgogICAgICAgICAgICAgICAgICAgIDxyZWZlcmVuY2UgdmFsdWU9IiNQUk9DXzIiLz4KICAgICAgICAgICAgICAgICAgPC90ZXh0PgogICAgICAgICAgICAgICAgPC9wcm9jZWR1cmU+CiAgICAgICAgICAgICAgPC9lbnRyeVJlbGF0aW9uc2hpcD4KICAgICAgICAgICAgPC9lbmNvdW50ZXI+CiAgICAgICAgICA8L2VudHJ5PgogICAgICAgIDwvc2VjdGlvbj4KICAgICAgPC9jb21wb25lbnQ+CiAgICAgIDxjb21wb25lbnQ+CiAgICAgICAgPHNlY3Rpb24+CiAgICAgICAgICA8dGVtcGxhdGVJZCByb290PSIyLjE2Ljg0MC4xLjExMzg4My4zLjQ0MjQuMTMuMTAuMy43Ii8+CiAgICAgICAgICA8Y29kZSBjb2RlPSIzMDk1NC0yIiBjb2RlU3lzdGVtPSIyLjE2Ljg0MC4xLjExMzg4My42LjEiIGNvZGVTeXN0ZW1OYW1lPSJMT0lOQyIgZGlzcGxheU5hbWU9IlJlbGV2YW50IGRpYWdub3N0aWMgdGVzdHMvbGFib3JhdG9yeSBkYXRhIi8+CiAgICAgICAgICA8dGl0bGU+QWt0dWFsbmUgd3luaWtpIGJhZGHFhDwvdGl0bGU+CiAgICAgICAgICA8dGV4dD5UZW1wZXJhdHVyYSBjaWHFgmE6IDM2LDYgPHN1cD5vPC9zdXA+Qzxici8+CkNpxZtuaWVuaWUga3J3aTogMTQwLzkwPC90ZXh0PgogICAgICAgIDwvc2VjdGlvbj4KICAgICAgPC9jb21wb25lbnQ+CiAgICAgIDxjb21wb25lbnQ+CiAgICAgICAgPHNlY3Rpb24+CiAgICAgICAgICA8dGVtcGxhdGVJZCByb290PSIyLjE2Ljg0MC4xLjExMzg4My4zLjQ0MjQuMTMuMTAuMy4xIi8+CiAgICAgICAgICA8Y29kZSBjb2RlPSIyOTU0OC01IiBjb2RlU3lzdGVtPSIyLjE2Ljg0MC4xLjExMzg4My42LjEiIGNvZGVTeXN0ZW1OYW1lPSJMT0lOQyIgZGlzcGxheU5hbWU9IkRpYWdub3NpcyIvPgogICAgICAgICAgPHRpdGxlPlJvenBvem5hbmllOjwvdGl0bGU+CiAgICAgICAgICA8dGV4dD48cGFyYWdyYXBoPjxjb250ZW50IElEPSJPQlNfMSI+Um9waWXFhCB1Y2hhIHpld27EmXRyem5lZ288L2NvbnRlbnQ+CjwvcGFyYWdyYXBoPjwvdGV4dD4KICAgICAgICAgIDxlbnRyeSB0eXBlQ29kZT0iQ09NUCI+CiAgICAgICAgICAgIDx0ZW1wbGF0ZUlkIHJvb3Q9IjIuMTYuODQwLjEuMTEzODgzLjMuNDQyNC4xMy4xMC40LjEiLz4KICAgICAgICAgICAgPG9yZ2FuaXplciBjbGFzc0NvZGU9IkJBVFRFUlkiIG1vb2RDb2RlPSJFVk4iPgogICAgICAgICAgICAgIDxzdGF0dXNDb2RlIGNvZGU9ImNvbXBsZXRlZCIvPgogICAgICAgICAgICAgIDxjb21wb25lbnQ+CiAgICAgICAgICAgICAgICA8b2JzZXJ2YXRpb24gY2xhc3NDb2RlPSJPQlMiIG1vb2RDb2RlPSJFVk4iPgogICAgICAgICAgICAgICAgICA8Y29kZSBjb2RlPSJINjAuMCIgY29kZVN5c3RlbT0iMi4xNi44NDAuMS4xMTM4ODMuNi4zIiBjb2RlU3lzdGVtTmFtZT0iaWNkMTAiIGRpc3BsYXlOYW1lPSJSb3BpZcWEIHVjaGEgemV3bsSZdHJ6bmVnbyIvPgogICAgICAgICAgICAgICAgICA8dGV4dD4KICAgICAgICAgICAgICAgICAgICA8cmVmZXJlbmNlIHZhbHVlPSIjT0JTXzEiLz4KICAgICAgICAgICAgICAgICAgPC90ZXh0PgogICAgICAgICAgICAgICAgPC9vYnNlcnZhdGlvbj4KICAgICAgICAgICAgICA8L2NvbXBvbmVudD4KICAgICAgICAgICAgPC9vcmdhbml6ZXI+CiAgICAgICAgICA8L2VudHJ5PgogICAgICAgIDwvc2VjdGlvbj4KICAgICAgPC9jb21wb25lbnQ+CiAgICA8L3N0cnVjdHVyZWRCb2R5PgogIDwvY29tcG9uZW50Pgo8ZHM6U2lnbmF0dXJlIHhtbG5zOmRzPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjIiB4bWxuczp4YWRlcz0iaHR0cDovL3VyaS5ldHNpLm9yZy8wMTkwMy92MS4zLjIjIiBJZD0ibWVkZmlsZS05YzI0OGUxZi05NDQzLWJiNjUtZGYxZi0xZmRmODY5NDEzMTIiPgogIDxkczpTaWduZWRJbmZvPjxkczpDYW5vbmljYWxpemF0aW9uTWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvVFIvMjAwMS9SRUMteG1sLWMxNG4tMjAwMTAzMTUiLz4KICAgIDxkczpTaWduYXR1cmVNZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjcnNhLXNoYTEiLz4KICA8ZHM6UmVmZXJlbmNlIFVSST0iIj48ZHM6VHJhbnNmb3Jtcz48ZHM6VHJhbnNmb3JtIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnI2VudmVsb3BlZC1zaWduYXR1cmUiLz48L2RzOlRyYW5zZm9ybXM+PGRzOkRpZ2VzdE1ldGhvZCBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyNzaGExIi8+PGRzOkRpZ2VzdFZhbHVlPjN3bkVKMnJiaXRtandrbXYyV2J2MG5HSk5WZz08L2RzOkRpZ2VzdFZhbHVlPjwvZHM6UmVmZXJlbmNlPjxkczpSZWZlcmVuY2UgVVJJPSIjbWVkZmlsZS05YzI0OGUxZi05NDQzLWJiNjUtZGYxZi0xZmRmODY5NDEzMTItc2lnbmVkcHJvcHMiIFR5cGU9Imh0dHA6Ly91cmkuZXRzaS5vcmcvMDE5MDMjU2lnbmVkUHJvcGVydGllcyI+PGRzOlRyYW5zZm9ybXM+PGRzOlRyYW5zZm9ybSBBbGdvcml0aG09Imh0dHA6Ly93d3cudzMub3JnL1RSLzIwMDEvUkVDLXhtbC1jMTRuLTIwMDEwMzE1Ii8+PC9kczpUcmFuc2Zvcm1zPjxkczpEaWdlc3RNZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjc2hhMSIvPjxkczpEaWdlc3RWYWx1ZT51SDZEVHVnRkIzSDNRSUM0dHFsN0NMVERBMnM9PC9kczpEaWdlc3RWYWx1ZT48L2RzOlJlZmVyZW5jZT48L2RzOlNpZ25lZEluZm8+PGRzOlNpZ25hdHVyZVZhbHVlPnFmOVNNbitEaGtpdkIydkMrWVhFMVlZVmZhRHZXN2xDRk80dHhTYmZXTzU1dm45Ung2NkxVdFQrcDk5b0k0WlpZWXZhZk9hb2FtaDJGd0lXT1pYZUw2WThsejBBODcyN0NIL0p2Q0R5R0cyK0FyKy9aM0RhNWl2anNHaUhDNkNFR3c2T1hLQlFrTUxnaVdZQ1lrMHUrQTZaWUFVd2ZqcEpJdVArZnpEYTZYS2xVb05OejF4N1dqRjVIOVlkajA2RG5tMk56M1JrZ0JGOUdEaUVGYUJFN29vdEgxeFFTeWZyVkgzdEhEZ3NGRTVZZTBmWWt2M09HMUwxMDhKd2l5MnFmTDZtTGU3ZXpqVmtld2xWYThyMklaM0pXMUVyQ0h1TlhGVXRidEh4UVhZcjg2OWdFVVpHdnVrMmFjQ09MbWdYVXJkR3F6NGlSWWJ2RWJIMUMyMGtOdz09PC9kczpTaWduYXR1cmVWYWx1ZT4KPGRzOktleUluZm8+PGRzOlg1MDlEYXRhPjxkczpYNTA5U3ViamVjdE5hbWU+Qz1QTCxPPUNTSU9aLE9VPVAxIEludGVncmFjeWpuZSxzZXJpYWxOdW1iZXI9UEVTRUw6IDY5MDkwMzA5MTEyLENOPUthcm9sIExlY3puaWN6eTwvZHM6WDUwOVN1YmplY3ROYW1lPjxkczpYNTA5SXNzdWVyU2VyaWFsPjxkczpYNTA5SXNzdWVyTmFtZT5DPVBMLE89Q1NJT1osT1U9UDEgSW50ZWdyYWN5am5lLENOPUNDIFAxIFN1YkNBIFBvZHBpczwvZHM6WDUwOUlzc3Vlck5hbWU+PGRzOlg1MDlTZXJpYWxOdW1iZXI+NDc0NDM2NTk1MTAwMTU1NzEzMjwvZHM6WDUwOVNlcmlhbE51bWJlcj48L2RzOlg1MDlJc3N1ZXJTZXJpYWw+PGRzOlg1MDlDZXJ0aWZpY2F0ZT5NSUlGWWpDQ0EwcWdBd0lCQWdJSVFkZGZzaG5uK0l3d0RRWUpLb1pJaHZjTkFRRU5CUUF3VkRFYk1Ca0dBMVVFQXd3U1EwTWdVREVnVTNWaVEwRWdVRzlrY0dsek1SZ3dGZ1lEVlFRTERBOVFNU0JKYm5SbFozSmhZM2xxYm1VeERqQU1CZ05WQkFvTUJVTlRTVTlhTVFzd0NRWURWUVFHRXdKUVREQWVGdzB5TURBME1EY3hPRFE1TXpsYUZ3MHlNakEwTURjeE9EUTVNemxhTUc0eEdEQVdCZ05WQkFNTUQwdGhjbTlzSUV4bFkzcHVhV042ZVRFYk1Ca0dBMVVFQlJNU1VFVlRSVXc2SURZNU1Ea3dNekE1TVRFeU1SZ3dGZ1lEVlFRTERBOVFNU0JKYm5SbFozSmhZM2xxYm1VeERqQU1CZ05WQkFvTUJVTlRTVTlhTVFzd0NRWURWUVFHRXdKUVREQ0NBU0l3RFFZSktvWklodmNOQVFFQkJRQURnZ0VQQURDQ0FRb0NnZ0VCQUs2VUxOcExlTDFsUVRLUTRMTEhaazQxVVl3Q2lueHBtZzdHcFJuSHkvQnNqTFNDc25oZkN5Wk5jTVd5K3JmU2pST1hIQXNaMGpPTEhGQjFyT0NsTGlXbHViRk04bW9YdlJ1NUV0d0ZLQml0Vk9FQ2NRTHU2MmxOOTkyNjBESTFSYlYrS25ndkwrSEhUdDlwZ0RRZnJsb0NuVnRTaS80NC80NXFXaHpaVWZIWU1XSnFGNys5dmh1VTBvOHVadGo2SGcxeTVaUXNNY0tSWVNGMzZscVJvV3NpdWxXTmdIb2dBYkZaZ080TXorakdWbGVSTUw0aElUSTlBODgzZmN1L2YzeGE0OGRZUHJHS05JbTNnQ0VvNHkzd3VUL2xEZTdjb0krd2p4Z1RxdUx0VTJLaGlBYlZTSWM1M280ME5rTldlMmFyWXF4S3dzWXpTMzJLaUthOE5xRUNBd0VBQWFPQ0FSd3dnZ0VZTUF3R0ExVWRFd0VCL3dRQ01BQXdId1lEVlIwakJCZ3dGb0FVa2tUSlZMdTZROVFQRDZ2NDY3ZzU2enVOQmdvd1hnWURWUjBsQkZjd1ZRWUlLd1lCQlFVSEF3SUdDQ3NHQVFVRkJ3TUVCZ2NyQmdFRkFnTUVCZ2NyQmdFRkFnTUZCZ29yQmdFRUFZSTNDZ01NQmdvckJnRUVBWUkzQ2dNRUJnb3JCZ0VFQVlJM0ZBSUNCZ2txaGtpRzl5OEJBUVV3V0FZRFZSMGZCRkV3VHpCTm9FdWdTWVpIYUhSMGNITTZMeTlwYm5RdGNERXVaWHBrY205M2FXVXVaMjkyTG5Cc0wyTmpjREV2WTNKc0wwTkRVREZKYm5SbFozSmhZM2xxYm1WVGRXSkRRVkJ2WkhCcGN5NWpjbXd3SFFZRFZSME9CQllFRklaM2pIMW9GT2xpbEtWVDQraTA3R21pU05LTU1BNEdBMVVkRHdFQi93UUVBd0lDNURBTkJna3Foa2lHOXcwQkFRMEZBQU9DQWdFQUg0TU1qQXlBTFZqSUx6OEkzV2pPZm9zMkE3TG13bU5NYkRNbHo1d05oNmNObUtBMUg4Rzg2SGppR3UwYnVNTGpHQ2huQVpwSXFBRndyS3FPQmNZOW9iRy9ZZTNjNitCUGdFaWFpeWpXbFlkWnRKeFRocjlaeFZINVA4dEpTN2lncDEya3NNU2cyVFpQY1FJMlp3V21TNldMTGR1S2cydXBaUG5DVGhhT3BLKzlmaUN3YW10ZDhaVDMxNFlJL21LYldRQXJ5eE1KbElwbkR5UVVFMWowSVgxbVFzMDZaRUpTZytaRS9YSW5QNGNGNUZZeVFkeFE0OWcwZ2dOSy91RUtmWm1JQmlzNWxFRU8wWktRRVdZSDVySVl5V3JIV2ZVL0dQbWorTkpwZzhlU3NHeFNmNTgyN3VuOVhLNjhkQ0UyYndhSUtRNk9TZUhmTEVWMmluZG1WZ253QmJ2TXFHeGgvVjIrbytoNTlTTmVlMkhqZUpuYVM5aWNXRllqR3lMcXV4UFdMV01NOEplNTdjSW1ybHJxVmZ4bVpkRE5INGhwS1ExcWt5UjZ2VVVnTitqV2pHUXpFYTZMWGs2ejJHN21jQVZQMXZpaVdBVmt4Z3p6QmZkS0RqL2VxQTAzTko3VlMvNFp3YXBQVWhIbEZVZFhIeXAwS1h6RDRpTmVsR2RsTWk1eVVlVkd3Q2tXZXFGOU13WUFCVk1OeUpucktwQjZ2aHRmTWx5QTZEeGMxd3BPN3JuK0padWlVQjVGNm1hamVmNHZ3K2kvMGpudWR4NGJIWmpLellZMzFvbGl0M2l2NHBqM2Z3NlZiei9Ua1VNTm5zYTAwVEtaNWRIdkV3NUVNemtjZzhuaTYwd3czdm5MYzNJd1Nib3BVbjlMUGRXRjZRL2xOUHRPRDhNPTwvZHM6WDUwOUNlcnRpZmljYXRlPjwvZHM6WDUwOURhdGE+PC9kczpLZXlJbmZvPjxkczpPYmplY3Q+PHhhZGVzOlF1YWxpZnlpbmdQcm9wZXJ0aWVzIHhtbG5zOnhhZGVzPSJodHRwOi8vdXJpLmV0c2kub3JnLzAxOTAzL3YxLjMuMiMiIFRhcmdldD0iI21lZGZpbGUtOWMyNDhlMWYtOTQ0My1iYjY1LWRmMWYtMWZkZjg2OTQxMzEyIj48eGFkZXM6U2lnbmVkUHJvcGVydGllcyBJZD0ibWVkZmlsZS05YzI0OGUxZi05NDQzLWJiNjUtZGYxZi0xZmRmODY5NDEzMTItc2lnbmVkcHJvcHMiPjx4YWRlczpTaWduZWRTaWduYXR1cmVQcm9wZXJ0aWVzPjx4YWRlczpTaWduaW5nVGltZT4yMDIwLTEyLTA4VDE1OjE0OjIzKzAxOjAwPC94YWRlczpTaWduaW5nVGltZT48eGFkZXM6U2lnbmluZ0NlcnRpZmljYXRlPjx4YWRlczpDZXJ0Pjx4YWRlczpDZXJ0RGlnZXN0PjxkczpEaWdlc3RNZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjc2hhMSIvPjxkczpEaWdlc3RWYWx1ZT5Fb004VkRHU1Y3N1lrTHFqRnUwNHJDVVBtZk09PC9kczpEaWdlc3RWYWx1ZT48L3hhZGVzOkNlcnREaWdlc3Q+PHhhZGVzOklzc3VlclNlcmlhbD48ZHM6WDUwOUlzc3Vlck5hbWU+Qz1QTCxPPUNTSU9aLE9VPVAxIEludGVncmFjeWpuZSxDTj1DQyBQMSBTdWJDQSBQb2RwaXM8L2RzOlg1MDlJc3N1ZXJOYW1lPjxkczpYNTA5U2VyaWFsTnVtYmVyPjQ3NDQzNjU5NTEwMDE1NTcxMzI8L2RzOlg1MDlTZXJpYWxOdW1iZXI+PC94YWRlczpJc3N1ZXJTZXJpYWw+PC94YWRlczpDZXJ0Pjx4YWRlczpDZXJ0Pjx4YWRlczpDZXJ0RGlnZXN0PjxkczpEaWdlc3RNZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjc2hhMSIvPjxkczpEaWdlc3RWYWx1ZT5VRlB1dVUzaHBCMTNCVUsyR3JNWS9PNDVwVk09PC9kczpEaWdlc3RWYWx1ZT48L3hhZGVzOkNlcnREaWdlc3Q+PHhhZGVzOklzc3VlclNlcmlhbD48ZHM6WDUwOUlzc3Vlck5hbWU+Qz1QTCxPPUNTSU9aLE9VPVAxIEludGVncmFjeWpuZSxDTj1DQyBQMSBSb290Q0E8L2RzOlg1MDlJc3N1ZXJOYW1lPjxkczpYNTA5U2VyaWFsTnVtYmVyPjc1ODE4Nzk3MjA2MzA2NjAyMjY8L2RzOlg1MDlTZXJpYWxOdW1iZXI+PC94YWRlczpJc3N1ZXJTZXJpYWw+PC94YWRlczpDZXJ0Pjx4YWRlczpDZXJ0Pjx4YWRlczpDZXJ0RGlnZXN0PjxkczpEaWdlc3RNZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjc2hhMSIvPjxkczpEaWdlc3RWYWx1ZT5ObFFVaFJUcEtTT0kzZ3RMdUdrQmFRaU5xbWM9PC9kczpEaWdlc3RWYWx1ZT48L3hhZGVzOkNlcnREaWdlc3Q+PHhhZGVzOklzc3VlclNlcmlhbD48ZHM6WDUwOUlzc3Vlck5hbWU+Qz1QTCxPPUNTSU9aLE9VPVAxIEludGVncmFjeWpuZSxDTj1DQyBQMSBSb290Q0E8L2RzOlg1MDlJc3N1ZXJOYW1lPjxkczpYNTA5U2VyaWFsTnVtYmVyPjIwNTQ2ODczNTQyOTc5MzAzNTQ8L2RzOlg1MDlTZXJpYWxOdW1iZXI+PC94YWRlczpJc3N1ZXJTZXJpYWw+PC94YWRlczpDZXJ0PjwveGFkZXM6U2lnbmluZ0NlcnRpZmljYXRlPjwveGFkZXM6U2lnbmVkU2lnbmF0dXJlUHJvcGVydGllcz48L3hhZGVzOlNpZ25lZFByb3BlcnRpZXM+PC94YWRlczpRdWFsaWZ5aW5nUHJvcGVydGllcz48L2RzOk9iamVjdD48L2RzOlNpZ25hdHVyZT48L0NsaW5pY2FsRG9jdW1lbnQ+Cg=="
+      },
+      "statusSkierowania": "ZREALIZOWANE",
+      "wynikWeryfikacjiSkierowania": {
+        "dataWeryfikacji": "2020-12-08T15:14:34+01:00",
+        "identyfikatorZbioruRegul": "0.1",
+        "wynikWeryfikacji": "urn:csioz:p1:kodWynikuWeryfikacji:ostrzezenie",
+        "wynikWeryfikacjiReguly": [
+          {
+            "kodRegulyWeryfikacji": "REG.WER.671",
+            "wynikWeryfikacji": "urn:csioz:p1:kodWynikuWeryfikacji:ostrzezenie",
+            "opisProblemu": "Miejsce udzielania świadczeń podane na dokumencie jest niezgodne z CWUd.",
+            "miejsceWystapieniaBledu": "\/ClinicalDocument\/author\/assignedAuthor\/representedOrganization\/addr\/descendant::*"
+          },
+          {
+            "kodRegulyWeryfikacji": "REG.WER.4887",
+            "wynikWeryfikacji": "urn:csioz:p1:kodWynikuWeryfikacji:ostrzezenie",
+            "opisProblemu": "Dokument zawiera zbyt ogólne wskazanie kodu procedury do wykonania wg. słownika ICD-9.",
+            "miejsceWystapieniaBledu": "\/\/templateId[@root='2.16.840.1.113883.3.4424.13.10.2.28']\/..\/structuredBody\/component\/section\/templateId[@root='2.16.840.1.113883.3.4424.13.10.3.6']\/..\/entry\/encounter\/entryRelationship[@typeCode='COMP']\/procedure\/code[@codeSystem='2.16.840.1.113883.3.4424.11.2.6']"
+          }
+        ]
+      },
+      "komentarze": [
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "1044401",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-08T15:19:29+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Comment 123"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "1044401",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-09T12:13:04+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Rezygnacja"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "1044401",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-09T12:50:59+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Comment 123"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "1044401",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-09T12:51:15+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Rezygnacja"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "1044401",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-09T13:05:16+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Comment 123"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "1044401",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-09T13:05:30+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Braki"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "1044401",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-09T13:07:58+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Rezygnacja"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "1044401",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-09T13:08:06+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Comment 123"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "1044401",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-09T13:08:07+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Braki"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "1044401",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-09T13:08:35+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Rezygnacja"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "1044401",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-09T13:09:07+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Comment 123"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "1044401",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-09T13:09:08+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Braki"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "1044401",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-09T13:09:09+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Rezygnacja"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "1044401",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-09T13:20:09+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Comment 123"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "1044401",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-09T13:20:10+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Braki"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "1044401",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-09T13:20:12+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Rezygnacja"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "7689753",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-09T16:15:16+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Comment 123"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "7689753",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-09T16:16:19+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Rezygnacja"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "7689753",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-09T16:20:34+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Comment 123"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "7689753",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-10T00:08:54+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Braki"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "7689753",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-10T00:08:55+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Rezygnacja"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "7689753",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-10T09:55:08+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Comment 123"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "7689753",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-10T09:55:31+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Rezygnacja"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "7689753",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-10T11:25:21+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Comment 123"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "7689753",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-10T11:54:01+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Rezygnacja"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "7689753",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-10T11:56:13+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Comment 123"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "7689753",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-10T12:41:14+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Braki"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "7689753",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-10T12:41:38+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Rezygnacja"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "7689753",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-16T21:10:06+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Comment 123"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "7689753",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-16T21:10:07+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Braki"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "7689753",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-16T21:10:09+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Rezygnacja"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "7689753",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2021-01-08T09:05:18+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Komentarz"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "7689753",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2021-01-08T09:15:38+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Rezygnacja"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "7689753",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2021-01-08T09:16:10+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Komentarz"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "7689753",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2021-01-08T09:20:05+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Komentarz - rezygnacja"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "7689753",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2021-01-08T11:50:16+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Komentarz - braki"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "7689753",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2021-01-08T12:56:29+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Komentarz - zakończenie"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "1044401",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-09T12:51:21+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Odmowa"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "1044401",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-09T13:08:38+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Odmowa"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "1044401",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-09T13:20:17+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Odmowa"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "7689753",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-10T00:08:58+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Odmowa"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "7689753",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-16T21:10:14+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Odmowa"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "1044401",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-23T12:36:55+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Odmowa"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "1044401",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-23T12:38:12+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Odmowa"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "1044401",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-23T12:39:05+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Odmowa"
+          }
+        },
+        {
+          "identyfikatorPracownikaPodmiotu": {
+            "extension": "1044401",
+            "root": "2.16.840.1.113883.3.4424.1.6.2"
+          },
+          "dataWprowadzeniaDoSystemu": "2020-12-23T12:39:24+01:00",
+          "trescKomentarza": {
+            "trescKomentarza": "Odmowa"
+          }
+        }
+      ]
+    },
+    "wynik": {
+      "major": "urn:csioz:p1:kod:major:Sukces",
+      "minor": "",
+      "komunikat": "Operacja wykonana prawidłowo."
+    }
+  }
+}

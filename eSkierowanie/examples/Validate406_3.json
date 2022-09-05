@@ -1,0 +1,16 @@
+{
+  "message": "",
+  "error": [
+    {
+      "code": 0,
+      "text": "SoapFault"
+    }
+  ],
+  "raw": {
+    "blad": {
+      "kodBleduMajor": "urn:csioz:p1:kodBleduMajor:bladWewnetrzny",
+      "opis": "Błąd wewnętrzny, uuidZdarzeniaInicjujacego: 62bcadd1-90d6-4f26-b007-53cfd7b41c05"
+    }
+  },
+  "body": ""
+}

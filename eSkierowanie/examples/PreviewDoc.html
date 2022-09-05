@@ -1,0 +1,1330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "about:legacy-compat">
+<html xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:hl7="urn:hl7-org:v3"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:extPL="http://www.csioz.gov.pl/xsd/extPL/r2">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+
+        @media screen {
+            body {
+                margin: 0px;
+                display: block;
+                background-color: #f1f1f1;
+            }
+
+            .document {
+                margin: 15px auto;
+                width: 756px;
+                overflow: hidden;
+                font-family: "Noto sans", sans-serif;
+                font-size: 10pt;
+                -webkit-box-shadow: 0px 0px 2px 2px #dcdcdc;
+                box-shadow: 0px 0px 2px 2px #dcdcdc;
+                background-color: white;
+            }
+
+
+            #show_responsible_party_id {
+                display: none;
+            }
+
+            .show_responsible_party_label {
+                float: right;
+                padding: 1px 6px 0 3px;
+                font-size: 0.9em;
+                cursor: pointer;
+                color: blue;
+                text-decoration: underline;
+                background: white;
+            }
+
+            #hide_responsible_party_id {
+                display: none;
+            }
+
+            .hide_responsible_party_label {
+                float: right;
+                padding: 1px 6px 0 3px;
+                font-size: 0.9em;
+                cursor: pointer;
+                color: blue;
+                text-decoration: underline;
+                background: white;
+                display: none;
+            }
+
+            input#show_responsible_party_id:checked ~ .header_dheader {
+                display: block;
+            }
+
+            input#hide_responsible_party_id:checked ~ .header_dheader {
+                display: none;
+            }
+
+            input#show_responsible_party_id:checked ~ .show_responsible_party_label {
+                display: none;
+            }
+
+            input#show_responsible_party_id:checked ~ .hide_responsible_party_label {
+                display: block;
+            }
+
+            #show_encounter_participant_id {
+                display: none;
+            }
+
+            .show_encounter_participant_label {
+                float: right;
+                padding: 1px 6px 0 3px;
+                font-size: 0.9em;
+                cursor: pointer;
+                color: blue;
+                text-decoration: underline;
+                background: white;
+            }
+
+            #hide_encounter_participant_id {
+                display: none;
+            }
+
+            .hide_encounter_participant_label {
+                float: right;
+                padding: 1px 6px 0 3px;
+                font-size: 0.9em;
+                cursor: pointer;
+                color: blue;
+                text-decoration: underline;
+                background: white;
+                display: none;
+            }
+
+            input#show_encounter_participant_id:checked ~ .header_dheader {
+                display: block;
+            }
+
+            input#hide_encounter_participant_id:checked ~ .header_dheader {
+                display: none;
+            }
+
+            input#show_encounter_participant_id:checked ~ .show_encounter_participant_label {
+                display: none;
+            }
+
+            input#show_encounter_participant_id:checked ~ .hide_encounter_participant_label {
+                display: block;
+            }
+
+            #show_service_performer_pprf_id {
+                display: none;
+            }
+
+            .show_service_performer_pprf_label {
+                float: right;
+                padding: 1px 6px 0 3px;
+                font-size: 0.9em;
+                cursor: pointer;
+                color: blue;
+                text-decoration: underline;
+                background: white;
+            }
+
+            #hide_service_performer_pprf_id {
+                display: none;
+            }
+
+            .hide_service_performer_pprf_label {
+                float: right;
+                padding: 1px 6px 0 3px;
+                font-size: 0.9em;
+                cursor: pointer;
+                color: blue;
+                text-decoration: underline;
+                background: white;
+                display: none;
+            }
+
+            input#show_service_performer_pprf_id:checked ~ .header_dheader {
+                display: block;
+            }
+
+            input#hide_service_performer_pprf_id:checked ~ .header_dheader {
+                display: none;
+            }
+
+            input#show_service_performer_pprf_id:checked ~ .show_service_performer_pprf_label {
+                display: none;
+            }
+
+            input#show_service_performer_pprf_id:checked ~ .hide_service_performer_pprf_label {
+                display: block;
+            }
+
+            #show_service_performer_prf_id {
+                display: none;
+            }
+
+            .show_service_performer_prf_label {
+                float: right;
+                padding: 1px 6px 0 3px;
+                font-size: 0.9em;
+                cursor: pointer;
+                color: blue;
+                text-decoration: underline;
+                background: white;
+            }
+
+            #hide_service_performer_prf_id {
+                display: none;
+            }
+
+            .hide_service_performer_prf_label {
+                float: right;
+                padding: 1px 6px 0 3px;
+                font-size: 0.9em;
+                cursor: pointer;
+                color: blue;
+                text-decoration: underline;
+                background: white;
+                display: none;
+            }
+
+            input#show_service_performer_prf_id:checked ~ .header_dheader {
+                display: block;
+            }
+
+            input#hide_service_performer_prf_id:checked ~ .header_dheader {
+                display: none;
+            }
+
+            input#show_service_performer_prf_id:checked ~ .show_service_performer_prf_label {
+                display: none;
+            }
+
+            input#show_service_performer_prf_id:checked ~ .hide_service_performer_prf_label {
+                display: block;
+            }
+
+            #show_data_enterer_id {
+                display: none;
+            }
+
+            .show_data_enterer_label {
+                float: right;
+                padding: 1px 6px 0 3px;
+                font-size: 0.9em;
+                cursor: pointer;
+                color: blue;
+                text-decoration: underline;
+                background: white;
+            }
+
+            #hide_data_enterer_id {
+                display: none;
+            }
+
+            .hide_data_enterer_label {
+                float: right;
+                padding: 1px 6px 0 3px;
+                font-size: 0.9em;
+                cursor: pointer;
+                color: blue;
+                text-decoration: underline;
+                background: white;
+                display: none;
+            }
+
+            input#show_data_enterer_id:checked ~ .header_dheader {
+                display: block;
+            }
+
+            input#hide_data_enterer_id:checked ~ .header_dheader {
+                display: none;
+            }
+
+            input#show_data_enterer_id:checked ~ .show_data_enterer_label {
+                display: none;
+            }
+
+            input#show_data_enterer_id:checked ~ .hide_data_enterer_label {
+                display: block;
+            }
+
+            #show_authenticator_id {
+                display: none;
+            }
+
+            .show_authenticator_label {
+                float: right;
+                padding: 1px 6px 0 3px;
+                font-size: 0.9em;
+                cursor: pointer;
+                color: blue;
+                text-decoration: underline;
+                background: white;
+            }
+
+            #hide_authenticator_id {
+                display: none;
+            }
+
+            .hide_authenticator_label {
+                float: right;
+                padding: 1px 6px 0 3px;
+                font-size: 0.9em;
+                cursor: pointer;
+                color: blue;
+                text-decoration: underline;
+                background: white;
+                display: none;
+            }
+
+            input#show_authenticator_id:checked ~ .header_dheader {
+                display: block;
+            }
+
+            input#hide_authenticator_id:checked ~ .header_dheader {
+                display: none;
+            }
+
+            input#show_authenticator_id:checked ~ .show_authenticator_label {
+                display: none;
+            }
+
+            input#show_authenticator_id:checked ~ .hide_authenticator_label {
+                display: block;
+            }
+
+            #show_author_id {
+                display: none;
+            }
+
+            .show_author_label {
+                float: right;
+                padding: 1px 6px 0 3px;
+                font-size: 0.9em;
+                cursor: pointer;
+                color: blue;
+                text-decoration: underline;
+                background: white;
+            }
+
+            #hide_author_id {
+                display: none;
+            }
+
+            .hide_author_label {
+                float: right;
+                padding: 1px 6px 0 3px;
+                font-size: 0.9em;
+                cursor: pointer;
+                color: blue;
+                text-decoration: underline;
+                background: white;
+                display: none;
+            }
+
+            input#show_author_id:checked ~ .header_dheader {
+                display: block;
+            }
+
+            input#hide_author_id:checked ~ .header_dheader {
+                display: none;
+            }
+
+            input#show_author_id:checked ~ .show_author_label {
+                display: none;
+            }
+
+            input#show_author_id:checked ~ .hide_author_label {
+                display: block;
+            }
+
+            #show_informant_id {
+                display: none;
+            }
+
+            .show_informant_label {
+                float: right;
+                padding: 1px 6px 0 3px;
+                font-size: 0.9em;
+                cursor: pointer;
+                color: blue;
+                text-decoration: underline;
+                background: white;
+            }
+
+            #hide_informant_id {
+                display: none;
+            }
+
+            .hide_informant_label {
+                float: right;
+                padding: 1px 6px 0 3px;
+                font-size: 0.9em;
+                cursor: pointer;
+                color: blue;
+                text-decoration: underline;
+                background: white;
+                display: none;
+            }
+
+            input#show_informant_id:checked ~ .header_dheader {
+                display: block;
+            }
+
+            input#hide_informant_id:checked ~ .header_dheader {
+                display: none;
+            }
+
+            input#show_informant_id:checked ~ .show_informant_label {
+                display: none;
+            }
+
+            input#show_informant_id:checked ~ .hide_informant_label {
+                display: block;
+            }
+
+            #show_authorization_id {
+                display: none;
+            }
+
+            .show_authorization_label {
+                float: right;
+                padding: 1px 6px 0 3px;
+                font-size: 0.9em;
+                cursor: pointer;
+                color: blue;
+                text-decoration: underline;
+                background: white;
+            }
+
+            #hide_authorization_id {
+                display: none;
+            }
+
+            .hide_authorization_label {
+                float: right;
+                padding: 1px 6px 0 3px;
+                font-size: 0.9em;
+                cursor: pointer;
+                color: blue;
+                text-decoration: underline;
+                background: white;
+                display: none;
+            }
+
+            input#show_authorization_id:checked ~ .header_dheader {
+                display: block;
+            }
+
+            input#hide_authorization_id:checked ~ .header_dheader {
+                display: none;
+            }
+
+            input#show_authorization_id:checked ~ .show_authorization_label {
+                display: none;
+            }
+
+            input#show_authorization_id:checked ~ .hide_authorization_label {
+                display: block;
+            }
+
+            #show_participant_id {
+                display: none;
+            }
+
+            .show_participant_label {
+                float: right;
+                padding: 1px 6px 0 3px;
+                font-size: 0.9em;
+                cursor: pointer;
+                color: blue;
+                text-decoration: underline;
+                background: white;
+            }
+
+            #hide_participant_id {
+                display: none;
+            }
+
+            .hide_participant_label {
+                float: right;
+                padding: 1px 6px 0 3px;
+                font-size: 0.9em;
+                cursor: pointer;
+                color: blue;
+                text-decoration: underline;
+                background: white;
+                display: none;
+            }
+
+            input#show_participant_id:checked ~ .header_dheader {
+                display: block;
+            }
+
+            input#hide_participant_id:checked ~ .header_dheader {
+                display: none;
+            }
+
+            input#show_participant_id:checked ~ .show_participant_label {
+                display: none;
+            }
+
+            input#show_participant_id:checked ~ .hide_participant_label {
+                display: block;
+            }
+
+            #show_legal_authenticator_id {
+                display: none;
+            }
+
+            .show_legal_authenticator_label {
+                float: right;
+                padding: 1px 6px 0 3px;
+                font-size: 0.9em;
+                cursor: pointer;
+                color: blue;
+                text-decoration: underline;
+                background: white;
+            }
+
+            #hide_legal_authenticator_id {
+                display: none;
+            }
+
+            .hide_legal_authenticator_label {
+                float: right;
+                padding: 1px 6px 0 3px;
+                font-size: 0.9em;
+                cursor: pointer;
+                color: blue;
+                text-decoration: underline;
+                background: white;
+                display: none;
+            }
+
+            input#show_legal_authenticator_id:checked ~ .header_dheader {
+                display: block;
+            }
+
+            input#hide_legal_authenticator_id:checked ~ .header_dheader {
+                display: none;
+            }
+
+            input#show_legal_authenticator_id:checked ~ .show_legal_authenticator_label {
+                display: none;
+            }
+
+            input#show_legal_authenticator_id:checked ~ .hide_legal_authenticator_label {
+                display: block;
+            }
+
+
+            .header_dheader {
+                display: none;
+            }
+
+            #showCdaHeader {
+                display: none;
+            }
+
+            .show_cda_header_label {
+                position: absolute;
+                right: 12px;
+                padding: 4px 5px 0px 5px;
+                font-size: 0.9em;
+                cursor: pointer;
+                color: blue;
+                text-decoration: underline;
+                background: white;
+            }
+
+            #hideCdaHeader {
+                display: none;
+            }
+
+            .hide_cda_header_label {
+                position: absolute;
+                right: 12px;
+                padding: 4px 5px 0px 5px;
+                font-size: 0.9em;
+                cursor: pointer;
+                color: blue;
+                text-decoration: underline;
+                background: white;
+                display: none;
+            }
+
+            .doc_dheader {
+                display: none;
+            }
+
+            input#showCdaHeader:checked ~ .doc_dheader {
+                display: block;
+            }
+
+            input#hideCdaHeader:checked ~ .doc_dheader {
+                display: none;
+            }
+
+            input#showCdaHeader:checked ~ .show_cda_header_label {
+                display: none;
+            }
+
+            input#showCdaHeader:checked ~ .hide_cda_header_label {
+                display: block;
+            }
+        }
+
+        @media print {
+            body {
+                margin: 0px;
+                display: block;
+                background-color: white;
+            }
+
+            .document {
+                width: 200mm;
+                overflow: hidden;
+                font-family: "Noto sans", sans-serif;
+                font-size: 10pt;
+                background-color: white;
+                background-repeat: no-repeat;
+                background-image: none;
+            }
+
+            .doc_header_enabler {
+                display: none;
+            }
+
+            input {
+                display: none;
+            }
+
+            label {
+                display: none;
+            }
+        }
+
+        .doc_title {
+            font-size: 1.4em;
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 3px black solid;
+            padding: 4px 0 2px 0;
+        }
+
+        .title_suffix {
+            font-size: 0.7em;
+            font-weight: bold;
+            position: absolute;
+            margin: 5px;
+        }
+
+        .highlighted {
+            color: red;
+        }
+
+        .toned {
+            color: grey;
+        }
+
+        .doc_header_elements {
+            clear: both;
+            font-size: 1.0em;
+        }
+
+        .doc_header_elements > .doc_header_element {
+            margin-top: 3px;
+            margin-left: 15px;
+        }
+
+        .doc_header_elements > .doc_header_element > .header_label {
+            font-size: 1.0em;
+        }
+
+        .header_elements_block_label {
+            display: none;
+        }
+
+        .related_document_header_element {
+            float: right;
+            margin-right: 15px;
+        }
+
+        .related_document_block_label {
+            display: none;
+        }
+
+        .doc_header_element {
+            display: inline-block;
+        }
+
+        .id_header_element {
+            float: right;
+            margin-right: 15px;
+        }
+
+        .id_header_value {
+            font-size: 0.8em;
+        }
+
+        .confidentiality_code_label {
+            display: none;
+        }
+
+        .confidentiality_code_value {
+            float: right;
+            color: red;
+        }
+
+        .version_header_element {
+            margin-left: 15px;
+        }
+
+        .value_set_header_element {
+            float: right;
+            margin-right: 15px;
+        }
+
+
+        .doc_header {
+            clear: left;
+            float: left;
+            width: 100%;
+            overflow: hidden;
+            border-top: 3px black solid;
+            border-bottom: 3px black solid;
+        }
+
+        .doc_header_2 {
+            float: left;
+            width: 100%;
+            position: relative;
+            right: 50%;
+            border-right: 2px solid #4d4d4d;
+        }
+
+        .patient_related_header {
+            float: left;
+            width: 46%;
+            position: relative;
+            left: 52%;
+            overflow: hidden;
+        }
+
+        .document_related_header {
+            float: left;
+            width: 46%;
+            position: relative;
+            left: 56%;
+            overflow: hidden;
+        }
+
+        .doc_theader {
+            position: relative;
+        }
+
+
+        /*
+        .doc_dheader {
+            display:none;
+        }
+
+        .doc_header_enabler {
+            position: absolute;
+            right: 30px;
+            padding: 4px 5px 0px 5px;
+            font-size: 0.9em;
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+            background: white;
+        }
+
+        .doc_header_enabler:focus + .doc_dheader {
+            display: block;
+        }
+
+        .doc_header_enabler:focus {
+            cursor: default;
+        }*/
+
+        .header_bottom {
+            clear: both;
+        }
+
+        .doc_body {
+            width: 100%;
+            float: left;
+            font-size: 1.1em;
+        }
+
+        .header_block {
+            margin: 0 0 3px 0;
+            padding: 3px 0;
+            /**border-top: 2px solid #4d4d4d;**/
+        }
+
+        .header_block:not(:first-child) {
+            border-top: 2px solid black;
+        }
+
+        .header_block_label {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .header_element {
+            margin-top: 4px;
+            margin-bottom: 2px;
+            margin-left: 7px;
+        }
+
+        .header_label {
+            font-weight: bold;
+            font-size: 1.0em;
+        }
+
+        .header_value {
+            margin-left: 5px;
+            margin-top: 3px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            -ms-word-break: break-all;
+            word-break: break-word;
+            hyphens: auto;
+        }
+
+        .header_inline_value {
+            display: inline;
+        }
+
+        .header_block0:not(:first-child) {
+            border-top: 1px solid #909090;
+            padding-top: 3px;
+        }
+
+        .header_block1 {
+            border-top: 1px solid #909090;
+            padding-top: 3px;
+        }
+
+        .header_block1 .header_block_label {
+            font-size: 1em;
+        }
+
+        .header_block2 {
+            border-top: 1px solid #909090;
+            padding-top: 3px;
+        }
+
+        .header_block3 {
+            border-top: 1px solid #909090;
+            padding-top: 3px;
+        }
+
+        .header_block4 {
+            border-top: 1px solid #909090;
+            padding-top: 3px;
+        }
+
+        .person_name_label {
+            display: none;
+        }
+
+        .person_name_value {
+            font-size: 1.3em;
+        }
+
+        .organization_name_label {
+            display: none;
+        }
+
+        .age_element {
+            margin-left: 0px;
+        }
+
+        .id_label {
+            display: none;
+        }
+
+        .null_flavor {
+            margin-left: 4px;
+        }
+
+        .not_known_id_prefix {
+            font-weight: bold;
+        }
+
+        .id_header_element > .header_value > span > .not_known_id_prefix {
+            display: none;
+        }
+
+        .id_header_element > .header_value > .null_flavor_id {
+            display: none;
+        }
+
+        .value_set_header_element > .header_value > span > .not_known_id_prefix {
+            display: none;
+        }
+
+        .value_set_header_element > .header_value > .null_flavor_id {
+            display: none;
+        }
+
+        .related_document_header_element > .header_value > span > .not_known_id_prefix {
+            display: none;
+        }
+
+        .related_document_header_element > .header_value > .null_flavor_id {
+            display: none;
+        }
+
+        .legal_authenticator_id_value > div {
+            display: inline;
+        }
+
+        .legal_authenticator_qualification_element {
+            font-size: 0.9em;
+        }
+
+        .assigned_entity_code_header_element {
+            font-size: 0.9em;
+            float: left;
+            margin: 5px 7px 1px 12px;
+        }
+
+        @media screen {
+            .signature_code_value {
+                float: right;
+                font-size: 0.8em;
+                margin-top: 3px;
+            }
+
+            .signature_code_value_print {
+                display: none;
+            }
+        }
+
+        @media print {
+            .signature_code_value {
+                display: none;
+            }
+
+            .signature_code_value_print {
+                float: right;
+                font-size: 8pt;
+                margin-top: 1mm;
+            }
+        }
+
+        .reimbursement_related_contract_element {
+        }
+
+        .reimbursement_related_contract_element > .header_label {
+            font-size: 0.9em;
+        }
+
+        .reimbursement_related_contract_element > .header_value {
+            font-size: 0.9em;
+        }
+
+        .header_block2, .header_block2 > .header_element > .header_block_label {
+            font-size: 0.9em !important;
+        }
+
+        .header_block3, .header_block3 > .header_element > .header_block_label {
+            font-size: 0.9em !important;
+        }
+
+        .header_block4, .header_block4 > .header_element > .header_block_label {
+            font-size: 0.9em !important;
+        }
+
+        .doc_underwriter {
+        }
+
+        .underwriter_label {
+        }
+
+        .underwriter_id_label {
+        }
+
+        .underwriter_id_value {
+            font-size: 1.1em;
+        }
+
+        .doc_custodian {
+        }
+
+        .custodian_block_label {
+        }
+
+        .identifier {
+            font-size: 0.9em;
+        }
+
+        .address_element {
+        }
+
+        .address_value {
+            margin-left: 15px;
+            margin-bottom: 7px;
+        }
+
+        .doc_body {
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            -ms-word-break: break-all;
+            word-break: break-word;
+            hyphens: auto;
+        }
+
+        .section_element_1 {
+            padding: 7px;
+            border-top: 1px black solid;
+        }
+
+        .doc_body > .section_element_1:first-child {
+            border-top: none;
+        }
+
+        .doc_body > .section_element_1:last-child {
+            padding-bottom: 10px;
+        }
+
+        .popup_container {
+            position: relative;
+            float: right;
+        }
+
+        .section_dheader_enabler {
+            float: right;
+            padding: 0 6px 0 3px;
+            font-size: 0.9em;
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+            background: white;
+        }
+
+        .section_popup {
+            font-size: 0.9em;
+            white-space: nowrap;
+        }
+
+        .section_dheader {
+            display: none;
+        }
+
+        .section_dheader_enabler:focus + .section_dheader {
+            position: absolute;
+            right: 0;
+            margin-top: 20px;
+            padding: 3px 7px 0 7px;
+            z-index: 100;
+            background: white;
+            box-shadow: 0px 0px 2px 2px #dcdcdc;
+            display: block;
+        }
+
+        .section_dheader_enabler:focus {
+            cursor: default;
+        }
+
+        .section_title_1 {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .section_text_1 {
+            padding: 7px 7px 0px 7px;
+        }
+
+        .section_element_2 {
+            padding: 7px;
+        }
+
+        .section_title_2 {
+            font-size: 1.1em;
+            font-weight: bold;
+        }
+
+        .section_text_2 {
+            padding: 7px 7px 0px 7px;
+        }
+
+        .header_inline_value > .oid {
+            display: inline;
+        }
+
+        .caption {
+            font-weight: bold;
+        }
+
+        .paragraph {
+            margin-bottom: 7px;
+        }
+
+        .paragraph_caption {
+            padding-right: 3px;
+        }
+
+        .paragraph:last-child {
+            margin-bottom: 0px !important;
+        }
+
+        .paragraph > span:last-child {
+            margin-bottom: 0px !important;
+        }
+
+        .footnote_div {
+            border-top: 1px solid #dcdcdc;
+            padding: 7px;
+        }
+
+        .footnote_text_inline {
+        }
+
+        .footnote_label {
+            font-size: 1.0em;
+            font-weight: bold;
+        }
+
+        .footnote_values {
+            font-size: 0.9em;
+            /**font-family: Georgia, serif;**/
+        }
+
+        .footnote_value {
+            margin: 2px 0 0 15px;
+        }
+
+        img {
+            height: 100%;
+            width: 100%;
+            max-width: 718px;
+        }
+
+        svg {
+            height: 100%;
+            width: 100%;
+            max-width: 718px;
+        }
+
+        .multimedia_under_region_of_interest {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            max-width: 718px;
+        }
+
+        .region_of_interest {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            max-width: 718px;
+        }
+
+        .multimedia_pdf {
+            width: 100%;
+            height: 1012px;
+            padding-top: 5px;
+        }
+
+        .box {
+            position: relative;
+        }
+
+        ol, ul {
+            margin: 0;
+        }
+
+        .table_caption {
+            font-weight: bold;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="document">
+    <div class="doc_theader">
+        <div class="doc_title"><span class="title_label">Skierowanie do poradni specjalistycznej</span></div>
+        <div class="doc_header_elements">
+            <div class="effective_time_header_element doc_header_element header_element">
+                <span class="header_label">Data wystawienia</span>
+                <div class="header_inline_value header_value">8 grudnia 2020 r.</div>
+            </div>
+            <div class="id_header_element doc_header_element header_element">
+                <span class="header_label">ID</span>
+                <div class="header_inline_value header_value id_header_value"><span class="oid"><span
+                        class="not_known_id_prefix">ID </span>2.16.840.1.113883.3.4424.2.7.67.4.1 0000000000SK1607436862</span>
+                </div>
+            </div>
+        </div>
+        <div class="doc_header_elements">
+            <div class="version_header_element doc_header_element header_element">
+                <span class="header_label">Wersja</span>
+                <div class="header_inline_value header_value">1</div>
+            </div>
+            <div class="value_set_header_element doc_header_element header_element">
+                <span class="header_label">ID zbioru wersji</span>
+                <div class="header_inline_value header_value id_header_value"><span class="oid"><span
+                        class="not_known_id_prefix">ID </span>2.16.840.1.113883.3.4424.2.7.67.4.2 0000000000SK1607436862</span>
+                </div>
+            </div>
+        </div>
+        <div class="doc_header">
+            <div class="doc_header_2">
+                <div class="patient_related_header">
+                    <div class="header_block">
+                        <span class="record_target_block_label header_block_label">Pacjent</span>
+                        <div class="header_element">
+                            <div class="person_name_value header_value">Sylwester Senior</div>
+                        </div>
+                        <div class="identifiers header_element">
+                            <div class="identifier header_value"><span class="oid">PESEL 40010151673</span></div>
+                        </div>
+                        <div class="header_element">
+                            <span class="header_label">Data urodzenia</span>
+                            <div class="header_inline_value header_value">1 stycznia 1940 r.</div>
+                            <div class="age_element header_element">
+                                <span class="header_label">Wiek w dniu wystawienia</span>
+                                <div class="header_inline_value header_value">80 lat</div>
+                            </div>
+                        </div>
+                        <div class="header_element">
+                            <span class="header_label">Płeć</span>
+                            <div class="header_inline_value header_value">mężczyzna</div>
+                        </div>
+                        <div class="header_element">
+                            <span class="header_label">Adres</span>
+                            <div class="header_inline_value header_value">Wrocławska 11A lok. 3, 00-184 Zielona Góra
+                            </div>
+                        </div>
+                    </div>
+                    <div class="doc_underwriter header_block">
+                        <div>
+                            <span class="underwriter_block_label header_block_label">Płatnik</span>
+                            <div class="underwriter_id_value header_inline_value header_value"><span class="oid">Mazowiecki Oddział NFZ 07</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="document_related_header">
+                    <div class="header_block">
+                        <span class="header_block_label">Wystawca dokumentu</span><span class="signature_code_value">dokument podpisany elektronicznie</span><span
+                            class="signature_code_value_print">wydruk dokumentu elektronicznego</span>
+                        <div class="header_element">
+                            <div class="person_name_value header_value">Karol Leczniczy</div>
+                        </div>
+                        <div class="identifiers header_element">
+                            <div class="identifier header_value">
+                                <span>Lekarz </span><span class="oid">NPWZ 1044401</span>
+                            </div>
+                        </div>
+                        <div class="legal_authenticator_qualification_element header_element">
+                            <span class="header_label">Specjalizacje</span>
+                            <div class="header_inline_value header_value">medycyna rodzinna, alergologia</div>
+                        </div>
+                        <div class="doc_legal_authenticator_organization_1 header_block1">
+                            <span class="legal_authenticator_organization_block_label header_block_label">Miejsce wystawienia</span>
+                            <div class="header_element">
+                                <div class="header_value">Ogólna izba przyjęć</div>
+                            </div>
+                            <div class="identifiers header_element">
+                                <div class="identifier header_value"><span class="oid">cz. I-VII sys. kod. res. 000000792087-001</span>
+                                </div>
+                            </div>
+                            <div class="header_element">
+                                <span class="header_label">Adres</span>
+                                <div class="header_value">
+                                    <div class="address_line address_street_line">Dubois 5A lok. 13</div>
+                                    <div class="address_line address_city_line">00-184 Warszawa</div>
+                                    <div class="address_line address_country_line">pl</div>
+                                </div>
+                            </div>
+                            <div class="header_element">
+                                <span class="header_label">Kontakt </span>tel: +48131231230
+                            </div>
+                            <span class="legal_authenticator_organization_block_label header_block_label">Jako część instytucji</span><input
+                                id="show_legal_authenticator_id" name="legal_authenticator" type="radio"
+                                class="show_legal_authenticator"><label for="show_legal_authenticator_id"
+                                                                        class="show_legal_authenticator_label"><span>Rozwiń</span></label><input
+                                id="hide_legal_authenticator_id" name="legal_authenticator" type="radio"
+                                class="hide_legal_authenticator"><label for="hide_legal_authenticator_id"
+                                                                        class="hide_legal_authenticator_label"><span>Ukryj</span></label>
+                            <div class="header_dheader">
+                                <div class="identifiers header_element">
+                                    <div class="identifier header_value"><span class="oid">REGON 24154444300004</span>
+                                    </div>
+                                </div>
+                                <span class="legal_authenticator_organization_block_label header_block_label">W ramach organizacji</span>
+                                <div class="identifiers header_element">
+                                    <div class="identifier header_value"><span class="oid">cz. I sys. kod. res. 000000792087</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="doc_custodian header_block">
+                        <span class="custodian_block_label header_block_label">Kustosz</span>
+                        <div class="identifiers header_element">
+                            <div class="identifier header_value"><span class="oid"><span
+                                    class="not_known_id_prefix">ID </span>2.16.840.1.113883.3.4424 (CSIOZ)</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="doc_body">
+        <div class="section_element_1">
+            <span class="section_title_1">Inne informacje</span>
+            <div class="section_text_1">
+                <span class="list_caption caption">Proszę o następujące zabiegi:</span>
+                <ul>
+
+                    <li>Wziernikowanie ucha</li>
+                    <li>Płukanie ucha</li>
+                </ul>
+                <div class="paragraph">
+                    <span class="paragraph_caption caption">Cel badania (uzasadnienie):</span>
+                    Diagnostyka przyczyny niedokrwistości.
+                </div>
+                <div class="paragraph">
+                    <span class="paragraph_caption caption">Badania dotychczas wykonane:</span>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sed urna nibh.
+                    Donec lacus mi, varius sed ex at, elementum mattis mauris. In sit amet quam vel sem pellentesque
+                    euismod.
+                </div>
+            </div>
+        </div>
+        <div class="section_element_1">
+            <span class="section_title_1">Aktualne wyniki badań</span>
+            <div class="section_text_1">Temperatura ciała: 36,6 <sup>o</sup>C<br>
+                Ciśnienie krwi: 140/90
+            </div>
+        </div>
+        <div class="section_element_1">
+            <span class="section_title_1">Rozpoznanie:</span>
+            <div class="section_text_1">
+                <div class="paragraph">
+                    <span>Ropień ucha zewnętrznego</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

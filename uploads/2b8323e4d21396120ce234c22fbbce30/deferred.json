@@ -1,0 +1,84 @@
+{
+  "rabbit_version": "3.8.0",
+  "parameters": [],
+  "policies": [],
+  "queues": [
+    {
+      "name": "response",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "response-delay",
+        "x-queue-type": "classic"
+      }
+    },
+    {
+      "name": "response-delay",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "response-deferred",
+        "x-message-ttl": 9000,
+        "x-queue-type": "classic"
+      }
+    },
+    {
+      "name": "response-deferred",
+      "durable": true,
+      "auto_delete": false,
+      "arguments": {
+        "x-dead-letter-exchange": "response-delay",
+        "x-queue-type": "classic"
+      }
+    }
+  ],
+  "exchanges": [
+    {
+      "name": "response",
+      "type": "fanout",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    },
+    {
+      "name": "response-delay",
+      "type": "fanout",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    },
+    {
+      "name": "response-deferred",
+      "type": "fanout",
+      "durable": true,
+      "auto_delete": false,
+      "internal": false,
+      "arguments": {}
+    }
+  ],
+  "bindings": [
+    {
+      "source": "response",
+      "destination": "response",
+      "destination_type": "queue",
+      "routing_key": "",
+      "arguments": {}
+    },
+    {
+      "source": "response-delay",
+      "destination": "response-delay",
+      "destination_type": "queue",
+      "routing_key": "",
+      "arguments": {}
+    },
+    {
+      "source": "response-deferred",
+      "destination": "response-deferred",
+      "destination_type": "queue",
+      "routing_key": "",
+      "arguments": {}
+    }
+  ]
+}

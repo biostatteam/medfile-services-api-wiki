@@ -1,0 +1,46 @@
+{
+  "message": "",
+  "body": {
+    "wynik": "Operacja wykonana prawidłowo.",
+    "ostrzezenie": [
+      "Miejsce udzielania świadczeń podane na dokumencie jest niezgodne z CWUd. [REG.WER.671]",
+      "Dla danego Usługobiorcy wykryto skierowanie na podobne świadczenie, o numerze: 0000000000SK1608036301, 0000000000SK1608149477, 0000000000SK1608149669, 0000000000SK1608150184, 0000000000RP1610719981, 0000000000RP1610722112, 0000000000RP1610722215 [REG.WER.3804]",
+      "Dokument zawiera zbyt ogólne wskazanie kodu procedury do wykonania wg. słownika ICD-9. [REG.WER.4887]"
+    ]
+  },
+  "error": [],
+  "raw": {
+    "potwierdzenieOperacjiWeryfikacji": {
+      "wynikWeryfikacjiSkierowania": {
+        "dataWeryfikacji": "2021-01-23T12:11:44+01:00",
+        "identyfikatorZbioruRegul": "0.1",
+        "wynikWeryfikacji": "urn:csioz:p1:kodWynikuWeryfikacji:ostrzezenie",
+        "wynikWeryfikacjiReguly": [
+          {
+            "kodRegulyWeryfikacji": "REG.WER.671",
+            "wynikWeryfikacji": "urn:csioz:p1:kodWynikuWeryfikacji:ostrzezenie",
+            "opisProblemu": "Miejsce udzielania świadczeń podane na dokumencie jest niezgodne z CWUd.",
+            "miejsceWystapieniaBledu": "\/ClinicalDocument\/author\/assignedAuthor\/representedOrganization\/addr\/descendant::*"
+          },
+          {
+            "kodRegulyWeryfikacji": "REG.WER.3804",
+            "wynikWeryfikacji": "urn:csioz:p1:kodWynikuWeryfikacji:ostrzezenie",
+            "opisProblemu": "Dla danego Usługobiorcy wykryto skierowanie na podobne świadczenie, o numerze: 0000000000SK1608036301, 0000000000SK1608149477, 0000000000SK1608149669, 0000000000SK1608150184, 0000000000RP1610719981, 0000000000RP1610722112, 0000000000RP1610722215",
+            "miejsceWystapieniaBledu": "\/\/templateId[@root='2.16.840.1.113883.3.4424.13.10.4.1']\/..\/organizer\/component\/observation\/code[@codeSystem='2.16.840.1.113883.6.3']"
+          },
+          {
+            "kodRegulyWeryfikacji": "REG.WER.4887",
+            "wynikWeryfikacji": "urn:csioz:p1:kodWynikuWeryfikacji:ostrzezenie",
+            "opisProblemu": "Dokument zawiera zbyt ogólne wskazanie kodu procedury do wykonania wg. słownika ICD-9.",
+            "miejsceWystapieniaBledu": "\/\/templateId[@root='2.16.840.1.113883.3.4424.13.10.2.28']\/..\/structuredBody\/component\/section\/templateId[@root='2.16.840.1.113883.3.4424.13.10.3.6']\/..\/entry\/encounter\/entryRelationship[@typeCode='COMP']\/procedure\/code[@codeSystem='2.16.840.1.113883.3.4424.11.2.6'] | \/\/templateId[@root='2.16.840.1.113883.3.4424.13.10.2.28']\/..\/structuredBody\/component\/section\/templateId[@root='2.16.840.1.113883.3.4424.13.10.3.6']\/..\/entry\/encounter\/entryRelationship[@typeCode='COMP']\/observation\/code[@codeSystem='2.16.840.1.113883.3.4424.11.2.6']"
+          }
+        ]
+      }
+    },
+    "wynik": {
+      "major": "urn:csioz:p1:kod:major:Sukces",
+      "minor": "",
+      "komunikat": "Operacja wykonana prawidłowo."
+    }
+  }
+}

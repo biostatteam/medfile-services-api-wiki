@@ -1,0 +1,23 @@
+{
+  "rabbit_version": "3.8.0",
+  "parameters"    : [],
+  "policies"      : [],
+  "queues"        : [
+    {
+      "name"       : "response",
+      "durable"    : true,
+      "auto_delete": false,
+      "arguments"  : {
+        "x-queue-type": "classic"
+      }
+    },
+    {
+      "name"       : "deferred-response",
+      "durable"    : true,
+      "auto_delete": false,
+      "arguments"  : {
+        "x-queue-type": "classic"
+      }
+    }
+  ]
+}
