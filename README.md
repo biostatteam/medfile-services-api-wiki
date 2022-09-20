@@ -1,8 +1,13 @@
 # Medfile Services API
 
-Wersja API: `2.3.0`
+Wersja API: `2.3.2`
 
 Kontakt: <integracja@medfile.pl>
+
+## Zmiany w 2.3.2 z dnia 20.09.2022
+
+1. [Repozytorium XDS.b ITI-43 - pobieranie dokumentów z innego repozytorium](XDSRepository.md#iti-43---pobieranie-dokumentów-z-innego-repozytorium)
+2. [Repozytorium XDS.b - pobieranie plików bezpośrednio z magazynu](XDSRepository.md#pobieranie-plików-bezpośrednio-z-magazynu)
 
 ## Zmiany w 2.3.1 z dnia 05.09.2022
 

@@ -120,6 +120,23 @@ Odpowiedź:
 ]
 ```
 
+### Pobieranie plików bezpośrednio z magazynu
+
+Do pobierania plików z własnego repozytorium można użyć trasy bezpośrednio do magazynu.
+
+```http request
+GET /store/{fileId}
+```
+
+Gdzie
+- fileId - to identyfikator pliku nadany podczasu uploadu
+
+W odpowiedzi otrzymają Państwo zawartość pliku:
+
+```text
+eg. this is test file content
+```
+
 # Indeks P1
 
 Pliki, które znajdują się w repozytorium XDS.b, nie są jeszcze dostępne dla żadnych podmiotów medycznych.
@@ -562,7 +579,7 @@ Gdzie:
 
 Przynajmniej jeden z parametrów jest wymagany: documentEntryEntryUUID lub documentEntryUniqueId.
 
-#### Kwerenda do pobierania wszystkich informacji o pacjencie
+### Kwerenda do pobierania wszystkich informacji o pacjencie
 Get all registry content for a patient
 
 parameters:
@@ -581,4 +598,23 @@ Gdzie:
 - documentEntryStatus, format, confidentialityCode, documentEntryType - description in [find documents query](#findDocumentsQuery) section,
 - submissionSetStatus - submission set status, values as in documentEntryStatus
 - folderStatus - folder status, values as in documentEntryStatus
-- 
+
+## ITI-43 - pobieranie dokumentów z innego repozytorium
+
+Transakcja ITI-43 realizowana jest za pośrednictwem Medfile API (services.medfile.pl).
+
+Do usługi Medfile API autoryzujemy się tokenem JWT wygenerowanym zgodnie z zasadami opisanymi w sekcji "Autoryzacja w Medfile API".
+
+```http request
+GET /xds/{repositoryId}/{documentIdRoot}/{documentIdExtension}/{patientIdRoot}/{patientIdExtension}/{purpose}
+```
+
+Gdzie:
+- repositoryId - id repozytorium, w którym przechowywany jest dokument
+- documentIdRoot - część root identyfikatora dokumentu
+- documentIdExtension - część extension identyfikatora dokumentu
+- patientIdRoot - część root identyfikatora pacjenta, którego dotyczy dokument
+- patientIdExtension - część extension identyfikatora pacjenta, którego dotyczy dokument
+- purpose - powód wykorzystania danych, kod zgodny ze słownikiem https://www.hl7.org/fhir/v3/PurposeOfUse/vs.html lub kod CONTT (dostęp w trybie kontynuacji leczenia)
+
+W odpowiedzi otrzymają Państwo zawartość żądanego dokumentu lub komunikat błędu jeżeli dostęp nie zostanie udzielony przez repozytorium.
