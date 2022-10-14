@@ -29,7 +29,7 @@ Authorization: Bearer JWT_TOKEN
 
 ## Nieprawidłowa autoryzacja
 
-Nieprawidłowo podpisany token będzie skutkował odpowiedzą HTTP: `401` - Brak autoryzacji - token JWT jest nie tak.
+Nieprawidłowo podpisany token będzie skutkował odpowiedzią HTTP: `401` - Brak autoryzacji - token JWT jest nie tak.
 
 # Kody odpowiedzi
 
@@ -46,7 +46,7 @@ Nieprawidłowo podpisany token będzie skutkował odpowiedzą HTTP: `401` - Brak
 
 Organizacją nazywamy dowolny podmiot medyczny lub praktykę lekarską.
 
-Do pracy z Medfile API wymagane jest utworzenie przynajmniej jednej organizacji która będzie używana we właściwych usługach w tym np. erecepta.
+Do pracy z Medfile API wymagane jest utworzenie przynajmniej jednej organizacji, która będzie używana we właściwych usługach w tym np. erecepta.
 
 ## Tworzenie nowej organizacji
 
@@ -54,76 +54,86 @@ PUT /organization/
 
 ```json
 {
-  "name": "BioStat Sp. z o.o.",
-  "identifier": [
-    {
-      "type": "rpwdl",
-      "value": "000000792087"
-    },
-    { // Tylko dla jednostki podmiotu
-      "type": "rpwdlUnit",
-      "value": "01"
-    },
-    { // Tylko dla komórki podmiotu
-      "type": "rpwdlCell",
-      "value": "001"
-    },
-    { // Tylko dla komórki podmiotu
-      "type": "cellName",
-      "value": "Ogólna izba przyjęć"
-    },
-    { // Tylko dla praktyki lekarskiej
-      "type": "medicalChamber",
-      "value": "68"
-    },
-    { // Tylko dla praktyki lekarskiej - miejsce wykonywania zawodu
-      "type": "praxisCode",
-      "value": "001"
-    },
-    {
-      "type": "regon",
-      "value": "24154444300004"
-    },
-    {
-      "type": "nip",
-      "value": "6391001234"
-    },
-    {
-      "type": "oidRoot",
-      "value": "2.16.840.1.113883.3.4424.2.7.67"
-    },
-    { // Specjalizacja organizacji
-      "type": "speciality",
-      "value": "Poradnia neurologiczna"
-    },
-    { // Specjalizacja organizacji (VIII cz. kodu resortowego)
-      "type": "specialityCode",
-      "value": "1220"
-    }
-  ],
-  "telecom": [
-    {
-      "value": "+48131231230"
-    }
-  ],
-  "address": [
-    {
-      "street": "ul. Dubois",
-      "city": "Warszawa",
-      "postalCode": "00-184",
-      "country": "pl",
-      "houseNumber": "5A",
-      "unitId": "13"
-    }
-  ],
-  "nfzDepartment": "07", // opcjonalny oddział NFZ z którym organizacja zawarła umowę
-  "nfzContract": "01-06-02336-20-03/06", // opcjonalny numer umowy z NFZ
-  "services": {
-    "p1": {
-      "tls": [],
-      "wss": []
-    }
-  }
+   "type": "LEK", // typ organizacji, domyślnie jednostka lub praktyka lekarska (LEK). Dostępne: ["LEK", "FIZJO", "PIEL", "APTEKA", "ZAOP_MED"]
+   "name": "BioStat Sp. z o.o.",
+   "identifier": [
+      {
+         "type": "rpwdl",
+         "value": "000000792087"
+      },
+      {
+         // Tylko dla jednostki podmiotu
+         "type": "rpwdlUnit",
+         "value": "01"
+      },
+      {
+         // Tylko dla komórki podmiotu
+         "type": "rpwdlCell",
+         "value": "001"
+      },
+      {
+         // Tylko dla komórki podmiotu
+         "type": "cellName",
+         "value": "Ogólna izba przyjęć"
+      },
+      {
+         // Tylko dla praktyki lekarskiej
+         "type": "medicalChamber",
+         "value": "68"
+      },
+      {
+         // Tylko dla praktyki lekarskiej - miejsce wykonywania zawodu
+         "type": "praxisCode",
+         "value": "001"
+      },
+      {
+         "type": "regon",
+         "value": "24154444300004"
+      },
+      {
+         "type": "nip",
+         "value": "6391001234"
+      },
+      {
+         "type": "oidRoot",
+         "value": "2.16.840.1.113883.3.4424.2.7.67"
+      },
+      {
+         // Specjalizacja organizacji
+         "type": "speciality",
+         "value": "Poradnia neurologiczna"
+      },
+      {
+         // Specjalizacja organizacji (VIII cz. kodu resortowego)
+         "type": "specialityCode",
+         "value": "1220"
+      }
+   ],
+   "telecom": [
+      {
+         "value": "+48131231230"
+      }
+   ],
+   "address": [
+      {
+         "street": "ul. Dubois",
+         "city": "Warszawa",
+         "postalCode": "00-184",
+         "country": "pl",
+         "houseNumber": "5A",
+         "unitId": "13"
+      }
+   ],
+   "nfzDepartment": "07",
+   // opcjonalny oddział NFZ z którym organizacja zawarła umowę
+   "nfzContract": "01-06-02336-20-03/06",
+   // opcjonalny numer umowy z NFZ
+   "services": {
+      "p1": {
+         "tls": [],
+         "wss": []
+      }
+   }
 }
 ```
 
@@ -135,7 +145,12 @@ Większość usług wymaga do działania specjalisty/lekarza.
 
 Identyfikator lekarza przekazujemy do API w tokenie JWT pod kluczem `practitioner`.
 
+Uwaga: Należy zwrócić uwagę, aby identyfikatory były poprawne i nienadmiarowe.
+Np. nie należy wysyłać dwóch numerów NPWZ.
+Błędy popełnione na tym etapie często są trudne do wyłapania ze względu na różną logikę biznesową różnych usług.
+
 Identyfikator specjalisty w formacie UUIDv4 otrzymają Państwo przy utworzeniu użytkownika (zapisie).
+
 
 ## Tworzenie nowego użytkownika
 
