@@ -138,7 +138,9 @@ Przykładowa treść żądania:
   "procedure": [
     {
       "icd9Code": "18.11",
-      "icd9Display": "Wziernikowanie ucha"
+      "icd9Display": "Wziernikowanie ucha",
+      "targetSiteCode": "001.000.000", // opcjonalne (wartość ze słownika https://www.cez.gov.pl/HL7POL-1.3.2/plcda-html-1.3.2/plcda-html/voc-2.16.840.1.113883.3.4424.13.11.86-2020-04-22T000000.html )
+      "bodySite": "L" // opcjonalne (wymaga ustawienia targetSiteCode)
     },
     {
       "icd9Code": "96.52",
