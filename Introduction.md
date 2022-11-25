@@ -67,6 +67,11 @@ PUT /organization/
          "value": "01"
       },
       {
+         // Tylko dla jednostki podmiotu
+         "type": "unitName",
+         "value": "Szpital nr 1"
+      },
+      {
          // Tylko dla komórki podmiotu
          "type": "rpwdlCell",
          "value": "001"
