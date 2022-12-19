@@ -673,6 +673,7 @@ POST /ezla/send
       {
         "street": "Wroc\u0142awska",
         "houseNumber": "11A",
+        "unitId": "",
         "city": "Zielona G\u00f3ra",
         "postalCode": "65-001",
         "country": "Polska"
@@ -710,13 +711,13 @@ POST /ezla/send
       }
     ],
     "name": "BioStat Sp. z o.o.",
-    "address": {
+    "address": [{
       "street": "ul. Dubois",
       "houseNumber": "5A",
       "unitId": "13",
       "city": "Warszawa",
       "postalCode": "00-184"
-    }
+    }]
   },
   "practitioner": {
     "identifier": [
