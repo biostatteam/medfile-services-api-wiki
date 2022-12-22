@@ -826,6 +826,43 @@ Każdy dokument jest drukowany osobno i wysyłany osobno do płatników/zus.
 }
 ```
 
+## Anulowanie dokumentu eZLA
+
+```
+POST /ezla/cancel
+```
+
+```json
+{
+  "practitioner": {
+    "identifier": [
+      {
+        "type": "npwz",
+        "value": "1063324"
+      }
+    ],
+    "name": [
+      {
+        "family": "Artur12345",
+        "given": [
+          "Praktyczny22"
+        ]
+      }
+    ]
+  },
+  "serial": "ZY",
+  "number": "9952780",
+  "cancelDate": "2021-02-03T20:00:13+01:00",
+  "cancellationReason": {
+    "code": "I",
+    "title": "inny pow\u00f3d"
+  }
+}
+```
+
+Gdzie wartości do `cancellationReason` pobieramy metodą "Pobierz słownik powodów anulowania"
+
+
 ## Pobieranie dokumentu eZLA
 
 ```
