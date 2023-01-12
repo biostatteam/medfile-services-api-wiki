@@ -81,6 +81,23 @@ Dopuszczalne wartości:
 - `prepared` lek gotowy np. Apap
 - `recipe` receptura np. lista składników
 
+## `patient.identifier`
+Podstawowym identyfikatorem pacjenta jest PESEL. Alternatywnie (w przypadku obcokrajowców) można podać (w zalecanej kolejności):
+- nationalId
+- identityCardNumber
+- driversLicenseNumber
+- sailorId
+- passportNumber
+
+Identyfikator poprzedzamy trzycyfrowym kodem kraju wg ISO 3166-1. Np. dla osoby posługującej się paszportem USA (kod 860) o numerze 1234567890
+```json
+"identifier": [
+  {
+    "type": "passportNumber",
+    "value": "840/1234567890"
+  }
+]
+```
 ## `patient.nfz`
 
 Oddział NFZ, do którego należy pacjent.
