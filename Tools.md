@@ -119,7 +119,7 @@ Oddział NFZ, do którego należy pacjent.
 - 15 - Wielkopolski
 - 16 - Zachodniopomorski
 
-## `patient.permissions`
+## `patient.entitlements.entitlement`
 
 Uprawnienia dodatkowe pacjenta do zakupu bezpłatnych lub tańszych leków.
 
@@ -133,7 +133,7 @@ Szczegółowe informacje można odszukać tutaj (zakładka "Uprawnienia dodatkow
 
 https://www.nfz.gov.pl/dla-pacjenta/recepty-i-leki/
 
-## `patient.permissionsDocument`
+## `patient.entitlements.document`
 
 Dokument potwierdzający uprawnienia dodatkowe pacjenta.
 

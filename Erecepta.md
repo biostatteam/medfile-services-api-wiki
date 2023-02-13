@@ -80,8 +80,12 @@ Dla obu poleceń treść żądania jest identyczna.
           "country": "Polska"
       }],
       "nfz": "07", // opcjonalne - jak nie ma to X
-      "permissions": "IB", // uprawnienia dodatkowe pacjenta
-      "permissionsDocument": "Legitymacja nr. 12312321/23" // numer dokumentu upoważniającego do dodatkowych uprawnień
+      "entitlements": [
+        {
+          "entitlement": "IB", // uprawnienia dodatkowe pacjenta
+          "document": "Legitymacja nr. 12312321/23" // numer dokumentu upoważniającego do dodatkowych uprawnień
+        }
+      ]
     },
     "medication": {
       "name": "Apap Noc",
@@ -105,6 +109,7 @@ Dla obu poleceń treść żądania jest identyczna.
     },
 
     "kind": "PF", // PA - proauctore, PF - profamiliae, ZW - zwykła (domyślnie)
+    "issueMode": "Z", // Z -Zwykła, F - Farmaceutyczna, P - Pielęgniarska, PL - Pielęgniarska na zlecenie lekarza
     "substanceAdminSubstitution": "N", // Nie pozwalaj na zamienniki
     "priorityCode": "UR", // CITO opcjonalne
 
