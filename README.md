@@ -18,11 +18,13 @@ Kontakt: <integracja@medfile.pl>
    - [Podpis XaDES](Signature.md)
 3. Usługi NFZ
    - [eWUŚ](Ewus.md)
+   - [eZWM](Ezwm.md) (dokumentacja w trakcie budowy)
 4. Usługi ZUS
    - [eZLA](Ezla.md)
 5. [Repozytorium XDS.b](XDSRepository.md)
 6. Usługi dodatkowe
    - [Baza leków](Dictionaries.md)
+   - [Słowniki dla eZWM](EzwmDictionaries.md) (dokumentacja w trakcie budowy)
    - Baza ICD 10 (dokumentacja w trakcie budowy)
    - Baza ICD 9 (dokumentacja w trakcie budowy)
    - Snomed GPS (wkrótce)

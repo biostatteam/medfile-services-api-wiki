@@ -447,6 +447,31 @@ POST /services/ewus/{practitionerUuid}
 1. `username` - nazwa użytkownika (nadany w eWUŚ, nie mylić z NPWZ)
 1. `password` - hasło dostępowe dla użytkownika `username`
 
+## Ustawienie konta do wystawienia eZWM
+
+```
+POST /services/ezwm/{practitionerUuid}
+```
+
+```json
+{
+  "domain": "01",
+  "operatorType": "doctor",
+  "providerId": "abc123",
+  "doctorId": "abc321",
+  "username": "john",
+  "password": "p4ssw0rd!"
+}
+```
+
+1. `operatorType` - typ dostępu
+   - doctor - Lekarz/Użytkownik/Operator
+   - provider - Świadczeniodawca
+1. `providerId` - identyfikator świadczeniodawcy (nadany w eZWM, nie mylić z NPWZ)
+1. `doctorId` - identyfikator lekarza (nadany w eZWM, nie mylić z NPWZ)
+1. `username` - nazwa użytkownika (nadany w eZWM, nie mylić z NPWZ)
+1. `password` - hasło dostępowe dla użytkownika `username`
+
 ## Ustawienie certyfikatu ZUS lekarza
 
 ```
