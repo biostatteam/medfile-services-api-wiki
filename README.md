@@ -11,6 +11,7 @@ Kontakt: <integracja@medfile.pl>
    - [Najczęściej zadawane pytania](FAQ.md)
 2. Usługi P1
    - [e-Recepta](Erecepta.md)
+     - [Dawkowanie sekwencyjne \- Przykłady dawkowania dla recept 365](Erecepta365.md)
    - [e-Skierowanie](Eskierowania.md)
    - [e-Zgody](Ezgody.md)
    - [Zdarzenia Medyczne](ZdarzeniaMedyczne.md)
