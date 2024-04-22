@@ -72,10 +72,10 @@ Dla obu poleceń treść żądania jest identyczna.
         }
       ],
       "address": [{
-          "street": "Wroc\u0142awska",
+          "street": "Wrocławska",
           "houseNumber": "11A",
           "unitId": "3", // mieszkanie
-          "city": "Zielona G\u00f3ra",
+          "city": "Zielona Góra",
           "postalCode": "00-184",
           "country": "Polska"
       }],
@@ -219,6 +219,7 @@ Dla obu poleceń treść żądania jest identyczna.
   ]
 }
 ```
+#### [Przykłady dawkowania dla recept 365](Erecepta365.md)
 
 ## Pobieranie pakietu recept
 
