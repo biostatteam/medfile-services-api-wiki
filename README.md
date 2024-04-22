@@ -34,6 +34,10 @@ Kontakt: <integracja@medfile.pl>
 
 ## Changelog
 
+### Zmiany w 2.3.4 z dnia 22.04.2022
+
+1. Nowa sekcja: [Dawkowanie sekwencyjne \- Przykłady dawkowania dla recept 365](Erecepta365.md)
+
 ### Zmiany w 2.3.3 z dnia 04.10.2022
 
 1. Nowa sekcja: [e-Zgody](Ezgody.md)
