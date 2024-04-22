@@ -1,6 +1,6 @@
 # Medfile Services API
 
-Wersja API: `2.3.3`
+Wersja API: `2.3.4`
 
 Kontakt: <integracja@medfile.pl>
 
