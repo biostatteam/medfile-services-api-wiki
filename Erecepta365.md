@@ -56,28 +56,26 @@
       "package": {
         "quantity": 24, // ilość leku w opakowaniu
         "unit": "tabl." // opcjonalne (domyślnie szt.)
-      },
-
-      "dosage": [ // dawkowanie 3x dziennie przez 32 dni po 1 tabletce
-        {
-          "dosageInstruction": "nie z innymi lekami",
-          "duration": {
-            "quantity": 30,
-            "unit": "d"
-          },
-          "period": {
-            "quantity": 24,
-            "unit": "h"
-          },
-          "frequency": 3,
-          "doseQuantity": {
-            "quantity": 1,
-            "unit": "tabl."
-          }
-        }
-      ]
+      }
     },
-
+    "dosage": [ // dawkowanie 3x dziennie przez 32 dni po 1 tabletce
+      {
+        "dosageInstruction": "nie z innymi lekami",
+        "duration": {
+          "quantity": 30,
+          "unit": "d"
+        },
+        "period": {
+          "quantity": 24,
+          "unit": "h"
+        },
+        "frequency": 3,
+        "doseQuantity": {
+          "quantity": 1,
+          "unit": "tabl."
+        }
+      }
+    ],
     "kind": "PF", // PA - proauctore, PF - profamiliae, ZW - zwykła (domyślnie)
     "issueMode": "Z", // Z -Zwykła, F - Farmaceutyczna, P - Pielęgniarska, PL - Pielęgniarska na zlecenie lekarza
     "substanceAdminSubstitution": "N", // Nie pozwalaj na zamienniki
@@ -153,44 +151,42 @@
       "package": {
         "quantity": 24, // ilość leku w opakowaniu
         "unit": "tabl." // opcjonalne (domyślnie szt.)
-      },
-
-      "dosage": [ // Sekwencje. Przez 7 dni po 1 tabletce co 8h + Przez 13 dni 2x dziennie po 1 tabletce
-        {
-          "dosageInstruction": "Sekwencja 1 - uwagi",
-          "duration": {
-            "quantity": 7,
-            "unit": "d"
-          },
-          "period": {
-            "quantity": 8,
-            "unit": "h"
-          },
-          "frequency": 1,
-          "doseQuantity": {
-            "quantity": 1,
-            "unit": "tabl."
-          }
-        },
-        {
-          "dosageInstruction": "Sekwencja 2 - uwagi",
-          "duration": {
-            "quantity": 13,
-            "unit": "d"
-          },
-          "period": {
-            "quantity": 1,
-            "unit": "d"
-          },
-          "frequency": 2,
-          "doseQuantity": {
-            "quantity": 1,
-            "unit": "tabl."
-          }
-        }
-      ]
+      }
     },
-
+    "dosage": [ // Sekwencje. Przez 7 dni po 1 tabletce co 8h + Przez 13 dni 2x dziennie po 1 tabletce
+      {
+        "dosageInstruction": "Sekwencja 1 - uwagi",
+        "duration": {
+          "quantity": 7,
+          "unit": "d"
+        },
+        "period": {
+          "quantity": 8,
+          "unit": "h"
+        },
+        "frequency": 1,
+        "doseQuantity": {
+          "quantity": 1,
+          "unit": "tabl."
+        }
+      },
+      {
+        "dosageInstruction": "Sekwencja 2 - uwagi",
+        "duration": {
+          "quantity": 13,
+          "unit": "d"
+        },
+        "period": {
+          "quantity": 1,
+          "unit": "d"
+        },
+        "frequency": 2,
+        "doseQuantity": {
+          "quantity": 1,
+          "unit": "tabl."
+        }
+      }
+    ],
     "kind": "PF", // PA - proauctore, PF - profamiliae, ZW - zwykła (domyślnie)
     "issueMode": "Z", // Z -Zwykła, F - Farmaceutyczna, P - Pielęgniarska, PL - Pielęgniarska na zlecenie lekarza
     "substanceAdminSubstitution": "N", // Nie pozwalaj na zamienniki
@@ -271,86 +267,83 @@
       "package": {
         "quantity": 24, // ilość leku w opakowaniu
         "unit": "tabl." // opcjonalne (domyślnie szt.)
-      },
-
-      // Sekwencje z doprecyzowaniem (podsekwencje).
-      // Sekwencja 1: Przez 7 dni
-      // Podsekwencja 1_1: 1 tabletka rano
-      // Podsekwencja 1_2: 2 tabletki wieczorem, pomiędzy kolacją a porą snu
-      // Sekwencja 2: Przez kolejnych 10 dni 2x dziennie od 1 do 2 tabletek, 
-
-      "dosage": [
-        {
-          "dosageInstruction": "Sekwencja 1 - uwagi",
-          "duration": {
-            "quantity": 7,
-            "unit": "d"
-          },
-          "period": {
-            "quantity": 1,
-            "unit": "d"
-          },
-          "dosage": [
-            {
-              "dosageInstruction": "Podsekwencja 1_1 - uwagi",
-              "when": [
-                {
-                  "code": "MORN",
-                  "codeSystem": "2.16.840.1.113883.4.642.1.76",
-                  "display": "rano"
-                }
-              ],
-              "doseQuantity": {
-                "quantity": 1,
-                "unit": "tabl."
-              }
-            },
-            {
-              "dosageInstruction": "Podsekwencja 1_2 - uwagi",
-              "when": [
-                {
-                  "code": "EVE",
-                  "codeSystem": "2.16.840.1.113883.4.642.1.76",
-                  "display": "wieczorem"
-                },
-                {
-                  "code": "ICV",
-                  "codeSystem": "2.16.840.1.113883.5.139",
-                  "display": "pomiędzy kolacją a porą snu"
-                }
-              ],
-              "doseQuantity": {
-                "quantity": 2,
-                "unit": "tabl."
-              }
-            }
-          ]
+      }
+    },
+    // Sekwencje z doprecyzowaniem (podsekwencje).
+    // Sekwencja 1: Przez 7 dni
+    // Podsekwencja 1_1: 1 tabletka rano
+    // Podsekwencja 1_2: 2 tabletki wieczorem, pomiędzy kolacją a porą snu
+    // Sekwencja 2: Przez kolejnych 10 dni 2x dziennie od 1 do 2 tabletek,
+    "dosage": [
+      {
+        "dosageInstruction": "Sekwencja 1 - uwagi",
+        "duration": {
+          "quantity": 7,
+          "unit": "d"
         },
-        {
-          "dosageInstruction": "Sekwencja 2 - uwagi",
-          "duration": {
-            "quantity": 10,
-            "unit": "d"
-          },
-          "period": {
-            "quantity": 24,
-            "unit": "h"
-          },
-          "frequency": 2,
-          "doseRange": { // liczba tabletek od - do
-            "low": {
+        "period": {
+          "quantity": 1,
+          "unit": "d"
+        },
+        "dosage": [
+          {
+            "dosageInstruction": "Podsekwencja 1_1 - uwagi",
+            "when": [
+              {
+                "code": "MORN",
+                "codeSystem": "2.16.840.1.113883.4.642.1.76",
+                "display": "rano"
+              }
+            ],
+            "doseQuantity": {
               "quantity": 1,
               "unit": "tabl."
-            },
-            "high": {
+            }
+          },
+          {
+            "dosageInstruction": "Podsekwencja 1_2 - uwagi",
+            "when": [
+              {
+                "code": "EVE",
+                "codeSystem": "2.16.840.1.113883.4.642.1.76",
+                "display": "wieczorem"
+              },
+              {
+                "code": "ICV",
+                "codeSystem": "2.16.840.1.113883.5.139",
+                "display": "pomiędzy kolacją a porą snu"
+              }
+            ],
+            "doseQuantity": {
               "quantity": 2,
               "unit": "tabl."
             }
           }
+        ]
+      },
+      {
+        "dosageInstruction": "Sekwencja 2 - uwagi",
+        "duration": {
+          "quantity": 10,
+          "unit": "d"
+        },
+        "period": {
+          "quantity": 24,
+          "unit": "h"
+        },
+        "frequency": 2,
+        "doseRange": { // liczba tabletek od - do
+          "low": {
+            "quantity": 1,
+            "unit": "tabl."
+          },
+          "high": {
+            "quantity": 2,
+            "unit": "tabl."
+          }
         }
-      ]
-    },
-
+      }
+    ],
     "kind": "PF", // PA - proauctore, PF - profamiliae, ZW - zwykła (domyślnie)
     "issueMode": "Z", // Z -Zwykła, F - Farmaceutyczna, P - Pielęgniarska, PL - Pielęgniarska na zlecenie lekarza
     "substanceAdminSubstitution": "N", // Nie pozwalaj na zamienniki
