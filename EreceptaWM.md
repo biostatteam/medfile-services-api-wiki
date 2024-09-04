@@ -2,7 +2,7 @@
 
 Recepta na wyroby medyczne bazuje na formacie recepty leku gotowego, ale zawiera uproszczoną strukturę schematu dawkowania.
 W ramach struktury - dla wyrobów refundowanych przesyłana jest jedynie informacja o długości czasu trwania kuracji.
-Receptę na wyrób medyczny charakteryzuje:
+Receptę na wyrób medyczny charakteryzuje: 
   - element ```"type": "product"```
   - element ```"kdlek": "Rp"```
   - brak elementu opisującego pełne schematy dawkowania ```"dosage"```
