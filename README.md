@@ -35,7 +35,7 @@ Kontakt: <integracja@medfile.pl>
 
 ## Changelog
 
-### Zmiany w 2.3.5 z dnia 10.09.2024
+### Zmiany w 2.3.5 z dnia 06.09.2024
 
 1. Nowa sekcja: [Recepta na Wyroby Medyczne](EreceptaWM.md)
    
