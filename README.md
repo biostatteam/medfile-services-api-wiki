@@ -37,7 +37,12 @@ Kontakt: <integracja@medfile.pl>
 
 ### Zmiany w 2.3.5 z dnia 06.09.2024
 
-1. Nowa sekcja: [Recepta na Wyroby Medyczne](EreceptaWM.md)
+1. Rozszerzono szablony dawkowania (opis w sekcji [Schematy dawkowania recept](Erecepta365.md)):
+     - dodano obsługę przerw
+     - dodano obsługę cykli
+     - umożliwiono przekazanie "Informacji dla pacjenta"
+     - rozszerzono obsługę "Kategorii dostępności leku"
+3. Nowa sekcja: [Recepta na Wyroby Medyczne](EreceptaWM.md)
    
 ### Zmiany w 2.3.4 z dnia 22.04.2024
 
