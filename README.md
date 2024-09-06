@@ -1,6 +1,6 @@
 # Medfile Services API
 
-Wersja API: `2.3.4`
+Wersja API: `2.3.5`
 
 Kontakt: <integracja@medfile.pl>
 
@@ -12,6 +12,7 @@ Kontakt: <integracja@medfile.pl>
 2. Usługi P1
    - [e-Recepta](Erecepta.md)
      - [Dawkowanie sekwencyjne \- Przykłady dawkowania dla recept 365](Erecepta365.md)
+     - [Recepta na Wyroby Medyczne](EreceptaWM.md)
    - [e-Skierowanie](Eskierowania.md)
    - [e-Zgody](Ezgody.md)
    - [Zdarzenia Medyczne](ZdarzeniaMedyczne.md)
@@ -34,7 +35,11 @@ Kontakt: <integracja@medfile.pl>
 
 ## Changelog
 
-### Zmiany w 2.3.4 z dnia 22.04.2022
+### Zmiany w 2.3.5 z dnia 06.09.2024
+
+1. Nowa sekcja: [Recepta na Wyroby Medyczne](EreceptaWM.md)
+   
+### Zmiany w 2.3.4 z dnia 22.04.2024
 
 1. Nowa sekcja: [Dawkowanie sekwencyjne \- Przykłady dawkowania dla recept 365](Erecepta365.md)
 

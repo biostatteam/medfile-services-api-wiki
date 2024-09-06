@@ -26,6 +26,7 @@ Receptę można wystawić w trzech kombinacjach:
 1. __Rp__ - do 5 e-recept w jednym pakiecie (do tablicy `erecepta` można wstawić 5 bloków z receptami).
 2. __Rpw__ - tylko 1 e-recepta w jednym pakiecie
 3. __receptura własna__ - bez względu na Rp/Rpw tylko jedna receptura może znaleźć się w pakiecie
+4. **Recepta na wyroby medyczne** - rodzaj recepty dedykowany dla wyrobów medycznych
 
 ### Procedura 
 
@@ -48,7 +49,7 @@ Dla obu poleceń treść żądania jest identyczna.
   "erecepta": [{
     "id": "0000000000000000025326", // unikalny numer dokumentu recepty nadany przez implementatora w ramach oidRoot (przestrzeni organizacji)
     "date": "2020-08-31",
-    "type": "prepared", // prepared - gotowy lek, recipe - receptura własna
+    "type": "prepared", // prepared - gotowy lek, recipe - receptura własna, product - wyrób medyczny
     "organization": "idabc", // uuid
     "practitioner": "idxyz", // uuid
     "patient": {
@@ -91,7 +92,7 @@ Dla obu poleceń treść żądania jest identyczna.
       "name": "Apap Noc",
       "code": "100110151", // kod producenta
       "ean": "05909990960132", // kod EAN leku
-      "kdlek": "Rp", // Rp lub Rpw
+      "kdlek": "Rp", // Rp, Rpw, Rpz, OTC  (kategoria dostępności leku)
       "payment": "100%", // opcjonalne (domyślnie 100%) R, B, 30%, 50%, 100%
 
       "package": {
@@ -219,7 +220,8 @@ Dla obu poleceń treść żądania jest identyczna.
   ]
 }
 ```
-#### [Przykłady dawkowania dla recept 365](Erecepta365.md)
+#### [Przykłady dawkowania dla recept zawierających szablony dawkowania](Erecepta365.md)
+#### [Opis budowy receptyna Wyroby Medyczne](EreceptaWM.md)
 
 ## Pobieranie pakietu recept
 
