@@ -45,7 +45,7 @@ Dla obu poleceń treść żądania jest identyczna.
 ### Treść żądania dla 1 recepty Rp w pakiecie
 
 ```json
-[
+{
   "erecepta": [{
     "id": "0000000000000000025326", // unikalny numer dokumentu recepty nadany przez implementatora w ramach oidRoot (przestrzeni organizacji)
     "date": "2020-08-31",
@@ -81,6 +81,7 @@ Dla obu poleceń treść żądania jest identyczna.
           "country": "Polska"
       }],
       "nfz": "07", // opcjonalne - jak nie ma to X
+      "gender": "M", // płeć pacjenta
       "birthDate": "1940-01-01",  //data urodzenia pacjenta
       "entitlements": [
         {
@@ -126,7 +127,7 @@ Dla obu poleceń treść żądania jest identyczna.
         }
     }
   }]
-]
+}
 ```
 
 ### Treść żądania dla 1 recepty Rp recepturowej
