@@ -52,7 +52,7 @@ Zmiany w schematach po wprowadzeniu funkcjonalności podstawowej:
           "country": "Polska"
       }],
       "nfz": "07", // opcjonalne - jak nie ma to X
-      "gender: "M",  // płeć pacjenta
+      "gender": "M",  // płeć pacjenta
       "birthDate": "1940-01-01",  // data urodzenia pacjenta
       "entitlements": [
         {
@@ -148,7 +148,7 @@ Zmiany w schematach po wprowadzeniu funkcjonalności podstawowej:
           "country": "Polska"
       }],
       "nfz": "07", // opcjonalne - jak nie ma to X
-      "gender: "M",  // płeć pacjenta
+      "gender": "M",  // płeć pacjenta
       "birthDate": "1940-01-01",  // data urodzenia pacjenta
       "entitlements": [
         {
@@ -260,7 +260,7 @@ Zmiany w schematach po wprowadzeniu funkcjonalności podstawowej:
           "country": "Polska"
       }],
       "nfz": "07", // opcjonalne - jak nie ma to X
-      "gender: "M",  // płeć pacjenta
+      "gender": "M",  // płeć pacjenta
       "birthDate": "1940-01-01",  // data urodzenia pacjenta
       "entitlements": [
         {
@@ -405,7 +405,7 @@ Zmiany w schematach po wprowadzeniu funkcjonalności podstawowej:
           "country": "Polska"
       }],
       "nfz": "07",
-      "gender: "M",  // płeć pacjenta
+      "gender": "M",  // płeć pacjenta
       "birthDate": "1940-01-01",  // data urodzenia pacjenta
       "entitlements": [
         {
