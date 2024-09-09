@@ -26,7 +26,7 @@ Recepta roczna (365) obsługiwana jest analogicznie jak w przypadku recepty na l
 ### Recepta na wyroby medyczne ***refundowana***
 
 ```json
-[
+{
   "erecepta": [{
     "id": "0000000000000000025326", // unikalny numer dokumentu recepty nadany przez implementatora w ramach oidRoot (przestrzeni organizacji)
     "date": "2024-04-22",
@@ -37,7 +37,7 @@ Recepta roczna (365) obsługiwana jest analogicznie jak w przypadku recepty na l
       "identifier": [
         {
           "type": "pesel",
-          "value": "600322236"
+          "value": "60032223611"
         }
       ],
       "name": [
@@ -62,6 +62,8 @@ Recepta roczna (365) obsługiwana jest analogicznie jak w przypadku recepty na l
           "country": "Polska"
       }],
       "nfz": "07", // opcjonalne - jak nie ma to X
+      "gender": "M",  // płeć pacjenta
+      "birthDate": "1940-01-01",  // data urodzenia pacjenta
       "entitlements": [
         {
           "entitlement": "IB", // uprawnienia dodatkowe pacjenta
@@ -93,13 +95,13 @@ Recepta roczna (365) obsługiwana jest analogicznie jak w przypadku recepty na l
         }
     }
   }]
-]
+}
 ```
 
 ### Recepta na wyroby medyczne ***nierefundowana***
 
 ```json
-[
+{
   "erecepta": [{
     "id": "0000000000000000025326", // unikalny numer dokumentu recepty nadany przez implementatora w ramach oidRoot (przestrzeni organizacji)
     "date": "2024-04-22",
@@ -110,7 +112,7 @@ Recepta roczna (365) obsługiwana jest analogicznie jak w przypadku recepty na l
       "identifier": [
         {
           "type": "pesel",
-          "value": "600322236"
+          "value": "60032223611"
         }
       ],
       "name": [
@@ -135,6 +137,8 @@ Recepta roczna (365) obsługiwana jest analogicznie jak w przypadku recepty na l
           "country": "Polska"
       }],
       "nfz": "07", // opcjonalne - jak nie ma to X
+      "gender": "M",  // płeć pacjenta
+      "birthDate": "1940-01-01",  // data urodzenia pacjenta
       "entitlements": [
         {
           "entitlement": "IB", // uprawnienia dodatkowe pacjenta
@@ -165,6 +169,6 @@ Recepta roczna (365) obsługiwana jest analogicznie jak w przypadku recepty na l
         }
     }
   }]
-]
+}
 ```
 
