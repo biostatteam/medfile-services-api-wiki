@@ -8,11 +8,18 @@ Aby wystawić e-skierowanie, należy w nagłówku przesłać token JWT, w który
 
 ## Dostępne trasy
 
+#### Tworzenie e-skierowania:
 - POST [`/eskierowanie/validate`](Eskierowania.md#weryfikacja-e-skierowania) - walidacja dokumentu e-skierowania
 - POST [`/eskierowanie/send`](Eskierowania.md#wystawienie-e-skierowania) - zapisanie dokumentu e-skierowania w systemie P1
-- DELETE `/eskierowanie/{id}/` pozwala anulować e-skierowanie
-- GET `/eskierowanie/{id}/` odpowiada za pobieranie danych o e-skierowaniu
+- DELETE `/eskierowanie/{id}/` - anulowanie dokumentu e-skierowania
+- GET `/eskierowanie/{id}/` - pobieranie danych o e-skierowaniu
 - GET `/eskierowanie/{id}/print` - wydruk e-skierowania
+  
+#### Wyszukiwanie e-skierowań:
+- GET `/eskierowanie/searchown` - wyszukiwanie własnych e-skierowań sprawozdanych do systemu P1
+- GET `/eskierowanie/search`  - wyszukiwanie e-skierowań usługobiorcy w systemie P1
+
+#### Pobieranie e-skierowania do realizacji:
 - GET [`/eskierowanie/readout`](Eskierowania.md#odczyt-dokumentu-e-skierowania-do-realizacji) - odczyt dokumentu skierowania do realizacji
 - POST [`/eskierowanie/acceptance`](Eskierowania.md#przyjcie-skierowania-do-realizacji) - przyjęcie dokumentu skierowania do realizacji
 - POST [`/eskierowanie/rejection`](Eskierowania.md#odmowa-realizacji-e-skierowania) - odmowa realizacji skierowania
@@ -221,6 +228,66 @@ Jeżeli użyjemy opcjonalnej flagi `preview` w odpowiedzi otrzymamy HTML zawiera
 - [`GET /eskierowanie/readout/key/10031894188264384543363841602402324302238120`](eSkierowanie/examples/Readout.json)
 - [`GET /eskierowanie/readout/code/0000AC34567890`](eSkierowanie/examples/Readout.json)
 - [`GET /eskierowanie/readout/key/10031894188264384543363841602402324302238120/preview`](eSkierowanie/examples/Preview.html)
+
+
+## Wyszukiwanie e-skierowań:
+#### GET `/eskierowanie/searchown` - wyszukiwanie własnych e-skierowań sprawozdanych do systemu P1
+Parametry określające kryteria wyszukiwania:
+- date_from
+- date_to
+- status (WYSTAWIONE, U_REALIZATORA, ZREALIZOWANE, ANULOWANE)
+
+W wyniku wykonania operacji zwracane są informacje o znalezionych skierowaniach danego pracownika medycznego. Maksymalna liczba zwracanych wyników jest ograniczona przez P1. Po przekroczeniu limitu system P1 zwraca błąd wykonania operacji (nie zwraca wyników), a w celu poprawnego wyszukania należy zawęzić kryteria wyszukiwania.
+
+*Przykład odpowiedzi:*
+```
+    "wynikiWyszukiwaniaSkierowan": [
+      {
+        "dataWystawieniaSkierowania": "2024-07-30T00:00:00+02:00",
+        "numerSkierowania": {
+          "extension": "7d208e90000000000540RT",
+          "root": "2.16.840.1.113883.3.4424.2.7.1294.4.1"
+        },
+        "statusSkierowania": "WYSTAWIONE"
+      }
+    ]
+```
+
+#### GET `/eskierowanie/search` - wyszukiwanie e-skierowań usługobiorcy w systemie P1
+Parametry określające kryteria wyszukiwania:
+- identifier (wymagany)
+- identifier_type (domyślnie numer PESEL)
+- date_from
+- date_to
+- status (WYSTAWIONE, U_REALIZATORA, ZREALIZOWANE, ANULOWANE)
+
+Operacja umożliwia uzyskanie listy skierowań danego Usługobiorcy na podstawie zadanych parametrów wyszukiwania na potrzeby usługodawcy. Jako wynik wyszukiwania zwracane są jedynie informacje o skierowaniach wystawionych przez pracownika medycznego odpytującego oraz skierowań do których ma dostęp. 
+
+*Przykład odpowiedzi:*
+```
+    "wynikiWyszukiwaniaSkierowanUslugobiorcy": [
+      {
+        "numerSkierowania": {
+          "numerSkierowania": {
+            "extension": "7d208e90000000000540RT",
+            "root": "2.16.840.1.113883.3.4424.2.7.1294.4.1"
+          }
+        },
+        "statusSkierowania": "WYSTAWIONE",
+        "dataWystawieniaSkierowania": "2024-07-30T00:00:00+02:00",
+        "identyfikatorPodmiotuWystawcy": {
+          "extension": "000000927560",
+          "root": "2.16.840.1.113883.3.4424.2.4.68"
+        },
+        "identyfikatorPracownikaWystawcy": {
+          "extension": "7540444",
+          "root": "2.16.840.1.113883.3.4424.1.6.2"
+        },
+        "podmiotNazwa": "Artur260 Praktyczny",
+        "wystawcaNazwa": "Praktyczny Artur260"
+      }
+    ]
+```
 
 ## Przyjęcie skierowania do realizacji
 

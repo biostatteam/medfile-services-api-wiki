@@ -16,7 +16,7 @@ Zmiany w schematach po wprowadzeniu funkcjonalności podstawowej:
 - Sekwencja 1: Przez 32dni 3x dziennie po 1 tabletce
 
 ```json
-[
+{
   "erecepta": [{
     "id": "0000000000000000025326", // unikalny numer dokumentu recepty nadany przez implementatora w ramach oidRoot (przestrzeni organizacji)
     "date": "2024-04-22", // data wystawienia recepty (zawsze data dzisiejsza)
@@ -27,7 +27,7 @@ Zmiany w schematach po wprowadzeniu funkcjonalności podstawowej:
       "identifier": [
         {
           "type": "pesel",
-          "value": "600322236"
+          "value": "60032223611"
         }
       ],
       "name": [
@@ -52,6 +52,8 @@ Zmiany w schematach po wprowadzeniu funkcjonalności podstawowej:
           "country": "Polska"
       }],
       "nfz": "07", // opcjonalne - jak nie ma to X
+      "gender": "M",  // płeć pacjenta
+      "birthDate": "1940-01-01",  // data urodzenia pacjenta
       "entitlements": [
         {
           "entitlement": "IB", // uprawnienia dodatkowe pacjenta
@@ -102,7 +104,7 @@ Zmiany w schematach po wprowadzeniu funkcjonalności podstawowej:
         }
     }
   }]
-]
+}
 ```
 
 ### Dawkowanie *z użyciem 2 sekwencji*, recepta zwykła
@@ -110,7 +112,7 @@ Zmiany w schematach po wprowadzeniu funkcjonalności podstawowej:
 - Sekwencja 2: następnie 13 dni 2x dziennie po 1 tabletce
 
 ```json
-[
+{
   "erecepta": [{
     "id": "0000000000000000025326", // unikalny numer dokumentu recepty nadany przez implementatora w ramach oidRoot (przestrzeni organizacji)
     "date": "2024-04-22", // data wystawienia recepty (zawsze data dzisiejsza)
@@ -121,7 +123,7 @@ Zmiany w schematach po wprowadzeniu funkcjonalności podstawowej:
       "identifier": [
         {
           "type": "pesel",
-          "value": "600322236"
+          "value": "60032223611"
         }
       ],
       "name": [
@@ -146,6 +148,8 @@ Zmiany w schematach po wprowadzeniu funkcjonalności podstawowej:
           "country": "Polska"
       }],
       "nfz": "07", // opcjonalne - jak nie ma to X
+      "gender": "M",  // płeć pacjenta
+      "birthDate": "1940-01-01",  // data urodzenia pacjenta
       "entitlements": [
         {
           "entitlement": "IB", // uprawnienia dodatkowe pacjenta
@@ -210,7 +214,7 @@ Zmiany w schematach po wprowadzeniu funkcjonalności podstawowej:
         }
     }
   }]
-]
+}
 ```
 
 ### Dawkowanie złożone *z użyciem doprecyzowania (podsekwencje)*
@@ -220,7 +224,7 @@ Zmiany w schematach po wprowadzeniu funkcjonalności podstawowej:
 - Sekwencja 2: następnie 10 dni 2x dziennie od 1 do 2 tabletek,
 
 ```json
-[
+{
   "erecepta": [{
     "id": "0000000000000000025326", // unikalny numer dokumentu recepty nadany przez implementatora w ramach oidRoot (przestrzeni organizacji)
     "date": "2024-04-22",
@@ -256,6 +260,8 @@ Zmiany w schematach po wprowadzeniu funkcjonalności podstawowej:
           "country": "Polska"
       }],
       "nfz": "07", // opcjonalne - jak nie ma to X
+      "gender": "M",  // płeć pacjenta
+      "birthDate": "1940-01-01",  // data urodzenia pacjenta
       "entitlements": [
         {
           "entitlement": "IB", // uprawnienia dodatkowe pacjenta
@@ -353,7 +359,7 @@ Zmiany w schematach po wprowadzeniu funkcjonalności podstawowej:
           "end": "2025-04-22" // opcjonalnie dla recepty 365 (+1 rok od dnia wystawienia)        }
     }
   }]
-]
+}
 ```
 
 ### Dawkowanie złożone *z użyciem przerwy oraz cykli*
@@ -363,7 +369,7 @@ Zmiany w schematach po wprowadzeniu funkcjonalności podstawowej:
 - Cykl powtórzyć 3 razy
 
 ```json
-[
+{
   "erecepta": [{
     "id": "0000000000000000025326", 
     "date": "2024-09-10",
@@ -398,7 +404,9 @@ Zmiany w schematach po wprowadzeniu funkcjonalności podstawowej:
           "postalCode": "00-184",
           "country": "Polska"
       }],
-      "nfz": "07", 
+      "nfz": "07",
+      "gender": "M",  // płeć pacjenta
+      "birthDate": "1940-01-01",  // data urodzenia pacjenta
       "entitlements": [
         {
           "entitlement": "IB", 
@@ -464,7 +472,7 @@ Zmiany w schematach po wprowadzeniu funkcjonalności podstawowej:
         }
       }
     ],
-    "dosageRepeat": 3, // opcjonalnie (domyślnie 0) - powtórzenie cyklu kuracji
+    "dosageRepeat": 4, // opcjonalnie (domyślnie 0) - powtórzenie cyklu kuracji
     "kind": "ZW",
     "issueMode": "Z",
     "substanceAdminSubstitution": "N", 
@@ -480,7 +488,7 @@ Zmiany w schematach po wprowadzeniu funkcjonalności podstawowej:
         }
     }
   }]
-]
+}
 ```
 
 
