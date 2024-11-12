@@ -294,3 +294,90 @@ DELETE /erecepta/{kluczPakietuRecept}/{kodPozycjiLekuWPakiecieRecept}[/{kontekst
 ```
 
 W treści odpowiedzi znajdzie się bezpośrednia odpowiedź od CSIOZ na każdy z leków we wskazanym pakiecie recept w postaci tablicy.
+
+
+## Rozszerzone wyszukiwanie e-recept wystawionych pacjentowi
+
+Endpoint umożliwia uzyskanie z systemu P1 listy recept wystawionych określonemu pacjentowi.  
+Wraz z danymi otrzymujemy jej klucz umożliwiający pobranie pełnego XMLa - np. celem wydruku.  
+
+W ramach wywołania operacji w P1 sprawdzane są uprawnienia dostępu do recept.  
+Domyślnie system P1 zwraca wynik obejmujący recepty wystawione przez użytkownika lub recept widocznych dla użytkownika. W określonych przypadkach można jednak rozszerzyć listę (używając zmienionego trybu dostępu do danych).  
+Przykładem może być dostęp SPECJALNY - dla lekarzy specjalistów (dostęp do wszystkich recept Usługobiorcy, którego wiek pozwala na zastosowanie uprawnień seniora „S”, lub dziecka „DZ”) lub BTG – tryb ratowania życia, zgodnie z uprawnieniem wynikającym z art. Art. 35. 1 pkt. 4 Ustawy o SIOZ. 
+
+*UWAGA: Każdy przypadek wyszukiwania recept z zastosowaniem ustawienia trybu ratującego życie jest odnotowywany w systemie P1, w celu monitorowania ew. nadużyć.*
+
+
+```
+GET /erecepta/searchext
+```
+Operacja pozwala na wyszukiwanie po następujących parametrach:
+- identifier (wymagany) - identyfikator usługobiorcy 
+- identifier_type (wymagany)  - rodzaj identyfikatora odbiorcy (domyślnie pesel)
+- date_from  - data wystawienia recepty (data od)  *uwaga - data musi być mniejsza od daty wystawienia recepty*
+- date_to  - ustawienie okresu zwracanych danych (data do)
+- status - ograniczenie listy recept do wybranego statusu (WYSTAWIONA, ZREALIZOWANA, CZESCIOWO_ZREALIZOWANA, ANULOWANA lub ZABLOKOWANA).
+- drug_name - umożliwia ograniczenie listy do wybranego leku
+- prescription_number - parametr pozwalający wyszukać dane konkretnej recepty oraz dokumentów z nią powiązanych (wyszukiwanie tylko własnych recept)
+- access_mode - tryb dostępu do danych (domyślnie pusty)
+- page - określa numer strony z wynikami (w przypadku ilości większej niż ustawiony *page_size*)
+- page_size - określa ilość zwracanych pozycji na stronę (domyślnie 20)
+- order - parametr określający czy lista zwracanych recept ma być sortowana po dacie wystawienia w kolejności rosnącej czy malejącej
+
+### Przykładowa odpowiedź
+
+```json
+{
+  "message": "",
+  "body": {
+    "liczbaDokumentow": XX,
+    "wynikiRozszerzonegoWyszukiwaniaReceptUslugobiorcy": [
+      {
+        "dataWystawieniaRecepty": "2024-11-04T00:00:00+01:00",
+        "dataRealizacjiOd": "2024-11-04T00:00:00+01:00",
+        "dataRealizacjiDo": "2025-11-04T00:00:00+01:00",
+        "identyfikatorOpakowaniaLeku": "05909990664559",
+        "iloscLeku": 1,
+        "kluczRecepty": "10012350010000000008026420811716549443000000",
+        "nazwaPrzepisanegoLeku": "Apap 500 mg Tabletki powlekane",
+        "numerRecepty": {
+          "extension": "MEDFILE000000000000000",
+          "root": "2.16.840.1.113883.3.4424.2.7.0000.2.1"
+        },
+        "rodzajLeku": "GOTOWY",
+        "statusMozliwosciRealizacjiRecepty": true,
+        "statusRecepty": "WYSTAWIONA",
+        "wielkoscOpakowania": "100 tabl.",
+        "poziomOdplatnosciRecepty": "100%"
+      },
+      {
+       ...
+      }
+}
+```
+
+Operacja zwraca następujące dane:
+- liczba wszystkich wyszukanych dokumentów
+- datę wystawienia recepty
+- datę realizacji od (jeśli została wskazana na recepcie)
+- datę realizacji do (dla recept elektronicznych z terminem ważności 365 dni)
+- dane dot. leku:
+  - identyfikator leku (EAN)
+  - ilość przepisanego leku
+  - nazwa leku
+  - wielkość opakowania leku
+  - poziom odpłatności za lek
+- uprawnienia dodatkowe
+- status recepty
+- status możliwości realizacji recepty
+- klucz recepty
+- numer recepty
+
+Jeśli recepta została zrealizowana bądź częściowo zrealizowana informacje są rozszerzone o:
+- datę pierwszego wydania leku
+- dane dokumentu realizacji recepty (sprzedaży leku)
+  - datę wystawienia (sprzedaży leku)
+  - identyfikator wydanego opakowania (EAN)
+  - nazwę wydanego leku
+  - ilość sprzedanego leu
+  - poziom odpłatności
