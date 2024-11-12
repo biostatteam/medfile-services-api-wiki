@@ -313,7 +313,7 @@ GET /erecepta/searchext
 Operacja pozwala na wyszukiwanie recept według następujących parametrów:
 - identifier (wymagany) - identyfikator usługobiorcy 
 - identifier_type (wymagany)  - rodzaj identyfikatora odbiorcy (domyślnie pesel)
-- date_from  - data wystawienia recepty *(Uwaga: data_od musi być mniejsza od daty wystawienia recepty)*
+- date_from  - data wystawienia recepty (początkowa data, od której zwracane będą dane)
 - date_to  - ustawienie okresu zwracanych danych (data do)
 - status - ograniczenie listy recept do wybranego statusu (WYSTAWIONA, ZREALIZOWANA, CZESCIOWO_ZREALIZOWANA, ANULOWANA lub ZABLOKOWANA).
 - drug_name - umożliwia ograniczenie listy do wybranego leku
