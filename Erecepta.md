@@ -298,8 +298,7 @@ W treści odpowiedzi znajdzie się bezpośrednia odpowiedź od CSIOZ na każdy z
 
 ## Rozszerzone wyszukiwanie e-recept wystawionych pacjentowi
 
-Endpoint umożliwia uzyskanie z systemu P1 listy recept wystawionych określonemu pacjentowi.  
-Wraz z danymi otrzymujemy jej klucz umożliwiający pobranie pełnego XMLa - np. celem wydruku.  
+Endpoint umożliwia uzyskanie z systemu P1 listy recept wystawionych określonemu pacjentowi. Wraz z danymi znajdującymi sie na recepcie otrzymujemy jej klucz umożliwiający pobranie pełnego XMLa - np. celem wydruku.  
 
 W ramach wywołania operacji w P1 sprawdzane są uprawnienia dostępu do recept.  
 Domyślnie system P1 zwraca wynik obejmujący recepty wystawione przez użytkownika lub recept widocznych dla użytkownika. W określonych przypadkach można jednak rozszerzyć listę (używając zmienionego trybu dostępu do danych).  
@@ -311,10 +310,10 @@ Przykładem może być dostęp SPECJALNY - dla lekarzy specjalistów (dostęp do
 ```
 GET /erecepta/searchext
 ```
-Operacja pozwala na wyszukiwanie po następujących parametrach:
+Operacja pozwala na wyszukiwanie recept według następujących parametrów:
 - identifier (wymagany) - identyfikator usługobiorcy 
 - identifier_type (wymagany)  - rodzaj identyfikatora odbiorcy (domyślnie pesel)
-- date_from  - data wystawienia recepty (data od)  *uwaga - data musi być mniejsza od daty wystawienia recepty*
+- date_from  - data wystawienia recepty *(Uwaga: data_od musi być mniejsza od daty wystawienia recepty)*
 - date_to  - ustawienie okresu zwracanych danych (data do)
 - status - ograniczenie listy recept do wybranego statusu (WYSTAWIONA, ZREALIZOWANA, CZESCIOWO_ZREALIZOWANA, ANULOWANA lub ZABLOKOWANA).
 - drug_name - umożliwia ograniczenie listy do wybranego leku
