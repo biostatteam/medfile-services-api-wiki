@@ -646,7 +646,7 @@ POST /ezla/send
 
 ```json
 {
-  "institution": 1, // 1 = ZUS, 2 = KRUS, 3 = INNE_W_POLSCE, 4 = W_INNYM_PANSTWIE
+  "institution": "ZUS", // możliwe wartości: ZUS, KRUS, INNE_W_POLSCE, W_INNYM_PANSTWIE
   "patient": {
     "identifier": [
       {
