@@ -26,7 +26,7 @@ Receptę można wystawić w trzech kombinacjach:
 1. __Rp__ - do 5 e-recept w jednym pakiecie (do tablicy `erecepta` można wstawić 5 bloków z receptami).
 2. __Rpw__ - tylko 1 e-recepta w jednym pakiecie
 3. __receptura własna__ - bez względu na Rp/Rpw tylko jedna receptura może znaleźć się w pakiecie
-4. **Recepta na wyroby medyczne** - rodzaj recepty dedykowany dla wyrobów medycznych
+
 
 ### Procedura 
 
@@ -41,6 +41,23 @@ PUT|POST /erecepta/send
 ```
 
 Dla obu poleceń treść żądania jest identyczna.
+
+
+### Obsługa wskazań refundacyjnych
+
+W przypadku recept na lek gotowy, refundowany - istnieje możliwość przekazania do systemu e-zdrowie wskazania refundacyjnego. Informację tą należy przekazać w nowym elemencie **attributes**. Element ten jest opcjonalny, nie należy go przekazywać bez parametrów *name* oraz *value*.  
+Atrybut *value* zawiera kod wskazania refundacyjnego publikowanego na liście refundacyjnej.  
+Kod wskazania należy umieścić w JSON jako parametr elementu erecepta - w następujący sposób: 
+```
+    "attributes": [
+        {
+          "name": "WSKAZANIE_REFUNDACYJNE",
+          "value": "24799"
+        }
+    ]
+```
+Poniżej przedstawiony jest przykład użycia elementu.
+
 
 ### Treść żądania dla 1 recepty Rp w pakiecie
 
@@ -125,7 +142,13 @@ Dla obu poleceń treść żądania jest identyczna.
           "start": "2020-09-30", // opcjonalnie (domyślnie brak) od kiedy można zrealizować
           "end": "2020-10-30" // opcjonalnie (domyślnie brak) do kiedy można zrealizować (maksymalnie 365 dni od start)
         }
-    }
+    },
+    "attributes": [ // opcjonalnie (domyślnie brak) - atrybuty dodawane w przypadku chęci sprawozdania wskazania do refundacji
+        {
+          "name": "WSKAZANIE_REFUNDACYJNE",
+          "value": "24799"
+        }
+    ]
   }]
 }
 ```
@@ -224,7 +247,7 @@ Dla obu poleceń treść żądania jest identyczna.
 }
 ```
 #### [Przykłady dawkowania dla recept zawierających szablony dawkowania](Erecepta365.md)
-#### [Opis budowy receptyna Wyroby Medyczne](EreceptaWM.md)
+#### [Opis budowy recepty na Wyroby Medyczne](EreceptaWM.md)
 
 ## Pobieranie pakietu recept
 
