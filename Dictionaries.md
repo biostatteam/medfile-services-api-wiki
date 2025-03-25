@@ -12,7 +12,7 @@ term=Apap
 
 Odpowiedź:
 
-```json
+```json opisujący lek
 [
   {
     "name": "APAP dla dzieci Forte smak pomarańczowy",
@@ -29,13 +29,47 @@ Odpowiedź:
     "category": "OTC",
     "amount": "1",
     "indications": "",
+    "indicationsJson": [  // dla leków refundowanych - wskazania do refundacji 
+      [
+        {
+          "id": "5229",
+          "all": false,
+          "isE": null,
+          "isD1": null,
+          "isD2": null,
+          "type": "ChPL",
+          "ageTo": null,
+          "ageFrom": null,
+          "description": "Nadciśnienie tętnicze",
+          "paymentLevel": "30%"
+        }
+      ]
+    ],
     "isRpw": false,
     "calculate": false,
     "availability": 0,
     "producer": "US Pharmacia Sp. z o.o.",
     "substance": "Paracetamolum",
     "expired": false,
-    "favourite": 0
+    "packages": [  // model opisujący opakowanie leku
+      {
+        "packageType": "",
+        "packageCount": "",
+        "packageVolume": "1",
+        "packageVolumeUnit": "tabl.",
+        "packageDescription": ""
+      }
+    ],
+    "alternativeDose": null,  // alternatywne dawkowanie
+    "favourite": 0,
+    "popularity": 0,
+    "model": null,
+    "type": "PL",
+    "reimbursementPermissions": {   // dla leków refundowanych - określenie uprawnień dodatkowych
+      "E": false,
+      "D1": true,
+      "D2": true
+    }
   }
 ]
 ```
