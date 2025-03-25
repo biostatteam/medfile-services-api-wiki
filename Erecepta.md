@@ -45,7 +45,7 @@ Dla obu poleceń treść żądania jest identyczna.
 
 ### Obsługa wskazań refundacyjnych
 
-W przypadku recept na lek gotowy, refundowany - istnieje możliwość przekazania do systemu e-zdrowie wskazania refundacyjnego. Informację tą należy przekazać w nowym elemencie **attributes**. Element ten jest opcjonalny, nie należy go przekazywać bez parametrów *name* oraz *value*.  
+W przypadku recept na lek gotowy, refundowany - istnieje możliwość przekazania do systemu e-zdrowie wskazania refundacyjnego. Informację tą należy przekazać w JSON w nowym elemencie **attributes**. Element ten jest opcjonalny, nie należy go przekazywać bez parametrów *name* oraz *value*.  
 Atrybut *value* zawiera kod wskazania refundacyjnego publikowanego na liście refundacyjnej.  
 Kod wskazania należy umieścić w JSON jako parametr elementu erecepta - w następujący sposób: 
 ```
@@ -56,7 +56,26 @@ Kod wskazania należy umieścić w JSON jako parametr elementu erecepta - w nast
         }
     ]
 ```
-Poniżej przedstawiony jest przykład użycia elementu.
+Element "WSKAZANIE_REFUNDACYJNE" jest przekazywany do platformy e-zdrowie wraz z receptą - w obiekcie receptaDaneDodatkoweMT.    
+
+
+### Sposób badania pacjenta
+
+Wersja 27.0.2 e-recepty wprowadziła obsługę dodatkowych atrybutów "RODZAJ_SWIADCZENIA" oraz "TRYB_BADANIA".  
+Atrybuty te wymagane są w przypadku recept na leki psychotropowe oraz środki odurzające (wskazane w Rozporządzeniu). 
+
+Oba atrybuty należy przekazać (zgodnie z wymaganiami) w JSON w elemencie **attributes**. Element ten jest opcjonalny, nie należy go przekazywać bez parametrów *name* oraz *value*.  
+Przykład poniżej:
+```
+    "attributes": [
+        {
+          "name": "TRYB_BADANIA",
+          "value": "BADANIE_OSOBISTE"
+        }
+    ]
+```
+
+Poniżej przedstawiony jest przykład użycia obu elementów w jednej recepcie.
 
 
 ### Treść żądania dla 1 recepty Rp w pakiecie
@@ -143,10 +162,14 @@ Poniżej przedstawiony jest przykład użycia elementu.
           "end": "2020-10-30" // opcjonalnie (domyślnie brak) do kiedy można zrealizować (maksymalnie 365 dni od start)
         }
     },
-    "attributes": [ // opcjonalnie (domyślnie brak) - atrybuty dodawane w przypadku chęci sprawozdania wskazania do refundacji
+    "attributes": [ // opcjonalnie (domyślnie brak) - dodatkowe atrybuty recepty przekazywane w obiekcie receptaDaneDodatkoweMT
         {
-          "name": "WSKAZANIE_REFUNDACYJNE",
+          "name": "WSKAZANIE_REFUNDACYJNE",  // atrybut określający wskazanie do refundacji leku
           "value": "24799"
+        },
+        {
+          "name": "TRYB_BADANIA", // atrybut dot. sposobu badania pacjenta przed wystawieniem recepty Rpw
+          "value": "BADANIE_OSOBISTE"
         }
     ]
   }]
