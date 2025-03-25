@@ -1,6 +1,6 @@
 # Medfile Services API
 
-Wersja API: `2.3.5`
+Wersja API: `2.3.6`
 
 Kontakt: <integracja@medfile.pl>
 
@@ -34,6 +34,12 @@ Kontakt: <integracja@medfile.pl>
 8. [Asynchroniczna komunikacja](AsynchronousCommunication.md)
 
 ## Changelog
+
+### Zmiany w 2.3.6 z dnia 20.01.2025
+
+1. W ramach obsługi e-recepty dodano przekazywanie danych dodatkowych (receptaDaneDodatkoweMT): 
+     - dodano element attributes w JSON
+
 
 ### Zmiany w 2.3.5 z dnia 06.09.2024
 
