@@ -197,7 +197,7 @@ Poniżej przykładowa treść żądania skierowania do uzdrowiska:
         ]
       }
     ],
-    "telecom": [
+    "telecom": [   // dane kontaktowe pacjenta
       {
         "value": "+48131231230"  // telefon do pacjenta
       },
@@ -205,7 +205,7 @@ Poniżej przykładowa treść żądania skierowania do uzdrowiska:
         "value": "sms:+48131231230"  // możliwość kontaktu sms  (patrz słownik)
       },
       {
-        "value": "email:ssenior@mojemail.co"  // ares email
+        "value": "email:ssenior@mojemail.co"  // adres email
       }
     ],
     "address": [
