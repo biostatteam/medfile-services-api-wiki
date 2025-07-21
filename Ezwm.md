@@ -1,15 +1,32 @@
-# Usługa eZLA
+# Usługa: eZWM
 
 ## Konfiguracja usługi
 
 > __Uwaga__
 >
-> Na środowisku testowym należy użyć konta utworzonego na koncie produkcyjnym.
+> Na środowisku testowym należy użyć konta utworzonego na koncie produkcyjnym. Nie ma możliwości utworzenia kont pracujących wyłącznie na środowisku produkcyjnym
 
+### Informacje ogólne
+
+Do wystawienia zlecenia na środki pomocnicze potrzebny jest dostęp do słowników:
+ - wyrobów medycznych i środków pomocniczych, a wraz z nim - dodatkowych słowników:
+   - kryterium przyznania wyrobu
+   - kryterium skrócenia okresu użytkownania
+ - podstawy ubezpieczenia (dane pacjenta) - w przypadku potwierdzenia ubezpieczenia w inny sposób niż eWUŚ
+ - uprawnień dodatkowych pacjenta
+ - instytucji właściwych (dla pacjentów z unii europejskiej)
+ - słownika ICD-10
+Utworzenie XMLa ze zleceniem lezy po stronie systemu dziedzinowego. API udostępnia potrzebne słowniki oraz endpointy służące do obsługi wniosku w NFZ.
+Sposób tworzenia wniosku został opisany w dokumentacji znajdującej się na stronie NFZ pod adresem:
+https://www.nfz.gov.pl/dla-swiadczeniodawcy/sprawozdawczosc-elektroniczna/interfejsy-integracyjne/ezwm/
+
+###Nagłówki HTTP
+Do komunikacji z NFZ w zakresie zleceń na wyroby medyczne wystarczy w tokenie umieścić specjalistę (analogicznie jak w usłudze eWUŚ) - practitioner).
+- Authorization: Bearer {JWT TOKEN}
 
 ### Sprawdź, czy ustawienia usługi są prawidłowe
 
-```http request
+```
 GET /ezwm/checklogin
 Authorization: Bearer {{ token }}
 ```
