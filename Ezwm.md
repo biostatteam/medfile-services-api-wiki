@@ -37,6 +37,7 @@ Endpoint do przekazania NFZ dokumentu zlecenia na wyroby medyczne:
 ```
 PUT /ezwm/document
 ```
+Należy przekazać dokument zgodny ze specyfikacją:  ```https://ezwm.nfz.gov.pl/xml/e-zpo/dok-zlecenia/v2.1```
 
 Przykładowy plik zlecenia na wyroby medyczne *(soczewki)*:
 ```
@@ -110,89 +111,57 @@ Dostępne statusy (dla wystawiającego zlecenie):
 
 ### Pobierz dokument zlecenia
 
-NFZ umożliwia pobranie różnych dokumentów dla osoby uprawnionej do wystawienia zlecenia. Do pobrania każdego z dokumnetów należy przekazać id-tech-dokumentu-nfz. Dokumenty możliwe do pobrania:
-**dok-wynikweryfikacji** - Dokument z wynikiem weryfikacji zlecenia dla etapu Z (wynik przetwarzania dokumentu zlecenia):
-**dok-zlecenia-pdf** - Dokument zlecenia w formacie pdf – część I i II zlecenia (jeśli zlecenie zostało zweryfikowane przez system NFZ i jest dostępny wynik weryfikacji)
-**dok-zlecenia** - Dokument zlecenia
-**dok-info-zlecenia-pdf** - Druk informacyjny zlecenia elektronicznego w formacie pdf: 
+NFZ umożliwia pobranie różnych dokumentów dla osoby uprawnionej do wystawienia zlecenia. Do pobrania każdego z dokumnetów należy przekazać id-tech-dokumentu-nfz. Dokumenty możliwe do pobrania:  
+**dok-wynikweryfikacji** - Dokument z wynikiem weryfikacji zlecenia dla etapu Z (wynik przetwarzania dokumentu zlecenia)  
+**dok-zlecenia-pdf** - Dokument zlecenia w formacie pdf – część I i II zlecenia (jeśli zlecenie zostało zweryfikowane przez system NFZ i jest dostępny wynik weryfikacji)  
+**dok-zlecenia** - Dokument zlecenia  
+**dok-info-zlecenia-pdf** - Druk informacyjny zlecenia elektronicznego w formacie pdf   
 
 Każdy z w/w elementów można pobrać używając endpoint:
 ```
 GET /ezwm/document/zlecenia?zlec=T5-PC00013R-00000015&idTech=34519800000000000100007839
 ```
 Do endpoint należy przekazać odpowiedni typ dokumentu: 
+- zlecenia,
 - wynik-weryfikacji,
 - info-zlecenia-pdf,
 - zlecenia-pdf,
 - zlecenia-bez-weryf-pdf
 
-????  GET /ezwm/document/zlecenia?zlec=T5-PC00013R-00000015&kod=88072198883
+#### Pobierz wynik weryfikacji
 
-
-### Pobierz wynik weryfikacji
-
-Używając kodu zlecenia
-```http request
-GET /ezwm/document/wynik-weryfikacji?zlec=T5-PC00013R-00000015&kod=88072198883
-Authorization: Bearer {{ token }}
 ```
-
-Używając numeru technicznego dokumentu:
-```http request
 GET /ezwm/document/wynik-weryfikacji?zlec=T5-PC00013R-00000015&idTech=34519800000000000100007839
-Authorization: Bearer {{ token }}
 ```
 
+#### Pobierz podsumowanie w pliku PDF
 
-### Pobierz podsumowanie w pliku PDF
-
-Używając kodu zlecenia
-```http request
-GET /ezwm/document/info-zlecenia-pdf?zlec=T5-PC00013R-00000015&kod=88072198883
-Authorization: Bearer {{ token }}
 ```
-
-Używając numeru technicznego dokumentu:
-```http request
 GET /ezwm/document/info-zlecenia-pdf?zlec=T5-PC00013R-00000015&idTech=34519800000000000100007839
-Authorization: Bearer {{ token }}
 ```
 
-### Pobierz wydruk PDF
+#### Pobierz wydruk PDF
 
-Używając kodu zlecenia
-```http request
-GET /ezwm/document/zlecenia-pdf?zlec=T5-PC00013R-00000015&kod=88072198883
-Authorization: Bearer {{ token }}
 ```
-
-Używając numeru technicznego dokumentu:
-```http request
 GET /ezwm/document/zlecenia-pdf?zlec=T5-PC00013R-00000015&idTech=34519800000000000100007839
-Authorization: Bearer {{ token }}
 ```
 
-### Pobierz wydruk PDF bez weryfikacji
+#### Pobierz wydruk PDF bez weryfikacji
 
-Używając kodu zlecenia
-```http request
-GET /ezwm/document/zlecenia-bez-weryf-pdf?zlec=T5-PC00013R-00000015&kod=88072198883
-Authorization: Bearer {{ token }}
 ```
-
-Używając numeru technicznego dokumentu:
-```http request
 GET /ezwm/document/zlecenia-bez-weryf-pdf?zlec=T5-PC00013R-00000015&idTech=34519800000000000100007839
-Authorization: Bearer {{ token }}
 ```
 
 ### Anuluj dokument zlecenia
 
-```http request
-PUT /ezwm/document
-Authorization: Bearer {{ token }}
-Content-Type: application/xml
+Anulowanie dokumentu odbywa się za pomocą  endpoint, za pomocą któego przekazywane są dokumenty zlecenia. W tym przypadku należy przekazać dokument anulujący zlecenie, zgodny ze specyfikacją: ```https://ezwm.nfz.gov.pl/xml/e-zpo/dok-anulowania-zlec/v2.1```
 
+```
+PUT /ezwm/document
+```
+
+Przykład dokumentu:
+```
 <?xml version="1.0" encoding="UTF-8"?>
 <zlecenie xmlns="https://ezwm.nfz.gov.pl/xml/e-zpo/dok-anulowania-zlec/v2.1" nr-zlecenia-nfz="T5-PC00013R-00000052">
     <dane-anulowania data-anulowania="{{ today }}" tryb-anulowania="K" przyczyna="Bo tak.">
