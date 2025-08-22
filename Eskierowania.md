@@ -179,9 +179,10 @@ Poniżej przykładowa treść żądania skierowania do uzdrowiska:
   "id": "0000000000SKR00UZ00008",  // dokładnie 22 znakowy identyfikator dokumentu
   "date": "2025-07-01",
   "type": "02.10LU",  // typ dokumentu medycznego (patrz słownik)
-  "serviceMode": "TS",  // tryb realizacji świadczenia (patrz słownik)
+  "serviceMode": "TS",  // tryb realizacji skierowania (patrz słownik)
   "organization": "idabc",
   "practitioner": "idxyz",
+  "modeOfCommunication": "P"  // sposób korespondencji z pacjentem (P / E)
   "patient": {
     "identifier": [
       {
@@ -210,7 +211,7 @@ Poniżej przykładowa treść żądania skierowania do uzdrowiska:
     ],
     "address": [
       {
-        "use": "PST",  // określenie adresu do korespondencji (wymagane dla skierowania uzdrowiskowegom w przypadku korespondencji papierowej z pacjentem)
+        "use": "PST",  // określenie adresu jako "korespondencyjny" (wymagane dla skierowania uzdrowiskowego, w przypadku korespondencji papierowej z pacjentem)
         "street": "Wrocławska",
         "houseNumber": "11A",
         "unitId": "3",
@@ -289,7 +290,7 @@ Poniżej przykładowa treść żądania skierowania do uzdrowiska:
        "value": "nie"
      }
   ],
-  "reason": [
+  "reason": [    // powód wystawienia skierowania
   	 {
        "code": "ULA"
      },
@@ -371,7 +372,17 @@ Poniżej przykładowa treść żądania skierowania do uzdrowiska:
        "description": "Badanie z dnia 15 maja"
      }
   ],
-  "socialHistory": "Informacje o szkole..."
+  "socialHistory": "Informacje o szkole...",
+  "annotationComment": [   // dane przekazywane wyłącznie jeśli tryb realizacji skierowania = "TA"
+    {
+       "type": "Miejscowość",
+	   "value": "22-102 Busko Lecznicze"
+	},
+	{
+       "type": "Data",
+	   "value":  "Maj-Sierpień 2026"
+	}
+  ]
 }
 ```
 
