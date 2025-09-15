@@ -13,6 +13,7 @@ Kontakt: <integracja@medfile.pl>
    - [e-Recepta](Erecepta.md)
      - [Dawkowanie sekwencyjne \- Przykłady dawkowania dla recept 365](Erecepta365.md)
      - [Recepta na Wyroby Medyczne](EreceptaWM.md)
+     - [Recepta na import docelowy](EreceptaImportDocelowy.md)
    - [e-Skierowanie](Eskierowania.md)
    - [e-Zgody](Ezgody.md)
    - [Zdarzenia Medyczne](ZdarzeniaMedyczne.md)
@@ -35,6 +36,10 @@ Kontakt: <integracja@medfile.pl>
 
 ## Changelog
 
+### Zmiany w 2.3.7 z dnia 15.09.2025
+
+1. Opracowano receptę na import docelowy, dodano nową sekcję: [Recepta na import docelowy](EreceptaImportDocelowy.md)
+
 ### Zmiany w 2.3.6 z dnia 20.01.2025
 
 1. W ramach obsługi e-recepty dodano przekazywanie danych dodatkowych (receptaDaneDodatkoweMT): 
@@ -48,7 +53,7 @@ Kontakt: <integracja@medfile.pl>
      - dodano obsługę cykli
      - umożliwiono przekazanie "Informacji dla pacjenta"
      - rozszerzono obsługę "Kategorii dostępności leku"
-3. Nowa sekcja: [Recepta na Wyroby Medyczne](EreceptaWM.md)
+2. Nowa sekcja: [Recepta na Wyroby Medyczne](EreceptaWM.md)
    
 ### Zmiany w 2.3.4 z dnia 22.04.2024
 
