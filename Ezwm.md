@@ -28,13 +28,13 @@ Do komunikacji z NFZ w zakresie zleceń na wyroby medyczne wystarczy w tokenie u
 ### Sprawdź, czy ustawienia usługi są prawidłowe
 
 Wywołanie endpoint bez dodatkowych parametrów. Zwracana jest informacja o poprawnym przekazaniu parametrów do obsługi ezwm.
-```
+```http request
 GET /ezwm/checklogin
 ```
 
 ### Wyślij dokument eZWM
 Endpoint do przekazania NFZ dokumentu zlecenia na wyroby medyczne:
-```
+```http request
 PUT /ezwm/document
 ```
 Należy przekazać dokument zgodny ze specyfikacją:  ```https://ezwm.nfz.gov.pl/xml/e-zpo/dok-zlecenia/v2.1```
@@ -60,7 +60,7 @@ Przykładowy plik zlecenia na wyroby medyczne *(soczewki)*:
 
 ### Aktualizuj dokument eZWM - nowa wersja
 Endpoint umożliwiający aktualizację zlecenia w systemie NFZ:
-```
+```http request
 PUT /ezwm/document/{{ documentUuid }}/{{ versionNumber }}
 ```
 Przy poprawie należy przekazać nowy - poprawiony XML zlecenia.
@@ -84,7 +84,7 @@ Przy poprawie należy przekazać nowy - poprawiony XML zlecenia.
 
 ### Pobierz status dokumentu
 
-```
+```http request
 GET /ezwm/documentstatus?zlec=T5-PC00013R-00000014&pesel=88072198883
 ```
 
@@ -118,7 +118,7 @@ NFZ umożliwia pobranie różnych dokumentów dla osoby uprawnionej do wystawien
 **dok-info-zlecenia-pdf** - Druk informacyjny zlecenia elektronicznego w formacie pdf   
 
 Każdy z w/w elementów można pobrać używając endpoint:
-```
+```http request
 GET /ezwm/document/zlecenia?zlec=T5-PC00013R-00000015&idTech=34519800000000000100007839
 ```
 Do endpoint należy przekazać odpowiedni typ dokumentu: 
@@ -130,25 +130,25 @@ Do endpoint należy przekazać odpowiedni typ dokumentu:
 
 #### Pobierz wynik weryfikacji
 
-```
+```http request
 GET /ezwm/document/wynik-weryfikacji?zlec=T5-PC00013R-00000015&idTech=34519800000000000100007839
 ```
 
 #### Pobierz podsumowanie w pliku PDF
 
-```
+```http request
 GET /ezwm/document/info-zlecenia-pdf?zlec=T5-PC00013R-00000015&idTech=34519800000000000100007839
 ```
 
 #### Pobierz wydruk PDF
 
-```
+```http request
 GET /ezwm/document/zlecenia-pdf?zlec=T5-PC00013R-00000015&idTech=34519800000000000100007839
 ```
 
 #### Pobierz wydruk PDF bez weryfikacji
 
-```
+```http request
 GET /ezwm/document/zlecenia-bez-weryf-pdf?zlec=T5-PC00013R-00000015&idTech=34519800000000000100007839
 ```
 
@@ -156,7 +156,7 @@ GET /ezwm/document/zlecenia-bez-weryf-pdf?zlec=T5-PC00013R-00000015&idTech=34519
 
 Anulowanie dokumentu odbywa się za pomocą  endpoint, za pomocą któego przekazywane są dokumenty zlecenia. W tym przypadku należy przekazać dokument anulujący zlecenie, zgodny ze specyfikacją: ```https://ezwm.nfz.gov.pl/xml/e-zpo/dok-anulowania-zlec/v2.1```
 
-```
+```http request
 PUT /ezwm/document
 ```
 
