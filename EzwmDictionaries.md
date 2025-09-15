@@ -1,30 +1,34 @@
 # Usługa: Słowniki EZWM
+Słowniki używane podczas tworzenia dokumentu EZWM (oraz inne słowniki udostępniane przez NFZ znajdują się w zbiorze endpointów /dictionary/nfz.
+Każy z endpointów autoryzowany jest poprzez bearer.
+Poniżej przedstawiona jest lista endpointów wraz z opisem funkcjonalności.
 
 ### Wyszukiwanie wyrobów medycznych
-Wyszukiwanie wyrobów medycznych odbywa się za pomocą poniższego endpoint. 
+Wyszukiwanie wyrobów medycznych odbywa się za pomocą poniższego endpoint: 
 
 ```http request
-GET /nfz/wyroby_medyczne/S?search=&page=&limit=
-Authorization: Bearer {{ token }}
+GET /dictionary/nfz/wyroby_medyczne/S?search=&page=
 ```
 
 Parametry:
 - rodzaj wyrobu
     - S - wyrób medyczny
     - N - naprawa
-- filter:  *soczewki*  ???
+- ```search``` - wyszukiwanie po kod/nazwa
+- ```page``` - numer strony z wynikiem (domyślnie 1)
+- użycie ```&filter=soczewki``` umożliwi wyświetlenie w śród wyników wyłącznie soczewek
 
 
 #### Wyszukiwanie wyrobów rodzaju N - naprawa
 
 ```http request
-GET /nfz/wyroby_medyczne/N?search=P.100&page=&limit=
+GET /dictionary/nfz/wyroby_medyczne/N?search=A.03.01.N&page=
 ```
 
 #### Szukaj wyrobów dotyczących soczewek
 
 ```http request
-GET /nfz/wyroby_medyczne/S?search=&page=&limit=&filter=soczewki
+GET /dictionary/nfz/wyroby_medyczne/S?search=&page=&limit=&filter=soczewki
 ```
 
 ### Pokaż kryteria medyczne wg danego wyrobu medycznego
@@ -32,62 +36,57 @@ Endpoint zwraca kryteria medyczne potrzebne do uzupełnienia w ramach wystawiani
 Jako parametr należy wskazać kod wyrobu medycznego.
 
 ```http request
-GET /nfz/wyroby_medyczne/{{kod_wyrobu_medycznego}}/kryteria_medyczne
-Authorization: Bearer {{ token }}
+GET /dictionary/nfz/wyroby_medyczne/{{kod_wyrobu_medycznego}}/kryteria_medyczne
 ```
 
-Przykład - dla soczewek??   // powinno być kod produktu - np. P.101
+Poniższy przykład wyszukiwanie kryteriów dla produktu A.003 Proteza ostateczna w obrębie stawu skokowego z kikutem oporowym:
+
 ```http request
-GET /nfz/wyroby_medyczne/soczewki/kryteria_medyczne
-Authorization: Bearer {{ token }}
+GET /dictionary/nfz/wyroby_medyczne/A.003/kryteria_medyczne
 ```
 
 ## Dodatkowe słowniki do obsługi danych ubezpieczenia pacjenta
 ### Instytucje właściwe UE
 
 Wyszukiwanie instytucji właściwych.
-W przypadku kodu kraju - należy go wskazać w formacie ISO.
+Dostępne wyszukiwanie:
+- ```search``` - nazwa/kod instytucji
+- ```countrycode``` - kod kraju (w formacie ISO)
 
 ```http request
-GET /nfz/instytucje_wlasciwe_ue?search=&countrycode=
-Authorization: Bearer {{ token }}
+GET /dictionary/nfz/instytucje_wlasciwe_ue?search=&countrycode=
 ```
 
 #### Lista krajów dla zdefiniowanych instytucji właściwych UE
 
 ```http request
-GET /nfz/instytucje_wlasciwe_ue/kraje
-Authorization: Bearer {{ token }}
+GET /dictionary/nfz/instytucje_wlasciwe_ue/kraje
 ```
 
 ### Uprawnienia dodatkowe
-Endpoint umożliwia wyszukanie kodu uprawnienia dodatkowego używanego w ramach wniosków EZWM.
+Endpoint umożliwia wyszukanie kodu uprawnienia dodatkowego używanego w ramach wniosków na wyroby medyczne.
+
 ```http request
-GET /nfz/dodatkowe_uprawnienia?search=&page=&limit=
-Authorization: Bearer {{ token }}
+GET /dictionary/nfz/dodatkowe_uprawnienia?search=&page=&limit=
 ```
 
-### Typy dokumwntów dla wybranego uprawnienia dodatkowego -- sprawdzić
-Endpoint zwraca typy dokumentów potwierdzających wybrane uprawnienie przekazywane w request
+### Typy dokumentów dla wybranego uprawnienia dodatkowego
+Endpoint zwraca typy dokumentów potwierdzających wybrane uprawnienie możliwe do przekazania ze wskazanym uprawnieniem dodatkowym. 
+
 ```http request
-GET /nfz/dodatkowe_uprawnienia/typy_dokumentow
-Authorization: Bearer {{ token }}
+GET /dictionary/nfz/dodatkowe_uprawnienia/typy_dokumentow?dodatkowe_uprawnienie=
 ```
-
-niepotrzebne dla ezwm:
-
-
+---
+Dodatkowe endpointy, które nie są wymagane do wystawiania wniosków na zaopatrzenie:
 
 ### Pokaż listę grup uprawnień
 
 ```http request
-GET /nfz/dodatkowe_uprawnienia/grupy_uprawnien
-Authorization: Bearer {{ token }}
+GET /dictionary/nfz/dodatkowe_uprawnienia/grupy_uprawnien
 ```
 
 ### Pokaż listę obszarów stosowania
 
 ```http request
-GET /nfz/dodatkowe_uprawnienia/obszary_stosowania
-Authorization: Bearer {{ token }}
+GET /dictionary/nfz/dodatkowe_uprawnienia/obszary_stosowania
 ```
