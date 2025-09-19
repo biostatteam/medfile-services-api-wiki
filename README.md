@@ -1,6 +1,6 @@
 # Medfile Services API
 
-Wersja API: `2.3.3`
+Wersja API: `2.3.6`
 
 Kontakt: <integracja@medfile.pl>
 
@@ -11,6 +11,9 @@ Kontakt: <integracja@medfile.pl>
    - [Najczęściej zadawane pytania](FAQ.md)
 2. Usługi P1
    - [e-Recepta](Erecepta.md)
+     - [Dawkowanie sekwencyjne \- Przykłady dawkowania dla recept 365](Erecepta365.md)
+     - [Recepta na Wyroby Medyczne](EreceptaWM.md)
+     - [Recepta na import docelowy](EreceptaImportDocelowy.md)
    - [e-Skierowanie](Eskierowania.md)
    - [e-Zgody](Ezgody.md)
    - [Zdarzenia Medyczne](ZdarzeniaMedyczne.md)
@@ -34,6 +37,29 @@ Kontakt: <integracja@medfile.pl>
 8. [Asynchroniczna komunikacja](AsynchronousCommunication.md)
 
 ## Changelog
+
+### Zmiany w 2.3.7 z dnia 15.09.2025
+
+1. Opracowano receptę na import docelowy, dodano nową sekcję: [Recepta na import docelowy](EreceptaImportDocelowy.md)
+
+### Zmiany w 2.3.6 z dnia 20.01.2025
+
+1. W ramach obsługi e-recepty dodano przekazywanie danych dodatkowych (receptaDaneDodatkoweMT): 
+     - dodano element attributes w JSON
+
+
+### Zmiany w 2.3.5 z dnia 06.09.2024
+
+1. Rozszerzono szablony dawkowania (opis w sekcji [Schematy dawkowania recept](Erecepta365.md)):
+     - dodano obsługę przerw
+     - dodano obsługę cykli
+     - umożliwiono przekazanie "Informacji dla pacjenta"
+     - rozszerzono obsługę "Kategorii dostępności leku"
+2. Nowa sekcja: [Recepta na Wyroby Medyczne](EreceptaWM.md)
+   
+### Zmiany w 2.3.4 z dnia 22.04.2024
+
+1. Nowa sekcja: [Dawkowanie sekwencyjne \- Przykłady dawkowania dla recept 365](Erecepta365.md)
 
 ### Zmiany w 2.3.3 z dnia 04.10.2022
 

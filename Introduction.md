@@ -404,22 +404,33 @@ POST /services/p1/{organizationUuid}
 }
 ```
 
-## Ustawienia eWUŚ dla lekarza
+## Ustawienia eWUŚ dla użytkownika
 
 ```
 POST /services/ewus/{practitionerUuid}
 ```
 
+Przykładowa konfiguracja dla lekarza:
 ```json
 {
   "domain": "01",
-  "operatorType": "doctor",
-  "providerId": "abc123",
-  "doctorId": "abc321",
+  "operatorType": "LEK",
+  "identifier": "abc123",
   "username": "john",
   "password": "p4ssw0rd!"
 }
 ```
+Przykładowa konfiguracja dla świadczeniodawcy:
+```json
+{
+  "domain": "01",
+  "operatorType": "SWD",
+  "identifier": "T/11/040",
+  "username": "john",
+  "password": "p4ssw0rd!"
+}
+```
+
 
 1. `domain` - oddział NFZ
    - 01 - Dolnośląski
@@ -439,13 +450,15 @@ POST /services/ewus/{practitionerUuid}
    - 15 - Wielkopolski
    - 16 - Zachodniopomorski
    - 17 - Centrala
-1. `operatorType` - typ dostępu
-   - doctor - Lekarz
-   - provider - Świadczeniodawca
-1. `providerId` - identyfikator świadczeniodawcy (nadany w eWUŚ, nie mylić z NPWZ)
-1. `doctorId` - identyfikator lekarza (nadany w eWUŚ, nie mylić z NPWZ)
-1. `username` - nazwa użytkownika (nadany w eWUŚ, nie mylić z NPWZ)
+1. `operatorType` - typ operatora
+   - LEK - Lekarz
+   - SWD - Świadczeniodawca
+1. `identifier` - identyfikator świadczeniodawcy (nadany przez NFZ) lub identyfikator lekarza (SNRL)
+1. `username` - nazwa użytkownika (konto użytkownika założone w NFZ)
 1. `password` - hasło dostępowe dla użytkownika `username`
+
+Konfiguracja jest zależna od rodzaju operatora oraz od województwa. Oddziały wojewódzkie: 02,03,07,10,13,14,15,16 nie wymagają przekazywania identyfikatora świadczeniodawcy/lekarza.
+
 
 ## Ustawienie konta do wystawienia eZWM
 
@@ -469,6 +482,9 @@ POST /services/ezwm/{practitionerUuid}
 1. `identifier` - identyfikator świadczeniodawcy (nadany przez NFZ) lub identyfikator lekarza (SNRL)
 1. `username` - nazwa użytkownika (konto użytkownika założone w NFZ)
 1. `password` - hasło dostępowe dla użytkownika `username`
+
+Konfiguracja (podobnie jak eWUŚ) jest zależna od rodzaju operatora oraz od województwa. Oddziały wojewódzkie: 02,03,07,10,13,14,15,16 nie wymagają przekazywania identyfikatora świadczeniodawcy/lekarza.
+
 
 ## Ustawienie certyfikatu ZUS lekarza
 
