@@ -4,19 +4,25 @@
 
 > __Uwaga__
 >
-> Na środowisku testowym należy użyć konta utworzonego na koncie produkcyjnym. Nie ma możliwości utworzenia kont pracujących wyłącznie na środowisku produkcyjnym
+> Na środowisku testowym można użyć konta utworzonego na koncie produkcyjnym.
+> Możliwe jest też założenie w NFZ pełnego konta testowego.
 
 ### Informacje ogólne
 
 Do wystawienia zlecenia na środki pomocnicze potrzebny jest dostęp do słowników:
- - wyrobów medycznych i środków pomocniczych, a wraz z nim - dodatkowych słowników:
+ - wyrobów medycznych i środków pomocniczych, zawierającego oprócz kodów wyrobów - również słowników:
    - kryterium przyznania wyrobu
    - kryterium skrócenia okresu użytkownania
  - podstawy ubezpieczenia (dane pacjenta) - w przypadku potwierdzenia ubezpieczenia w inny sposób niż eWUŚ
  - uprawnień dodatkowych pacjenta
  - instytucji właściwych (dla pacjentów z unii europejskiej)
  - słownika ICD-10
-Utworzenie XMLa ze zleceniem lezy po stronie systemu dziedzinowego. API udostępnia potrzebne słowniki oraz endpointy służące do obsługi wniosku w NFZ.
+   
+Trasy obsługujące w/w słowniki zostały opisane na podstronach:
+ - [Słowniki](Dictionaries.md)
+ - [Słownik EZWM](EZWMDictionaries.md)
+   
+Utworzenie XMLa ze zleceniem EZWM leży po stronie systemu dziedzinowego. API udostępnia potrzebne słowniki oraz endpointy służące do obsługi wniosku w NFZ.
 
 Sposób tworzenia wniosku został opisany w dokumentacji znajdującej się na stronie NFZ pod adresem:
 https://www.nfz.gov.pl/dla-swiadczeniodawcy/sprawozdawczosc-elektroniczna/interfejsy-integracyjne/ezwm/
@@ -112,9 +118,9 @@ Dostępne statusy (dla wystawiającego zlecenie):
 ### Pobierz dokument zlecenia
 
 NFZ umożliwia pobranie różnych dokumentów dla osoby uprawnionej do wystawienia zlecenia. Do pobrania każdego z dokumnetów należy przekazać id-tech-dokumentu-nfz. Dokumenty możliwe do pobrania:  
-**dok-wynikweryfikacji** - Dokument z wynikiem weryfikacji zlecenia dla etapu Z (wynik przetwarzania dokumentu zlecenia)  
+**dok-wynikweryfikacji** - Dokument z wynikiem weryfikacji zlecenia  (wynik przetwarzania dokumentu zlecenia)  
 **dok-zlecenia-pdf** - Dokument zlecenia w formacie pdf – część I i II zlecenia (jeśli zlecenie zostało zweryfikowane przez system NFZ i jest dostępny wynik weryfikacji)  
-**dok-zlecenia** - Dokument zlecenia  
+**dok-zlecenia** - Dokument XML przesłangeo zlecenia  
 **dok-info-zlecenia-pdf** - Druk informacyjny zlecenia elektronicznego w formacie pdf   
 
 Każdy z w/w elementów można pobrać używając endpoint:
