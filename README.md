@@ -27,7 +27,7 @@ Kontakt: <integracja@medfile.pl>
 5. [Repozytorium XDS.b](XDSRepository.md)
 6. Usługi dodatkowe
    - [Baza leków](Dictionaries.md)
-   - [Słowniki dla eZWM](EzwmDictionaries.md) (dokumentacja w trakcie budowy)
+   - [Słowniki dla eZWM](EzwmDictionaries.md)
    - [Słownik ICD 10](Dictionaries.md#słownik-rozpoznań-icd-10)
    - [Słownik ICD 9](Dictionaries.md#słownik-procedur-medycznych-icd-9)
    - Snomed GPS (wkrótce)
