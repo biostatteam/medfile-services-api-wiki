@@ -459,6 +459,33 @@ Przykładowa konfiguracja dla świadczeniodawcy:
 
 Konfiguracja jest zależna od rodzaju operatora oraz od województwa. Oddziały wojewódzkie: 02,03,07,10,13,14,15,16 nie wymagają przekazywania identyfikatora świadczeniodawcy/lekarza.
 
+
+## Ustawienie konta do wystawienia eZWM
+
+```
+POST /services/ezwm/{practitionerUuid}
+```
+
+```json
+{
+  "domain": "01",
+  "operatorType": "SWD",
+  "identifier": "abc123",
+  "username": "john",
+  "password": "p4ssw0rd!"
+}
+```
+
+1. `operatorType` - typ operatora
+   - LEK - Lekarz
+   - SWD - Świadczeniodawca   
+1. `identifier` - identyfikator świadczeniodawcy (nadany przez NFZ) lub identyfikator lekarza (SNRL)
+1. `username` - nazwa użytkownika (konto użytkownika założone w NFZ)
+1. `password` - hasło dostępowe dla użytkownika `username`
+
+Konfiguracja (podobnie jak eWUŚ) jest zależna od rodzaju operatora oraz od województwa. Oddziały wojewódzkie: 02,03,07,10,13,14,15,16 nie wymagają przekazywania identyfikatora świadczeniodawcy/lekarza.
+
+
 ## Ustawienie certyfikatu ZUS lekarza
 
 ```
