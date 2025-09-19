@@ -15,6 +15,7 @@ Kontakt: <integracja@medfile.pl>
      - [Recepta na Wyroby Medyczne](EreceptaWM.md)
      - [Recepta na import docelowy](EreceptaImportDocelowy.md)
    - [e-Skierowanie](Eskierowania.md)
+     - [e-Skierowanie do uzdrowiska](Eskierowania.md#e-skierowanie-do-uzdrowiska)   
    - [e-Zgody](Ezgody.md)
    - [Zdarzenia Medyczne](ZdarzeniaMedyczne.md)
    - [Index EDM](XDSRepository.md)
@@ -39,6 +40,12 @@ Kontakt: <integracja@medfile.pl>
 ### Zmiany w 2.3.7 z dnia 15.09.2025
 
 1. Opracowano receptę na import docelowy, dodano nową sekcję: [Recepta na import docelowy](EreceptaImportDocelowy.md)
+2. Zaktualizowano skierowanie do uzdrowiska o nowe elementy wymagane przez e-zdrowie:
+     - Tryb realizacji
+     - Wskazanie Uzasadnienie skierowania
+     - Wskazanie dla trybu ambulatoryjnego miejscowości oraz terminu
+3. Rozszerzono obsługę recepty o receptę pielęgniarki/położnej wraz z typem "pro auctore" oraz "pro familiae"
+
 
 ### Zmiany w 2.3.6 z dnia 20.01.2025
 
