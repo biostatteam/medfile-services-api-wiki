@@ -22,7 +22,7 @@ Kontakt: <integracja@medfile.pl>
    - [Podpis XaDES](Signature.md)
 3. Usługi NFZ
    - [eWUŚ](Ewus.md)
-   - [eZWM](Ezwm.md) (dokumentacja w trakcie budowy)
+   - [eZWM](Ezwm.md)
 4. Usługi ZUS
    - [eZLA](Ezla.md)
 5. [Repozytorium XDS.b](XDSRepository.md)
