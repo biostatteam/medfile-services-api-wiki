@@ -456,20 +456,18 @@ POST /services/ezwm/{practitionerUuid}
 ```json
 {
   "domain": "01",
-  "operatorType": "doctor",
-  "providerId": "abc123",
-  "doctorId": "abc321",
+  "operatorType": "SWD",
+  "identifier": "abc123",
   "username": "john",
   "password": "p4ssw0rd!"
 }
 ```
 
-1. `operatorType` - typ dostępu
-   - doctor - Lekarz/Użytkownik/Operator
-   - provider - Świadczeniodawca
-1. `providerId` - identyfikator świadczeniodawcy (nadany w eZWM, nie mylić z NPWZ)
-1. `doctorId` - identyfikator lekarza (nadany w eZWM, nie mylić z NPWZ)
-1. `username` - nazwa użytkownika (nadany w eZWM, nie mylić z NPWZ)
+1. `operatorType` - typ operatora
+   - LEK - Lekarz
+   - SWD - Świadczeniodawca   
+1. `identifier` - identyfikator świadczeniodawcy (nadany przez NFZ) lub identyfikator lekarza (SNRL)
+1. `username` - nazwa użytkownika (konto użytkownika założone w NFZ)
 1. `password` - hasło dostępowe dla użytkownika `username`
 
 ## Ustawienie certyfikatu ZUS lekarza
