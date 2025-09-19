@@ -28,8 +28,8 @@ Kontakt: <integracja@medfile.pl>
 6. Usługi dodatkowe
    - [Baza leków](Dictionaries.md)
    - [Słowniki dla eZWM](EzwmDictionaries.md) (dokumentacja w trakcie budowy)
-   - Baza ICD 10 (dokumentacja w trakcie budowy)
-   - Baza ICD 9 (dokumentacja w trakcie budowy)
+   - [Słownik ICD 10](Dictionaries.md#słownik-rozpoznań-icd-10)
+   - [Słownik ICD 9](Dictionaries.md#słownik-procedur-medycznych-icd-9)
    - Snomed GPS (wkrótce)
 7. [Informacje dodatkowe](Tools.md)
    - [Interaktywna dokumentacja Swagger Open API 3.0.0](Tools.md#interaktywna-dokumentacja-swagger)
