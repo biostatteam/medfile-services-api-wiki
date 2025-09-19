@@ -1,8 +1,10 @@
-# Usługa: Baza leków
+# Usługa: Słowniki
 
-## Wyszukiwanie leków
+## Baza leków
 
-```
+### Wyszukiwanie leków
+
+```http request
 POST /dictionary/drug
 Content-Type: application/x-www-form-urlencoded
 Authorization: Bearer {{ bearer }}
@@ -74,34 +76,54 @@ Odpowiedź:
 ]
 ```
 
-## Dodawanie ulubionych leków
+### Dodawanie ulubionych leków
 
-```
-POST {{host}}/dictionary/drug/favourite/{{EAN}}
+```http request
+POST /dictionary/drug/favourite/{{EAN}}
 Authorization: Bearer {{ bearer }}
 ```
 
-## Usuwanie ulubionych leków
+### Usuwanie ulubionych leków
 
-```
+```http request
 DELETE /dictionary/drug/favourite/{{EAN}}
 Authorization: Bearer {{ bearer }}
 ```
 
 
-## Pobieranie listy ulubionych leków
+### Pobieranie listy ulubionych leków
 
-```
-GET {{host}}/dictionary/drug/favourite
+```http request
+GET /dictionary/drug/favourite
 Authorization: Bearer {{ bearer }}
 ```
 
-## Szukanie składników receptur
+### Szukanie składników receptur
 
-```
-POST {{host}}/dictionary/drug-ingredient
+```http request
+POST /dictionary/drug-ingredient
 Content-Type: application/x-www-form-urlencoded
 Authorization: Bearer {{ bearer }}
 
 term=Etanol
 ```
+
+## Słownik procedur medycznych ICD-9
+Międzynarodowa Klasyfikacja Procedur Medycznych, która jest używana do przypisywania kodów różnym procedurom medycznym dostępna w języku polskim oraz angielskim.  
+Wyszukiwanie dostępne jest za pomocą parametru: `term`
+
+```http request
+GET /dictionary/icd9/{lang}/search{term}
+Authorization: Bearer {{ bearer }}
+```
+
+
+## Słownik rozpoznań ICD-10
+Międzynarodowa Statystyczna Klasyfikacja Chorób i Problemów Zdrowotnych używana do określania jednostek chorobowych dostępna w języku polskim oraz angielskim. Słownik aktualizowany na bieżąco.  
+Wyszukiwanie dostępne jest za pomocą parametru: `term`
+
+```http request
+GET /dictionary/icd9/{lang}/search{term}
+Authorization: Bearer {{ bearer }}
+```
+
