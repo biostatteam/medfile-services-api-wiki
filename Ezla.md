@@ -1019,3 +1019,14 @@ Parametr:
 - `GET /ezla/listprocessedzla?sort_col[0]=DataWystawieniaZla&sort_order[0]=DESC&sort_col[1]=NumerZla&sort_order[1]=ASC`
 
 
+## Lista ZLA wystawionych dla pacjenta
+
+Umożliwia pobranie listy ZLA wystawionych dla pacjenta o wskazanym numerze PESEL.  
+
+Jako parametr - przekazywany jest numer `PESEL`
+Zwrotnie udostępniany jest JSON z listą L4 wystawionych pacjentowi.
+
+```
+GET /ezla/list/{pesel}
+```
+
