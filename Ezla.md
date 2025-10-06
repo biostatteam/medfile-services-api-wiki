@@ -323,8 +323,10 @@ GET /ezla/patient/{pesel}/payers/{issuer}
 
 Gdzie `{issuer}` to:
 - ZUS
-- KRUS
 - INNE_W_POLSCE
+
+W przypadku podania poniższych kodów - lista płatników będzie pusta:
+- KRUS
 - W_INNYM_PANSTWIE
 
 ### Prawidłowa odpowiedź
@@ -699,7 +701,7 @@ POST /ezla/send
         // 3 - inne osoby
     "date": null // null lub YYYY-MM-DD
   },
-  "payers": [{
+  "payers": [{    // nie podawane w przypadku gdy institution = KRUS lub W_INNYM_PANSTWIE
     "type": null, // 1 = nip, 2 = pesel, 3 = paszport
     "id": null // nip, pesel, paszport
   }],
