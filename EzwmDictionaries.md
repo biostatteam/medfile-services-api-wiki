@@ -64,14 +64,19 @@ GET /dictionary/nfz/instytucje_wlasciwe_ue/kraje
 ```
 
 ### Uprawnienia dodatkowe
-Endpoint umożliwia wyszukanie kodu uprawnienia dodatkowego używanego w ramach wniosków na wyroby medyczne.
+Endpoint umożliwia wyszukanie kodu uprawnienia dodatkowego używanego w ramach wniosków na wyroby medyczne.  
+
+Wyszukiwanie dostępne po:
+- ```search``` - nazwa/kod uprawnienia
+- ```area``` - umożliwia ograniczenie zwracanych kodów do odpowiedniego obszaru (ZPOSP/SWIAD)
 
 ```http request
 GET /dictionary/nfz/dodatkowe_uprawnienia?search=&page=&limit=
 ```
 
 ### Typy dokumentów dla wybranego uprawnienia dodatkowego
-Endpoint zwraca typy dokumentów potwierdzających wybrane uprawnienie możliwe do przekazania ze wskazanym uprawnieniem dodatkowym. 
+Endpoint zwraca typy dokumentów potwierdzających wybrane uprawnienie możliwe do przekazania ze wskazanym uprawnieniem dodatkowym.  
+Należy wskazać poprawny kod uprawnienia dodatkowego. 
 
 ```http request
 GET /dictionary/nfz/dodatkowe_uprawnienia/typy_dokumentow?dodatkowe_uprawnienie=
@@ -80,12 +85,14 @@ GET /dictionary/nfz/dodatkowe_uprawnienia/typy_dokumentow?dodatkowe_uprawnienie=
 Dodatkowe endpointy, które nie są wymagane do wystawiania wniosków na zaopatrzenie:
 
 ### Pokaż listę grup uprawnień
+Endpoint zwraca pełny słownik grup uprawnień udostępniony przez NFZ.
 
 ```http request
 GET /dictionary/nfz/dodatkowe_uprawnienia/grupy_uprawnien
 ```
 
 ### Pokaż listę obszarów stosowania
+Endpoint zwraca pełny słownik opszarów stosowania uprawnień dodatkowych udostępniony przez NFZ.
 
 ```http request
 GET /dictionary/nfz/dodatkowe_uprawnienia/obszary_stosowania
