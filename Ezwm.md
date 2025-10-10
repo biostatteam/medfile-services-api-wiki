@@ -64,12 +64,16 @@ Przykładowy plik zlecenia na wyroby medyczne *(soczewki)*:
 </zlecenie>
 ```
 
-### Aktualizuj dokument eZWM - nowa wersja
+### Aktualizuj dokument eZWM - przekazanie nowej wersji zlecenia
 Endpoint umożliwiający aktualizację zlecenia w systemie NFZ:
 ```http request
 PUT /ezwm/document/{{ documentUuid }}/{{ versionNumber }}
 ```
-Przy poprawie należy przekazać nowy - poprawiony XML zlecenia.
+Przy poprawie należy przekazać:
+- nowy - poprawiony XML zlecenia
+- uuid (będący wygenerowanym: *id-tech-dokumentu*)
+- version - kolejny nunmer wersji przekazywanego zlecenia
+
 ```
 <?xml version="1.0" encoding="UTF-8"?>
 <zlecenie xmlns="https://ezwm.nfz.gov.pl/xml/e-zpo/dok-zlecenia/v2.1" nr-zlecenia-nfz="T5-PC00013R-00000052">
@@ -102,7 +106,7 @@ GET /ezwm/documentstatus?zlec=T5-PC00013R-00000014&pesel=88072198883
 Authorization: Bearer {{ token }}
 ```
 
-Pobranie statusu za pomocą numeru technicznego dokumentu:
+Pobranie statusu za pomocą numeru technicznego dokumentu (*id-tech-dokumentu-nfz*):
 ```http request
 GET /ezwm/documentstatus?zlec=T5-PC00013R-00000015&idTech=34519800000000000100007839
 Authorization: Bearer {{ token }}
@@ -115,13 +119,17 @@ Dostępne statusy (dla wystawiającego zlecenie):
 **A – Anulowane** – dla zlecenia zarejestrowano dokument anulowania (w przypadku anulowania zlecenia na zaopatrzenie comiesięczne, nie może być zrealizowany żaden okres, którego zlecenie dotyczy)  
 **Z – Zlecenia ma zarejestrowaną i potwierdzoną realizację** (w przypadku zaopatrzenia comiesięcznego wszystkie okresy zlecenia są albo zrealizowane albo anulowano ich realizację, przy czym przy anulowaniu okresów realizacji, chociaż jeden okres zlecenia musi być zrealizowany)  
 
-### Pobierz dokument zlecenia
+### Pobierz dokument dot. zlecenia
 
-NFZ umożliwia pobranie różnych dokumentów dla osoby uprawnionej do wystawienia zlecenia. Do pobrania każdego z dokumnetów należy przekazać id-tech-dokumentu-nfz. Dokumenty możliwe do pobrania:  
-**dok-wynikweryfikacji** - Dokument z wynikiem weryfikacji zlecenia  (wynik przetwarzania dokumentu zlecenia)  
-**dok-zlecenia-pdf** - Dokument zlecenia w formacie pdf – część I i II zlecenia (jeśli zlecenie zostało zweryfikowane przez system NFZ i jest dostępny wynik weryfikacji)  
-**dok-zlecenia** - Dokument XML przesłangeo zlecenia  
-**dok-info-zlecenia-pdf** - Druk informacyjny zlecenia elektronicznego w formacie pdf   
+NFZ umożliwia pobranie różnych dokumentów dla osoby uprawnionej do wystawienia zlecenia.  
+Do pobrania każdego z dokumnetów należy przekazać:
+- numer zlecenia (*nr-zlecenia-nfz*)
+- idTech (*id-tech-dokumentu-nfz*)
+Dokumenty możliwe do pobrania (type):  
+**zlecenia** - Dokument XML przesłangeo zlecenia  
+**wynikweryfikacji** - Dokument z wynikiem weryfikacji zlecenia  (wynik przetwarzania dokumentu zlecenia)  
+**info-zlecenia-pdf** - Druk informacyjny zlecenia elektronicznego w formacie pdf   
+ 
 
 Każdy z w/w elementów można pobrać używając endpoint:
 ```http request
@@ -152,11 +160,6 @@ GET /ezwm/document/info-zlecenia-pdf?zlec=T5-PC00013R-00000015&idTech=3451980000
 GET /ezwm/document/zlecenia-pdf?zlec=T5-PC00013R-00000015&idTech=34519800000000000100007839
 ```
 
-#### Pobierz wydruk PDF bez weryfikacji
-
-```http request
-GET /ezwm/document/zlecenia-bez-weryf-pdf?zlec=T5-PC00013R-00000015&idTech=34519800000000000100007839
-```
 
 ### Anuluj dokument zlecenia
 
