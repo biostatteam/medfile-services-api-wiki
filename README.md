@@ -1,6 +1,6 @@
 # Medfile Services API
 
-Wersja API: `2.3.7`
+Wersja API: `2.3.8`
 
 Kontakt: <integracja@medfile.pl>
 
@@ -38,6 +38,10 @@ Kontakt: <integracja@medfile.pl>
 8. [Asynchroniczna komunikacja](AsynchronousCommunication.md)
 
 ## Changelog
+
+### Zmiany w 2.3.8 z dnia 15.10.2025
+
+1. Wprowadzono zmiany w ramach [obsługi MFA](Ewus.md#ewu%C5%9B-mfa) w usłudze eWUŚ 
 
 ### Zmiany w 2.3.7 z dnia 15.09.2025
 
