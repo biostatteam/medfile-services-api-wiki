@@ -1,13 +1,16 @@
 # Usługa: eWUŚ
 
-Usługa została utworzona przez NFZ. Umożliwia elektroniczą weryfikację uprawnienia pacjenta do bezpłatnych świadczeń zdrowotnych finansowanych przez NFZ.  
-Dzięki niemu można w kilka sekund wiążąco potwierdzić status ubezpieczenia pacjenta.
+Usługa eWUŚ (Elektroniczna Weryfikacja Uprawnień Świadczeniobiorców) została utworzona przez Narodowy Fundusz Zdrowia (NFZ). Umożliwia elektroniczą weryfikację uprawnienia pacjenta do bezpłatnych świadczeń zdrowotnych finansowanych przez NFZ.   
+Dzięki niemu można w kilka sekund wiążąco potwierdzić status ubezpieczenia pacjenta.  
 
 ## Sprawdzanie statusu pacjenta
 
-Do sprawdzenia statusu pacjenta należy skorzystać z poniższego endpoint. 
-Endpoint wykonuje automatyczne zalogowanie do usługi eWUŚ (bez użycia MFA). Jeśli użytkownik wymaga dodatkowej autoryzacji - należy przed sprawdzeniem statusu pacjenta wywołać logowanie z użyciem tokenu autoryzacyjnego.
-Po zalogowaniu - endpoint korzysta z sesji użytkownika. Jeśli sesja wygaśnie - endpoint zwróci błąd i należy wykonać logowanie użytkownika do usługi eWUŚ
+Aby sprawdzić status pacjenta, należy wywołać poniższy endpoint.  
+Endpoint automatycznie loguje użytkownika do usługi eWUŚ (bez użycia MFA).  
+Jeśli użytkownik wymaga dodatkowej autoryzacji, przed sprawdzeniem statusu pacjenta należy wykonać logowanie z użyciem tokenu autoryzacyjnego.  
+
+Po pomyślnym logowaniu endpoint korzysta z aktywnej sesji użytkownika.  
+W przypadku wygaśnięcia sesji zostanie zwrócony błąd – należy wówczas ponownie zalogować użytkownika do usługi eWUŚ.  
 
 ```http request
 GET /ewus/check/{pesel}
@@ -15,7 +18,7 @@ GET /ewus/check/{pesel}
 
 ### Nagłówki HTTP
 
-Do weryfikacji ubezpieczenia pacjenta wystarczy w tokenie umieścić specjalistę ze skonfigurowaną usługą eWUŚ (*practitioner*).
+Do weryfikacji ubezpieczenia pacjenta należy przesłać token dostępu zawierający specjalistę powiązanego z usługą eWUŚ (*practitioner*).  
 
 - Authorization: Bearer {JWT TOKEN}
 
@@ -49,9 +52,9 @@ Do weryfikacji ubezpieczenia pacjenta wystarczy w tokenie umieścić specjalist�
 ```
 
 ### Błąd logowania użytkownika
-W przypadku poniższej odpowiedzi należy wykonać ponowne zalogowanie użytkownika: 
-- podane parametry logowania są nieprawidłowe, lub
-- użytkownik wymaga tokenu autoryzującego
+W przypadku poniższej odpowiedzi należy ponownie zalogować użytkownika, ponieważ:  
+- podane parametry logowania są nieprawidłowe, lub  
+- wymagany jest token autoryzacyjny (MFA).  
 
 ```json
 {
@@ -69,14 +72,13 @@ W przypadku poniższej odpowiedzi należy wykonać ponowne zalogowanie użytkown
 
 ## Zmiana hasła użytkownika w eWUŚ
 
-Usługa eWUŚ pozwala na zmianę hasła użytkownika. Służy do tego poniższy endpoint.
+Usługa eWUŚ umożliwia zmianę hasła użytkownika za pomocą następującego endpointu:  
 
 ```http request
 POST /ewus/change_password
 ```
 
-Do zmiany hasła należy w tokenie umieścić specjalistę ze skonfigurowaną usługą eWUŚ (*practitioner*) oraz przekazać dane w JSON:
-
+W tokenie należy przekazać specjalistę powiązanego z usługą eWUŚ (practitioner), a w treści żądania dane w formacie JSON:  
 ```json
 {
   "old": "starehasło",
@@ -85,15 +87,19 @@ Do zmiany hasła należy w tokenie umieścić specjalistę ze skonfigurowaną us
 ```
 
 # eWUŚ MFA
-Od 17 listopada 2025 roku uwierzytelnienie w usłudze eWUŚ będzie możliwe jedynie z użyciem MFA. Jest to drugi etap wprowadzany przez NFZ. Do tej pory dodatkowe uwierzytelnienie potrzebne było do logowania do serwisów dostępnych z poziomu przeglądarki internetowej. Do zalogowania do usługi używane są te same tokeny, które generuje użytkownik podczas logowania do serwisu SZOI/Portal świadczeniodawcy (jak i innych serwisów NFZ, gdzie wymagane jest MFA).
+Od 17 listopada 2025 roku logowanie do eWUŚ będzie możliwe wyłącznie z wykorzystaniem uwierzytelnienia wieloskładnikowego (MFA).  
+Jest to drugi etap wdrożenia bezpieczeństwa przez NFZ.  
+Dotychczas MFA było wymagane jedynie dla serwisów dostępnych przez przeglądarkę internetową (np. SZOI/Portal Świadczeniodawcy).  
 
-Uwaga: 
-Usługa testowa NFZ czasem "gubi" sesje użytkownika. Jest to związane z brakiem współdzielenia danych autoryzacyjnych przez różne instancje usługi - stąd czasem sesje użytkownika wygasają wcześniej niż po 15 minutach.
+Do logowania do eWUŚ będą wykorzystywane te same tokeny, które użytkownicy generują przy logowaniu do serwisów NFZ obsługujących MFA.  
+
+> Uwaga:   
+> Usługa testowa NFZ okazjonalnie „gubi” dane sesyjne użytkowników. Wynika to z braku współdzielenia danych autoryzacyjnych między instancjami systemu — w konsekwencji sesje mogą wygasać szybciej niż po 15 minutach.  
 
 ## Logowanie użytkownika do usługi
 
-Wprowadzenie MFA wymaga jawnego wywołania logowania z podaniem tokenu autoryzacyjnego. Aby zalogować użytkownika do usługi NFZ należy skorzystać z poniższego endpoint.  
-Po zalogowaniu powstaje sesja, która jest aktywna 14minut. Po upływie tego czasu należy ponownie zalogować użytkownika. 
+W przypadku aktywnego MFA należy wykonać jawne logowanie, przekazując token autoryzacyjny.  
+Po zalogowaniu tworzona jest sesja ważna przez 14 minut. Po jej wygaśnięciu należy ponowić logowanie.  
 
 ```http request
 GET /ewus/login/{totp}
@@ -138,17 +144,18 @@ GET /ewus/login/{totp}
 }
 ```
 
-## Logowanie użytkownika do usługi
+## Wylogowanie z usługi
 
-Wraz z trasą służącą do zalogowania użytkownika wprowadzony został endpoint służący do wylogowania użytkownika. Endpoint ten wylogowuje z usługi NFZ oraz usuwa przechowywane dane sesji połączenia.
-Jego użycie może być wymagane w przypadku zmiany danych autoryzacyjnych do usługi (np. zmiana użytkownika).
-Endpoint jest bezparametrowy.
+Endpoint umożliwia wylogowanie użytkownika z usługi eWUŚ.  
+Usuwa dane sesyjne i kończy połączenie z NFZ.  
+Wylogowanie może być wymagane np. przy zmianie danych logowania (inny użytkownik).  
+Endpoint nie wymaga żadnych parametrów.  
 
 ```http request
 GET /ewus/logout
 ```
 
-## Odpowiedź pozytywna
+### Odpowiedź pozytywna
 ```json
 {
   "message": "",
