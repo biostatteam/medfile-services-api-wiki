@@ -1,14 +1,24 @@
 # Usługa: eWUŚ
 
+Usługa eWUŚ (Elektroniczna Weryfikacja Uprawnień Świadczeniobiorców) została utworzona przez Narodowy Fundusz Zdrowia (NFZ). Umożliwia elektroniczą weryfikację uprawnienia pacjenta do bezpłatnych świadczeń zdrowotnych finansowanych przez NFZ.   
+Dzięki niemu można w kilka sekund wiążąco potwierdzić status ubezpieczenia pacjenta.  
+
 ## Sprawdzanie statusu pacjenta
 
-```
+Aby sprawdzić status pacjenta, należy wywołać poniższy endpoint.  
+Endpoint automatycznie loguje użytkownika do usługi eWUŚ (bez użycia MFA).  
+Jeśli użytkownik wymaga dodatkowej autoryzacji, przed sprawdzeniem statusu pacjenta należy wykonać logowanie z użyciem tokenu autoryzacyjnego.  
+
+Po pomyślnym logowaniu endpoint korzysta z aktywnej sesji użytkownika.  
+W przypadku wygaśnięcia sesji zostanie zwrócony błąd – należy wówczas ponownie zalogować użytkownika do usługi eWUŚ.  
+
+```http request
 GET /ewus/check/{pesel}
 ```
 
 ### Nagłówki HTTP
 
-Do weryfikacji ubezpieczenia pacjenta wystarczy w tokenie umieścić specjalistę ze skonfigurowaną usługą eWUŚ (*practitioner*).
+Do weryfikacji ubezpieczenia pacjenta należy przesłać token dostępu zawierający specjalistę powiązanego z usługą eWUŚ (*practitioner*).  
 
 - Authorization: Bearer {JWT TOKEN}
 
@@ -41,12 +51,122 @@ Do weryfikacji ubezpieczenia pacjenta wystarczy w tokenie umieścić specjalist�
 }
 ```
 
+### Błąd logowania użytkownika
+W przypadku poniższej odpowiedzi należy ponownie zalogować użytkownika, ponieważ:  
+- podane parametry logowania są nieprawidłowe, lub  
+- wymagany jest token autoryzacyjny (MFA).  
+
+```json
+{
+  "message": "",
+  "body": {},
+  "error": [
+    {
+      "text": "Brak identyfikacji operatora. Podane parametry logowania są nieprawidłowe.",
+      "code": 401
+    }
+  ],
+  "raw": ""
+}
+```
+
 ## Zmiana hasła użytkownika w eWUŚ
 
-TODO
+Usługa eWUŚ umożliwia zmianę hasła użytkownika za pomocą następującego endpointu:  
 
-## Kody odpowiedzi
+```http request
+POST /ewus/change_password
+```
 
-1. `200` - Poprawna odpowiedź
-2. `403` - Brak uprawnień do wykonania polecenia
-3. `404` - Brak danych dla wybranego PESEL
+W tokenie należy przekazać specjalistę powiązanego z usługą eWUŚ (practitioner), a w treści żądania dane w formacie JSON:  
+```json
+{
+  "old": "starehasło",
+  "new": "nowehasło"
+}
+```
+
+# eWUŚ MFA
+Od 17 listopada 2025 roku logowanie do eWUŚ będzie możliwe wyłącznie z wykorzystaniem uwierzytelnienia wieloskładnikowego (MFA).  
+Jest to drugi etap wdrożenia bezpieczeństwa przez NFZ.  
+Dotychczas MFA było wymagane jedynie dla serwisów dostępnych przez przeglądarkę internetową (np. SZOI/Portal Świadczeniodawcy).  
+
+Do logowania do eWUŚ będą wykorzystywane te same tokeny, które użytkownicy generują przy logowaniu do serwisów NFZ obsługujących MFA.  
+
+> Uwaga:   
+> Usługa testowa NFZ okazjonalnie „gubi” dane sesyjne użytkowników. Wynika to z braku współdzielenia danych autoryzacyjnych między instancjami systemu — w konsekwencji sesje mogą wygasać szybciej niż po 15 minutach.  
+
+## Logowanie użytkownika do usługi
+
+W przypadku aktywnego MFA należy wykonać jawne logowanie, przekazując token autoryzacyjny.  
+Po zalogowaniu tworzona jest sesja ważna przez 14 minut. Po jej wygaśnięciu należy ponowić logowanie.  
+
+```http request
+GET /ewus/login/{totp}
+```
+
+### Odpowiedź pozytywna
+```json
+{
+  "message": "",
+  "body": {
+    "request": {
+      "password": "qwerty!@#",
+      "mfa_totp": " 111590",
+      "domain": "01",
+      "login": "TEST_MFA",
+      "operator_type": "SWD",
+      "operator_id": "123456789"
+    },
+    "session_id": "2BB91F34D3DF8193553F800671D128EC",
+    "token": "BSjm9A7_8rUuAu0yRfmaoH",
+    "login_code": "000",
+    "login_message": "Użytkownik został prawidłowo zalogowany."
+  },
+  "error": [],
+  "raw": "<?xml version='1.0' encoding='UTF-8'?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"><soapenv:Header><ns1:session xmlns:ns1=\"http://xml.kamsoft.pl/ws/common\" id=\"2BB91F34D3DF8193553F800671D128EC\" /><ns1:authToken xmlns:ns1=\"http://xml.kamsoft.pl/ws/common\" id=\"BSjm9A7_8rUuAu0yRfmaoH\" /></soapenv:Header><soapenv:Body><ns1:loginReturn xmlns:ns1=\"http://xml.kamsoft.pl/ws/kaas/login_types\">[000] U&amp;#380;ytkownik zosta&amp;#322; prawid&amp;#322;owo zalogowany.</ns1:loginReturn></soapenv:Body></soapenv:Envelope>"
+}
+```
+
+### Odpowiedź negatywna - błąd logowania użytkownika
+
+```json
+{
+  "message": "",
+  "body": {},
+  "error": [
+    {
+      "text": "Brak identyfikacji operatora. Podane parametry logowania są nieprawidłowe.",
+      "code": 401
+    }
+  ],
+  "raw": ""
+}
+```
+
+## Wylogowanie z usługi
+
+Endpoint umożliwia wylogowanie użytkownika z usługi eWUŚ.  
+Usuwa dane sesyjne i kończy połączenie z NFZ.  
+Wylogowanie może być wymagane np. przy zmianie danych logowania (inny użytkownik).  
+Endpoint nie wymaga żadnych parametrów.  
+
+```http request
+GET /ewus/logout
+```
+
+### Odpowiedź pozytywna
+```json
+{
+  "message": "",
+  "body": {
+    "request": {
+      "session_id": "D47547163779209D4F168EFE5F3F4CF9",
+      "token": "BS_pYhL6yuvsTUs8U2gkQG"
+    },
+    "logout_message": "Wylogowany"
+  },
+  "error": [],
+  "raw": "<?xml version='1.0' encoding='UTF-8'?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"><soapenv:Body><ns1:logoutReturn xmlns:ns1=\"http://xml.kamsoft.pl/ws/kaas/login_types\">Wylogowany</ns1:logoutReturn></soapenv:Body></soapenv:Envelope>"
+}
+```
