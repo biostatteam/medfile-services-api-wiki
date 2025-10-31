@@ -72,7 +72,7 @@ W przypadku poniższej odpowiedzi należy wykonać ponowne zalogowanie użytkown
 Usługa eWUŚ pozwala na zmianę hasła użytkownika. Służy do tego poniższy endpoint.
 
 ```http request
-GET /ewus/change_password
+POST /ewus/change_password
 ```
 
 Do zmiany hasła należy w tokenie umieścić specjalistę ze skonfigurowaną usługą eWUŚ (*practitioner*) oraz przekazać dane w JSON:
