@@ -78,7 +78,7 @@ Przykład poniżej:
 Poniżej przedstawiony jest przykład użycia obu elementów w jednej recepcie.
 
 
-### Treść żądania dla 1 recepty Rp w pakiecie
+### Treść żądania dla jednej recepty Rp w pakiecie
 
 ```json
 {
@@ -176,7 +176,7 @@ Poniżej przedstawiony jest przykład użycia obu elementów w jednej recepcie.
 }
 ```
 
-### Treść żądania dla 1 recepty Rp recepturowej
+### Treść żądania dla jednej recepty Rp recepturowej
 
 ```json
 {
@@ -225,32 +225,34 @@ Poniżej przedstawiony jest przykład użycia obu elementów w jednej recepcie.
         "name": "Receptura własna",
         "kdlek": "Rp",
         "payment": "100%",
-        "ingredient": [{
-          "name": "Sól",
-          "quantity": 10,
-          "unit": "ml",
-          "quantityPer": 100,
-          "unitPer": "g"
-        },{
-          "name": "Sól",
-          "annotation": "a"
-        },{
-          "name": "Calcii carbonas praecipitatus",
-          "code": "100009038",
-          "annotation": "ad q.s.",
-          "quantity": null,
-          "unit": "",
-          "quantityPer": null,
-          "unitPer": null
-        },{
-          "name": "Mocznik",
-          "code": "100020991",
-          "annotation": "ad",
-          "quantity": null,
-          "unit": "",
-          "quantityPer": null,
-          "unitPer": ""
-        }]
+        "ingredient": [
+          {
+            "name": "Sól",
+            "quantity": 10,
+            "unit": "ml",
+            "quantityPer": 100,
+            "unitPer": "g"
+          },{
+            "name": "Sól",
+            "annotation": "a"
+          },{
+            "name": "Calcii carbonas praecipitatus",
+            "code": "100009038",
+            "annotation": "ad q.s.",
+            "quantity": null,
+            "unit": "",
+            "quantityPer": null,
+            "unitPer": null
+          },{
+            "name": "Mocznik",
+            "code": "100020991",
+            "annotation": "ad",
+            "quantity": null,
+            "unit": "",
+            "quantityPer": null,
+            "unitPer": ""
+          }
+        ]
       },
       "kind": "ZW",
       "substanceAdminSubstitution": "N",
@@ -269,6 +271,26 @@ Poniżej przedstawiony jest przykład użycia obu elementów w jednej recepcie.
   ]
 }
 ```
+### Lek recepturowy, opisowy
+Dodano możliwość utworzenia recepty recepturowej w pełni opisowej.  
+Recepta taka zawiera jedynie treść receptury, bez żadnych składników. W takim przypadku - w JSON zamiast elementu `"ingredient"` przekazywany jest `"recipeIngredient"`,
+czyli w JSON - zamiast:
+```JSON
+        "ingredient": [
+          {"składnik-1"},
+          {"składnik-2"}
+        ]
+```
+pojawi się:
+
+ ```JSON
+        "recipeIngredients": [
+          "Mentholi Camphorae aa 0,05", 
+          "Iodi puri 0,01", 
+          "Paraffini liquidi ad 20,0"
+]
+```
+
 #### [Przykłady dawkowania dla recept zawierających szablony dawkowania](Erecepta365.md)
 #### [Opis budowy recepty na Wyroby Medyczne](EreceptaWM.md)
 
