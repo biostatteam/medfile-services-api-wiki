@@ -273,7 +273,7 @@ Poniżej przedstawiony jest przykład użycia obu elementów w jednej recepcie.
 ```
 ### Lek recepturowy, opisowy
 Dodano możliwość utworzenia recepty recepturowej w pełni opisowej.  
-Recepta taka zawiera jedynie treść receptury, bez żadnych składników. W takim przypadku - w JSON zamiast elementu `"ingredient"` przekazywany jest `"recipeIngredient"`,
+Recepta taka nie zawiera listy składników a jedynie treść receptury. W takim przypadku - w JSON recepty recepturowej zamiast elementu: `"ingredient"` należy przekazać element: `"recipeIngredient"`,
 czyli w JSON - zamiast:
 ```JSON
         "ingredient": [
