@@ -39,6 +39,10 @@ Kontakt: <integracja@medfile.pl>
 
 ## Changelog
 
+### Zmiany w 2.3.9 z dnia 17.11.2025
+
+1. Wprowadzono obsługę recepty na [recepturę opisową](Erecepta.md#lek-recepturowy-opisowy) (niewymagający użycia składników)
+   
 ### Zmiany w 2.3.8 z dnia 15.10.2025
 
 1. Wprowadzono zmiany w ramach [obsługi MFA](Ewus.md#ewu%C5%9B-mfa) w usłudze eWUŚ 
