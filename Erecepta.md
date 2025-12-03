@@ -231,14 +231,15 @@ Poniżej przedstawiony jest przykład użycia obu elementów w jednej recepcie.
             "quantity": 10,
             "unit": "ml",
             "quantityPer": 100,
-            "unitPer": "g"
+            "unitPer": "g",
+            "highDoseAlert": true    // znacznik przekroczenia dobowej dawki leku
           },{
             "name": "Sól",
             "annotation": "a"
           },{
             "name": "Calcii carbonas praecipitatus",
             "code": "100009038",
-            "annotation": "ad q.s.",
+            "annotation": "q.s.",
             "quantity": null,
             "unit": "",
             "quantityPer": null,
@@ -281,7 +282,7 @@ czyli w JSON - zamiast:
           {"składnik-2"}
         ]
 ```
-pojawi się:
+należy podać:
 
  ```JSON
         "recipeIngredients": [
