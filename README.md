@@ -1,6 +1,6 @@
 # Medfile Services API
 
-Wersja API: `2.3.9`
+Wersja API: `2.3.10`
 
 Kontakt: <integracja@medfile.pl>
 
@@ -39,6 +39,10 @@ Kontakt: <integracja@medfile.pl>
 8. [Asynchroniczna komunikacja](AsynchronousCommunication.md)
 
 ## Changelog
+
+### Zmiany w 2.3.10 z dnia 01.12.2025
+
+1. Na leku recepturowym wprowadzono obsługę [przekroczenia dopuszczalnej dawki dobowej](Erecepta.md#tre%C5%9B%C4%87-%C5%BC%C4%85dania-dla-jednej-recepty-rp-recepturowej) 
 
 ### Zmiany w 2.3.9 z dnia 17.11.2025
 
