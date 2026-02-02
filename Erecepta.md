@@ -137,7 +137,6 @@ Poniżej przedstawiony jest przykład użycia obu elementów w jednej recepcie.
         "quantity": 60.0, // ilość leku w opakowaniu
         "unit": "tabl." // opcjonalne (domyślnie szt.)
       },
-
       "activeSubstance": [ // opcjonalne
         {
           "name": "Oxycodon", // opcjonalne gdy podano ilość substancji
@@ -146,12 +145,10 @@ Poniżej przedstawiony jest przykład użycia obu elementów w jednej recepcie.
         }
       ]
     },
-
     "kind": "PF", // PA - proauctore, PF - profamiliae, ZW - zwykła (domyślnie)
     "issueMode": "Z", // Z -Zwykła, F - Farmaceutyczna, P - Pielęgniarska, PL - Pielęgniarska na zlecenie lekarza
-    "substanceAdminSubstitution": "N", // Nie pozwalaj na zamienniki
-    "priorityCode": "UR", // CITO opcjonalne
-
+    "substanceAdminSubstitution": "N", // Nie pozwalaj na zamienniki - element przekazywany opcjonalnie
+    "priorityCode": "UR", // CITO  - element przekazywany opcjonalne
     "dosageInstruction": "1x1 przed snem", // dawkowanie, minimum 3 znaki w formacie 1x1, w innych formatach dowolnie
     "dispenseRequest": {
         "quantity": 1.0, // ile opakowań/unit wydać
