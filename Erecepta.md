@@ -269,6 +269,10 @@ Poniżej przedstawiony jest przykład użycia obu elementów w jednej recepcie.
   ]
 }
 ```
+### Data wystawienia recepty
+Umożliwiono przekazanie daty wystawienia w formacie z czasem: RRRR-MM-DDTHH:MM:SS. 
+Nadal dopuszczalne jest przekazanie wyłącznie daty.
+
 ### Lek recepturowy, opisowy
 Dodano możliwość utworzenia recepty recepturowej w pełni opisowej.  
 Recepta taka nie zawiera listy składników a jedynie treść receptury. W takim przypadku - w JSON recepty recepturowej zamiast elementu: `"ingredient"` należy przekazać element: `"recipeIngredient"`,
