@@ -87,6 +87,7 @@ Poniżej przedstawiony jest przykład użycia obu elementów w jednej recepcie.
     "date": "2020-08-31",
     "type": "prepared", // prepared - gotowy lek, recipe - receptura własna, product - wyrób medyczny
     "organization": "idabc", // uuid
+    "organizationRoot": "idroot", // uuid - opcjonalnie - dodatkowe dane podmiotu leczniczego
     "practitioner": "idxyz", // uuid
     "patient": {
       "identifier": [
@@ -281,6 +282,28 @@ W elemencie `date` umożliwiono przekazanie daty wystawienia w formacie z czasem
 }
 ```
 _Nadal dopuszczalne jest przekazanie wyłącznie daty._
+
+### Rozszerzone dane podmiotu
+Podając dodatkowy element `organizationRoot` można rozszerzyć przekazywane do P1 dane podmiotu o:
+- nazwę
+- adres
+- telefon
+- REGON
+- NIP
+
+Sposób dodania nowej organizacji opisany został w [tutaj](Introduction.md#dane-podmiotu-leczniczego---organizationroot)
+
+```json
+{
+  "erecepta": [
+    {
+      "id": "0000000000000000025326",
+      "date": "2026-04-20T10:02:00",
+      "organization": "uuid organizacji",
+      "organizationRoot": "uuid organizacjiRoot",
+...
+}
+```
 
 ### Lek recepturowy, opisowy
 Dodano możliwość utworzenia recepty recepturowej w pełni opisowej.  
