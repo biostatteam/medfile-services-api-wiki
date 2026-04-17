@@ -270,8 +270,17 @@ Poniżej przedstawiony jest przykład użycia obu elementów w jednej recepcie.
 }
 ```
 ### Data wystawienia recepty z czasem
-Umożliwiono przekazanie daty wystawienia w formacie z czasem: RRRR-MM-DDTHH:MM:SS. 
-Nadal dopuszczalne jest przekazanie wyłącznie daty.
+W elemencie `date` umożliwiono przekazanie daty wystawienia w formacie z czasem: `RRRR-MM-DDTHH:MM:SS`.   
+```json
+{
+  "erecepta": [
+    {
+      "id": "0000000000000000025326",
+      "date": "2026-04-20T10:02:00",
+...
+}
+```
+_Nadal dopuszczalne jest przekazanie wyłącznie daty._
 
 ### Lek recepturowy, opisowy
 Dodano możliwość utworzenia recepty recepturowej w pełni opisowej.  
