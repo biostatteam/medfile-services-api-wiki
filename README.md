@@ -42,6 +42,14 @@ Kontakt: <integracja@medfile.pl>
 
 ## Changelog
 
+### Zmiany w 2.3.11 z dnia 20.04.2026
+
+1. W danych _organizacji_ dodano możliwosć przekazania:
+    - nazwy zakładu
+    - danych jednostki organizacyjnej w strukturze w organizacji będącej komórką organizacyjną
+2. Umożliwono przekazanie [czasu wystawienia recepy](Erecepta.md#data-wystawienia-recepty-z-czasem)
+3. W dokumentach CDA (skierowanie/repta) umożliwiono przekazanie [pełnych danych podmiotu leczniczego](Introduction.md#dane-podmiotu-leczniczego---organizationroot) (adres, telefon).  
+
 ### Zmiany w 2.3.10 z dnia 01.12.2025
 
 1. Na leku recepturowym wprowadzono obsługę [przekroczenia dopuszczalnej dawki dobowej](Erecepta.md#tre%C5%9B%C4%87-%C5%BC%C4%85dania-dla-jednej-recepty-rp-recepturowej) 
