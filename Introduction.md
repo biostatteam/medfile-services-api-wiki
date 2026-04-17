@@ -44,8 +44,7 @@ Nieprawidłowo podpisany token będzie skutkował odpowiedzią HTTP: `401` - Bra
 
 # Organizacja - podmiot lub praktyka
 
-Organizacją nazywamy dowolny podmiot medyczny lub praktykę lekarską.
-
+Organizacją nazywamy dowolne miejsce świadczneia usług w ramach podmiotu medycznego lub praktyki lekarskiej.
 Do pracy z Medfile API wymagane jest utworzenie przynajmniej jednej organizacji, która będzie używana we właściwych usługach w tym np. erecepta.
 
 ## Tworzenie nowej organizacji
@@ -62,12 +61,12 @@ PUT /organization/
          "value": "000000792087"
       },
       {
-         // Tylko dla jednostki podmiotu
+         // Tylko dla podmiotów medycznych, można przekazać wraz z danymi komórki
          "type": "rpwdlUnit",
          "value": "01"
       },
       {
-         // Tylko dla jednostki podmiotu
+         // Tylko dla podmiotów medycznych, można przekazać wraz z danymi komórki
          "type": "unitName",
          "value": "Szpital nr 1"
       },
@@ -80,6 +79,11 @@ PUT /organization/
          // Tylko dla komórki podmiotu
          "type": "cellName",
          "value": "Ogólna izba przyjęć"
+      },
+      {
+         // Tylko dla podmiotów medycznych
+         "type": "instituteName",
+         "value": "Nazwa zakładu mojego"
       },
       {
          // Tylko dla praktyki lekarskiej
@@ -104,12 +108,12 @@ PUT /organization/
          "value": "2.16.840.1.113883.3.4424.2.7.67"
       },
       {
-         // Specjalizacja organizacji
+         // Specjalizacja komórki organizacyjnej
          "type": "speciality",
          "value": "Poradnia neurologiczna"
       },
       {
-         // Specjalizacja organizacji (VIII cz. kodu resortowego)
+         // Specjalizacja komórki organizacyjnej (VIII cz. kodu resortowego)
          "type": "specialityCode",
          "value": "1220"
       }
@@ -141,6 +145,56 @@ PUT /organization/
    }
 }
 ```
+### Dane organizacji zostały rozszerzone - dodano możliwość:
+- przekazania nazwy zakładu leczniczego w ramach miejsca wykonania podmiotu medycznego
+- przekazywania w strukturze danych jednostki organizacyjnej w przypadku organizacji będącej komórką organizacyjną  
+- przekazania pełnych danych adresowych podmiotu leczniczego - jako organizationRoot
+
+### Dane podmiotu leczniczego - organizationRoot
+API umożliwia przekazanie pełnych danych podmiotu leczniczego - w tym celu należy utworzyć nową organizację (będącą podmiotem) i przekazać ją w jako element w JSON dokumentu recepty lub skierowania.
+Jego dane ograniczone są do pozycji określających podmiot, czyli:
+- nazwy
+- numeru REGON
+- numeru NIP
+- telefonu
+- adresu podmiotu
+
+Przykładowy element organizationRoot (pochodny organization)
+```json
+{
+   "name": "BioStat Sp. z o.o.",
+   "identifier": [
+      {
+         "type": "regon",
+         "value": "24154444300004"
+      },
+      {
+         "type": "nip",
+         "value": "6391001234"
+      }
+   ],
+   "telecom": [
+      {
+         "value": "+48131231230"
+      }
+   ],
+   "address": [
+      {
+         "street": "ul. Dubois",
+         "city": "Warszawa",
+         "postalCode": "00-184",
+         "country": "pl",
+         "houseNumber": "5A",
+         "unitId": "13"
+      }
+   ]
+}
+```
+
+Element ten nie jest wymagany. 
+- Jeśli nie zostanie przekazany w JSON konkretnego dokumentu - dane podmiotu jak do tej pory przekazywane są z organizacji (ograniczone do nazwy i numeru NIP).
+- Jeśli zostanie przekazany w JSON konkretnego dokumentu - dane podmiotu uzupełniane są na podstawie elementu.
+
 
 # Specjalista - użytkownik korzystający z usług w Medfile API
 
