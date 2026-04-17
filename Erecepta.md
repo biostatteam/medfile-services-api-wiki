@@ -269,7 +269,7 @@ Poniżej przedstawiony jest przykład użycia obu elementów w jednej recepcie.
   ]
 }
 ```
-### Data wystawienia recepty
+### Data wystawienia recepty z czasem
 Umożliwiono przekazanie daty wystawienia w formacie z czasem: RRRR-MM-DDTHH:MM:SS. 
 Nadal dopuszczalne jest przekazanie wyłącznie daty.
 
