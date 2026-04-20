@@ -291,7 +291,8 @@ Podając dodatkowy element `organizationRoot` można rozszerzyć przekazywane do
 - REGON
 - NIP
 
-Sposób dodania nowej organizacji opisany został w [tutaj](Introduction.md#dane-podmiotu-leczniczego---organizationroot)
+Sposób dodania nowej organizacji typu _Podmiot_ opisany został dziale [Introduction](Introduction.md#dane-podmiotu-leczniczego---organizationroot).  
+Ponizej przedstawiono sposób wywołania w dokumencie CDA.
 
 ```json
 {
