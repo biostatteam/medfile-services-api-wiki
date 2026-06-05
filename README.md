@@ -47,9 +47,9 @@ Kontakt: <integracja@medfile.pl>
 1. W danych _organizacji_ dodano możliwosć przekazania:
     - nazwy zakładu
     - danych jednostki organizacyjnej w strukturze w organizacji będącej komórką organizacyjną
-2. Umożliwiono przekazanie [czasu wystawienia recepy](Erecepta.md#data-wystawienia-recepty-z-czasem)
+2. Umożliwiono przekazanie [czasu wystawienia recepty](Erecepta.md#data-wystawienia-recepty-z-czasem)
 3. Umożliwiono definicję [pełnych danych podmiotu leczniczego](Introduction.md#dane-podmiotu-leczniczego---organizationroot) (adres, telefon).  
-4. W dokumentach CDA (skierowanie/repta) umożliwiono przekazanie [rozszerzonych danych podmiotu leczniczego](Erecepta.md#rozszerzone-dane-podmiotu)) (adres, telefon).  
+4. W dokumentach CDA (skierowanie/repta) umożliwiono przekazanie [rozszerzonych danych podmiotu leczniczego](Erecepta.md#rozszerzone-dane-podmiotu) (adres, telefon).  
 
 ### Zmiany w 2.3.10 z dnia 01.12.2025
 
