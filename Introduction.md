@@ -148,10 +148,10 @@ PUT /organization/
 ### Dane organizacji zostały rozszerzone - dodano możliwość:
 - przekazania nazwy zakładu leczniczego w ramach miejsca wykonania podmiotu medycznego
 - przekazywania w strukturze danych jednostki organizacyjnej w przypadku organizacji będącej komórką organizacyjną  
-- przekazania pełnych danych adresowych podmiotu leczniczego - jako organizationRoot
+- przekazania pełnych danych adresowych podmiotu leczniczego - zawartych w dodatkowym elemencie `organization` powiązanym z `organizacją` za pomocą elementu `partOf`
 
-### Dane podmiotu leczniczego - organizationRoot
-API umożliwia przekazanie pełnych danych podmiotu leczniczego - w tym celu należy utworzyć nową organizację (będącą podmiotem) i przekazać ją w jako element w JSON dokumentu recepty lub skierowania.
+### Dane podmiotu leczniczego - organization typu Podmiot
+API umożliwia przekazanie pełnych danych podmiotu leczniczego - w tym celu należy utworzyć nową organizację (opisującą podmiot) i dodać do niej referencję w elemencie organization - (bedącym miejscem wystawienia dokumentu) za pomocą elemementu partOf (uuid)
 Jego dane ograniczone są do pozycji określających podmiot, czyli:
 - nazwy
 - numeru REGON
@@ -159,7 +159,7 @@ Jego dane ograniczone są do pozycji określających podmiot, czyli:
 - telefonu
 - adresu podmiotu
 
-Przykładowy element organizationRoot (pochodny organization)
+Przykładowy element organization (opisujący podmiot)
 ```json
 {
    "name": "BioStat Sp. z o.o.",
@@ -191,10 +191,27 @@ Przykładowy element organizationRoot (pochodny organization)
 }
 ```
 
-Element ten nie jest wymagany. 
-- Jeśli nie zostanie przekazany w JSON konkretnego dokumentu - dane podmiotu jak do tej pory przekazywane są z organizacji (ograniczone do nazwy i numeru NIP).
-- Jeśli zostanie przekazany w JSON konkretnego dokumentu - dane podmiotu uzupełniane są na podstawie elementu.
+Wskazanie referencji w organization będącej komórką organizacyjną / jednostką organizacyjną:
+```json
+{
+   "name": "Poradnia POZ",
+   "identifier": [
+      {
+         "type": "regon",
+         "value": "24154444300004"
+      },
+      ...
+   ],
+   "partOf": {
+      "reference": "b94a7ff1-50b4-4192-8e43-ab7558328a57"  // wskazanie referencji do orgarnization będącej podmiotem
+   }
+}
+```
 
+Element ten nie jest wymagany. 
+- Jeśli nie zostanie powiązany w referencji w przekazanej do dokumentu organizacji - dane podmiotu będą przekazane jak do tej pory (ograniczone do nazwy i numeru NIP).
+- Jeśli zostanie powiązany w referencji w przekazanej w dokumencie organizacji - dane podmiotu uzupełniane są na podstawie elementu.
+  
 
 # Specjalista - użytkownik korzystający z usług w Medfile API
 
