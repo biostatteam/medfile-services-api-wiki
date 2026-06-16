@@ -87,7 +87,6 @@ Poniżej przedstawiony jest przykład użycia obu elementów w jednej recepcie.
     "date": "2020-08-31",
     "type": "prepared", // prepared - gotowy lek, recipe - receptura własna, product - wyrób medyczny
     "organization": "idabc", // uuid
-    "organizationRoot": "idroot", // uuid - opcjonalnie - dodatkowe dane podmiotu leczniczego
     "practitioner": "idxyz", // uuid
     "patient": {
       "identifier": [
@@ -284,7 +283,7 @@ W elemencie `date` umożliwiono przekazanie daty wystawienia w formacie z czasem
 _Nadal dopuszczalne jest przekazanie wyłącznie daty._
 
 ### Rozszerzone dane podmiotu
-Podając dodatkowy element `organizationRoot` można rozszerzyć przekazywane do P1 dane podmiotu o:
+Dodając dodatkowy element `organization` - który będzie opisem podmiotu medycznego - można rozszerzyć przekazywane do P1 dane podmiotu. Dane takiej organizacji zawierać mogą:
 - nazwę
 - adres
 - telefon
@@ -292,7 +291,7 @@ Podając dodatkowy element `organizationRoot` można rozszerzyć przekazywane do
 - NIP
 
 Sposób dodania nowej organizacji typu _Podmiot_ opisany został dziale [Introduction](Introduction.md#dane-podmiotu-leczniczego---organizationroot).  
-Ponizej przedstawiono sposób wywołania w dokumencie CDA.
+Sposób wywołania w dokumencie CDA nie ulega zmianie.
 
 ```json
 {
@@ -301,7 +300,6 @@ Ponizej przedstawiono sposób wywołania w dokumencie CDA.
       "id": "0000000000000000025326",
       "date": "2026-04-20T10:02:00",
       "organization": "uuid organizacji",
-      "organizationRoot": "uuid organizacjiRoot",
 ...
 }
 ```
