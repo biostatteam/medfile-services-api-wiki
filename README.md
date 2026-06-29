@@ -42,7 +42,7 @@ Kontakt: <integracja@medfile.pl>
 
 ## Changelog
 
-### Zmiany w 2.3.11 z dnia 20.04.2026
+### Zmiany w 2.3.11 z dnia 22.06.2026
 
 1. W danych _organizacji_ dodano możliwosć przekazania:
     - nazwy zakładu
