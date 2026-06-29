@@ -203,7 +203,7 @@ Wskazanie referencji w organization będącej komórką organizacyjną / jednost
       ...
    ],
    "partOf": {
-      "reference": "b94a7ff1-50b4-4192-8e43-ab7558328a57"  // wskazanie referencji do orgarnization będącej podmiotem
+      "reference": "b94a7ff1-50b4-4192-8e43-ab7558328a57"  // wskazanie referencji do organization będącej podmiotem
    }
 }
 ```
