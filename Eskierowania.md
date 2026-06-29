@@ -155,7 +155,7 @@ Przykładowa treść żądania:
     }
   ],
   "observation": "Temperatura ciała: 36,6 <sup>o</sup>C<br/>\nCiśnienie krwi: 140/90",
-  // opcjonalne
+  // opcjonalne - wyłącznie dla "type": "02.10REH"
   "priorityCode": "UR",
   // Cito - opcjonalne
   "performer": "Poradnia Otolaryngologiczna",

@@ -269,6 +269,41 @@ Poniżej przedstawiony jest przykład użycia obu elementów w jednej recepcie.
   ]
 }
 ```
+### Data wystawienia recepty z czasem
+W elemencie `date` umożliwiono przekazanie daty wystawienia w formacie z czasem: `RRRR-MM-DDTHH:MM:SS`.   
+```json
+{
+  "erecepta": [
+    {
+      "id": "0000000000000000025326",
+      "date": "2026-04-20T10:02:00",
+...
+}
+```
+_Nadal dopuszczalne jest przekazanie wyłącznie daty._
+
+### Rozszerzone dane podmiotu
+Dodając dodatkowy element `organization` - który będzie opisem podmiotu medycznego - można rozszerzyć przekazywane do P1 dane podmiotu. Dane takiej organizacji zawierać mogą:
+- nazwę
+- adres
+- telefon
+- REGON
+- NIP
+
+Sposób dodania nowej organizacji typu _Podmiot_ opisany został dziale [Introduction](Introduction.md#dane-podmiotu-leczniczego---organizationroot).  
+Sposób wywołania w dokumencie CDA nie ulega zmianie.
+
+```json
+{
+  "erecepta": [
+    {
+      "id": "0000000000000000025326",
+      "date": "2026-04-20T10:02:00",
+      "organization": "uuid organizacji",
+...
+}
+```
+
 ### Lek recepturowy, opisowy
 Dodano możliwość utworzenia recepty recepturowej w pełni opisowej.  
 Recepta taka nie zawiera listy składników a jedynie treść receptury. W takim przypadku - w JSON recepty recepturowej zamiast elementu: `"ingredient"` należy przekazać element: `"recipeIngredient"`,
