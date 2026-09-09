@@ -5,11 +5,8 @@ Dzięki niemu można w kilka sekund wiążąco potwierdzić status ubezpieczenia
 
 ## Sprawdzanie statusu pacjenta
 
-Aby sprawdzić status pacjenta, należy wywołać poniższy endpoint.  
-Endpoint automatycznie loguje użytkownika do usługi eWUŚ (bez użycia MFA).  
-Jeśli użytkownik wymaga dodatkowej autoryzacji, przed sprawdzeniem statusu pacjenta należy wykonać logowanie z użyciem tokenu autoryzacyjnego.  
-
-Po pomyślnym logowaniu endpoint korzysta z aktywnej sesji użytkownika.  
+Aby sprawdzić status pacjenta, należy wywołać wcześniej wywołać endpoint `/ewus/login` służący do zalogowania.
+Po pomyślnym zalogowaniu endpoint korzysta z aktywnej sesji użytkownika.  
 W przypadku wygaśnięcia sesji zostanie zwrócony błąd – należy wówczas ponownie zalogować użytkownika do usługi eWUŚ.  
 
 ```http request
