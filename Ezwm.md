@@ -210,9 +210,9 @@ Przykład dokumentu:
 ```
 
 # eZWM MFA
-Od 17 listopada 2025 roku logowanie do usług NFZ (w tym eZWM) będzie możliwe wyłącznie z wykorzystaniem uwierzytelnienia wieloskładnikowego (MFA).  
+Od IV kwartału 2026 roku logowanie do usługi eZWM w NFZ będzie możliwe wyłącznie z wykorzystaniem uwierzytelnienia wieloskładnikowego (MFA).  
 Jest to drugi etap wdrożenia bezpieczeństwa przez NFZ.  
-Dotychczas MFA było wymagane jedynie dla serwisów dostępnych przez przeglądarkę internetową (np. SZOI/Portal Świadczeniodawcy).  
+Dotychczas MFA było wymagane jedynie dla serwisów dostępnych przez przeglądarkę internetową (np. SZOI/Portal Świadczeniodawcy czy eWUŚ).  
 
 Do logowania do eZWM wykorzystywane są te same tokeny, które użytkownicy generują przy logowaniu do serwisów NFZ obsługujących MFA.  
 
