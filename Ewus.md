@@ -1,17 +1,17 @@
 # Usługa: eWUŚ
 
-Usługa eWUŚ (Elektroniczna Weryfikacja Uprawnień Świadczeniobiorców) została utworzona przez Narodowy Fundusz Zdrowia (NFZ). Umożliwia elektroniczą weryfikację uprawnienia pacjenta do bezpłatnych świadczeń zdrowotnych finansowanych przez NFZ.   
-Dzięki niemu można w kilka sekund wiążąco potwierdzić status ubezpieczenia pacjenta.  
+Usługa eWUŚ (Elektroniczna Weryfikacja Uprawnień Świadczeniobiorców) została utworzona przez Narodowy Fundusz Zdrowia (NFZ). Umożliwia elektroniczną weryfikację uprawnienia pacjenta do bezpłatnych świadczeń zdrowotnych finansowanych przez NFZ.  
+Dzięki niej można w kilka sekund wiążąco potwierdzić status ubezpieczenia pacjenta.  
 
 ## Sprawdzanie statusu pacjenta
-
-Aby sprawdzić status pacjenta, należy wywołać wcześniej wywołać endpoint `/ewus/login` służący do zalogowania.
-Po pomyślnym zalogowaniu endpoint korzysta z aktywnej sesji użytkownika.  
-W przypadku wygaśnięcia sesji zostanie zwrócony błąd – należy wówczas ponownie zalogować użytkownika do usługi eWUŚ.  
 
 ```http request
 GET /ewus/check/{pesel}
 ```
+
+Aby sprawdzić status pacjenta, należy wcześniej wywołać endpoint `/ewus/login/{totp}` służący do zalogowania (patrz: [Logowanie użytkownika do usługi](#logowanie)).  
+Po pomyślnym zalogowaniu endpoint korzysta z aktywnej sesji użytkownika.  
+W przypadku wygaśnięcia sesji zostanie zwrócony [błąd braku sesji](#brak-sesji) – należy wówczas ponownie zalogować użytkownika do usługi eWUŚ.  
 
 ### Nagłówki HTTP
 
@@ -48,10 +48,11 @@ Do weryfikacji ubezpieczenia pacjenta należy przesłać token dostępu zawieraj
 }
 ```
 
-### Błąd logowania użytkownika
-W przypadku poniższej odpowiedzi należy ponownie zalogować użytkownika, ponieważ:  
-- podane parametry logowania są nieprawidłowe, lub  
-- wymagany jest token autoryzacyjny (MFA).  
+<a id="brak-sesji"></a>
+
+### Brak aktywnej sesji użytkownika
+Poniższa odpowiedź jest zwracana przez endpointy eWUŚ (poza logowaniem), gdy użytkownik nie jest zalogowany do usługi lub jego sesja wygasła.  
+Należy wówczas ponownie zalogować użytkownika z użyciem nowego kodu TOTP (patrz: [Logowanie użytkownika do usługi](#logowanie)).
 
 ```json
 {
@@ -59,7 +60,7 @@ W przypadku poniższej odpowiedzi należy ponownie zalogować użytkownika, poni
   "body": {},
   "error": [
     {
-      "text": "Brak identyfikacji operatora. Podane parametry logowania są nieprawidłowe.",
+      "text": "Brak sesji operatora. Wymagane ponowne zalogowanie.",
       "code": 401
     }
   ],
@@ -75,7 +76,10 @@ Usługa eWUŚ umożliwia zmianę hasła użytkownika za pomocą następującego 
 POST /ewus/change_password
 ```
 
-W tokenie należy przekazać specjalistę powiązanego z usługą eWUŚ (practitioner), a w treści żądania dane w formacie JSON:  
+Zmiana hasła wymaga aktywnej sesji użytkownika - przed wywołaniem endpointu należy zalogować użytkownika do usługi (patrz: [Logowanie użytkownika do usługi](#logowanie)).  
+W przypadku braku sesji zwracany jest [błąd braku sesji](#brak-sesji).  
+
+W tokenie należy przekazać specjalistę powiązanego z usługą eWUŚ (*practitioner*), a w treści żądania dane w formacie JSON:  
 ```json
 {
   "old": "starehasło",
@@ -83,49 +87,58 @@ W tokenie należy przekazać specjalistę powiązanego z usługą eWUŚ (practit
 }
 ```
 
+<a id="ewus-mfa"></a>
+
 # eWUŚ MFA
-Od 17 listopada 2025 roku logowanie do eWUŚ będzie możliwe wyłącznie z wykorzystaniem uwierzytelnienia wieloskładnikowego (MFA).  
-Jest to drugi etap wdrożenia bezpieczeństwa przez NFZ.  
-Dotychczas MFA było wymagane jedynie dla serwisów dostępnych przez przeglądarkę internetową (np. SZOI/Portal Świadczeniodawcy).  
+Od 17 listopada 2025 roku logowanie do eWUŚ jest możliwe wyłącznie z wykorzystaniem uwierzytelnienia wieloskładnikowego (MFA).  
+Jest to drugi etap wdrożenia zabezpieczeń przez NFZ.  
+Wcześniej MFA było wymagane jedynie dla serwisów dostępnych przez przeglądarkę internetową (np. SZOI/Portal Świadczeniodawcy).  
 
-Do logowania do eWUŚ będą wykorzystywane te same tokeny, które użytkownicy generują przy logowaniu do serwisów NFZ obsługujących MFA.  
+Do logowania do eWUŚ wykorzystywane są te same tokeny, które użytkownicy generują przy logowaniu do serwisów NFZ obsługujących MFA.  
 
-> Uwaga:   
-> Usługa testowa NFZ okazjonalnie „gubi” dane sesyjne użytkowników. Wynika to z braku współdzielenia danych autoryzacyjnych między instancjami systemu — w konsekwencji sesje mogą wygasać szybciej niż po 15 minutach.  
+eWUŚ i eZWM to w NFZ odrębne systemy, dlatego dla każdej z usług tworzona jest osobna sesja i wymagane jest osobne logowanie.  
+Sesje są przechowywane po stronie API - przez cały okres ważności sesji (14 minut) użytkownik nie musi ponawiać logowania.  
+
+> Uwaga:  
+> Usługa testowa NFZ okazjonalnie „gubi” dane sesyjne użytkowników. Wynika to z braku współdzielenia danych autoryzacyjnych między instancjami systemu — w konsekwencji sesje mogą wygasać przed upływem 14 minut.  
+
+## Zalecany przebieg pracy
+
+1. Zalogowanie użytkownika do usługi z użyciem kodu TOTP: `GET /ewus/login/{totp}`.
+2. Wywoływanie operacji eWUŚ (sprawdzenie statusu pacjenta, zmiana hasła) w ramach aktywnej sesji.
+3. Po otrzymaniu [błędu braku sesji](#brak-sesji) (sesja wygasła lub została utracona) - ponowne zalogowanie z nowym kodem TOTP i powtórzenie operacji.
+4. Opcjonalnie - wylogowanie: `GET /ewus/logout` (nie jest wymagane, sesja wygasa automatycznie).
+
+Kod TOTP może zostać podany przez użytkownika albo wygenerowany automatycznie przez system dziedzinowy (własny generator kodów TOTP). Automatyczne generowanie pozwala na ponowne logowanie bez udziału użytkownika.
+
+<a id="logowanie"></a>
 
 ## Logowanie użytkownika do usługi
-
-W przypadku aktywnego MFA należy wykonać jawne logowanie, przekazując token autoryzacyjny.  
-Po zalogowaniu tworzona jest sesja ważna przez 14 minut. Po jej wygaśnięciu należy ponowić logowanie.  
 
 ```http request
 GET /ewus/login/{totp}
 ```
+
+W przypadku aktywnego MFA należy wykonać jawne logowanie, przekazując token autoryzacyjny (kod TOTP).  
+Po zalogowaniu tworzona jest sesja ważna przez 14 minut. Po jej wygaśnięciu należy ponowić logowanie.  
 
 ### Odpowiedź pozytywna
 ```json
 {
   "message": "",
   "body": {
-    "request": {
-      "password": "qwerty!@#",
-      "mfa_totp": " 111590",
-      "domain": "01",
-      "login": "TEST_MFA",
-      "operator_type": "SWD",
-      "operator_id": "123456789"
-    },
     "session_id": "2BB91F34D3DF8193553F800671D128EC",
     "token": "BSjm9A7_8rUuAu0yRfmaoH",
     "login_code": "000",
     "login_message": "Użytkownik został prawidłowo zalogowany."
   },
   "error": [],
-  "raw": "<?xml version='1.0' encoding='UTF-8'?><soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\"><soapenv:Header><ns1:session xmlns:ns1=\"http://xml.kamsoft.pl/ws/common\" id=\"2BB91F34D3DF8193553F800671D128EC\" /><ns1:authToken xmlns:ns1=\"http://xml.kamsoft.pl/ws/common\" id=\"BSjm9A7_8rUuAu0yRfmaoH\" /></soapenv:Header><soapenv:Body><ns1:loginReturn xmlns:ns1=\"http://xml.kamsoft.pl/ws/kaas/login_types\">[000] U&amp;#380;ytkownik zosta&amp;#322; prawid&amp;#322;owo zalogowany.</ns1:loginReturn></soapenv:Body></soapenv:Envelope>"
+  "raw": ""
 }
 ```
 
 ### Odpowiedź negatywna - błąd logowania użytkownika
+Zwracana, gdy podane parametry logowania (w tym kod TOTP) są nieprawidłowe.
 
 ```json
 {
@@ -143,14 +156,14 @@ GET /ewus/login/{totp}
 
 ## Wylogowanie z usługi
 
-Endpoint umożliwia wylogowanie użytkownika z usługi eWUŚ.  
-Usuwa dane sesyjne i kończy połączenie z NFZ.  
-Wylogowanie może być wymagane np. przy zmianie danych logowania (inny użytkownik).  
-Endpoint nie wymaga żadnych parametrów.  
-
 ```http request
 GET /ewus/logout
 ```
+
+Endpoint umożliwia wylogowanie użytkownika z usługi eWUŚ.  
+Usuwa dane sesyjne i kończy połączenie z NFZ.  
+Wylogowanie nie jest wymagane (sesja wygasa automatycznie po 14 minutach), ale może być potrzebne np. przy zmianie danych logowania (inny użytkownik).  
+Endpoint nie wymaga żadnych parametrów.  
 
 ### Odpowiedź pozytywna
 ```json
