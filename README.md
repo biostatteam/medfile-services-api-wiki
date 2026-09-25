@@ -2,7 +2,7 @@
 
 # Medfile Services API
 
-Wersja API: `2.3.11`
+Wersja API: `2.3.12`
 
 Kontakt: <integracja@medfile.pl>
 
@@ -42,6 +42,10 @@ Kontakt: <integracja@medfile.pl>
 
 ## Changelog
 
+### Zmiany w 2.3.12 z dnia ??
+
+1. Wprowadzono zmiany w ramach [obsługi MFA](Ezwm.md#ezwm-mfa) w usłudze eZWM
+  
 ### Zmiany w 2.3.11 z dnia 22.06.2026
 
 1. W danych _organizacji_ dodano możliwosć przekazania:
