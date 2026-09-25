@@ -20,7 +20,7 @@ Do wystawienia zlecenia na środki pomocnicze potrzebny jest dostęp do słownik
 
 Trasy obsługujące w/w słowniki zostały opisane na podstronach:
  - [Słowniki](Dictionaries.md)
- - [Słownik EZWM](EZWMDictionaries.md)
+ - [Słownik EZWM](EzwmDictionaries.md)
 
 Utworzenie XML-a ze zleceniem EZWM leży po stronie systemu dziedzinowego. API udostępnia potrzebne słowniki oraz endpointy służące do obsługi wniosku w NFZ.
 
@@ -34,7 +34,9 @@ Do komunikacji z NFZ w zakresie zleceń na wyroby medyczne wystarczy w tokenie u
 W przypadku aktywnego MFA przed wywołaniem pozostałych endpointów należy zalogować użytkownika do usługi eZWM (patrz: [eZWM MFA](#ezwm-mfa)). Kolejne wywołania korzystają z aktywnej sesji użytkownika.
 
 ### Sprawdź, czy ustawienia usługi są prawidłowe
-
+```http request
+GET /ezwm/checklogin
+```
 > __Uwaga__
 >
 > Endpoint jest przestarzały (*deprecated*) i zostanie usunięty w kolejnych wersjach API.
@@ -42,9 +44,7 @@ W przypadku aktywnego MFA przed wywołaniem pozostałych endpointów należy zal
 
 Wywołanie endpointu bez dodatkowych parametrów. Zwracana jest informacja o poprawnym przekazaniu parametrów do obsługi eZWM oraz o stanie sesji użytkownika (czy użytkownik jest zalogowany do usługi, a sesja jest aktywna).  
 W przypadku braku aktywnej sesji zwracany jest [błąd braku sesji](#brak-aktywnej-sesji-użytkownika) - należy wówczas zalogować użytkownika do usługi eZWM.
-```http request
-GET /ezwm/checklogin
-```
+
 
 ### Brak aktywnej sesji użytkownika
 Poniższa odpowiedź jest zwracana przez endpointy eZWM (poza logowaniem), gdy użytkownik nie jest zalogowany do usługi lub jego sesja wygasła.  
