@@ -2,7 +2,7 @@
 
 # Medfile Services API
 
-Wersja API: `2.3.11`
+Wersja API: `2.3.12`
 
 Kontakt: <integracja@medfile.pl>
 
@@ -26,6 +26,7 @@ Kontakt: <integracja@medfile.pl>
    - [eWUŚ](Ewus.md)
      - [uwierzytelnianie wieloskładnikowe MFA](Ewus.md#ewu%C5%9B-mfa)
    - [eZWM](Ezwm.md)
+     - [uwierzytelnianie wieloskładnikowe MFA](Ezwm.md#ezwm-mfa)
 4. Usługi ZUS
    - [eZLA](Ezla.md)
 5. [Repozytorium XDS.b](XDSRepository.md)
@@ -42,6 +43,10 @@ Kontakt: <integracja@medfile.pl>
 
 ## Changelog
 
+### Zmiany w 2.3.12 obecne na serwerze dev
+
+1. Wprowadzono zmiany w ramach [obsługi MFA](Ezwm.md#ezwm-mfa) w usłudze eZWM
+  
 ### Zmiany w 2.3.11 z dnia 22.06.2026
 
 1. W danych _organizacji_ dodano możliwosć przekazania:
