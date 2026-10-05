@@ -26,6 +26,7 @@ Kontakt: <integracja@medfile.pl>
    - [eWUŚ](Ewus.md)
      - [uwierzytelnianie wieloskładnikowe MFA](Ewus.md#ewu%C5%9B-mfa)
    - [eZWM](Ezwm.md)
+     - [uwierzytelnianie wieloskładnikowe MFA](Ezwm.md#ezwm-mfa)
 4. Usługi ZUS
    - [eZLA](Ezla.md)
 5. [Repozytorium XDS.b](XDSRepository.md)
@@ -42,7 +43,7 @@ Kontakt: <integracja@medfile.pl>
 
 ## Changelog
 
-### Zmiany w 2.3.12 z dnia ??
+### Zmiany w 2.3.12 obecne na serwerze dev
 
 1. Wprowadzono zmiany w ramach [obsługi MFA](Ezwm.md#ezwm-mfa) w usłudze eZWM
   
