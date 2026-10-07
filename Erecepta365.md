@@ -6,7 +6,7 @@ Schemat dawkowania jest **wymagany** dla recept objętych nadzorem kuracji P1:
 - recepty rocznej (365),
 - recepty zwykłej refundowanej.
 
-Schematów można używać również na pozostałych receptach, z wyjątkiem recept wyłączonych spod nadzoru kuracji (patrz niżej).
+Schematów można używać również na pozostałych receptach. Na receptach wyłączonych spod nadzoru kuracji schemat nie jest wymagany, a czasu trwania kuracji (`duration`) nie można podawać (patrz niżej).
 
 Podanie czasu trwania kuracji (`duration`) oznacza receptę do nadzoru P1. P1 waliduje taką receptę i wylicza limity ilości leku do wydania – maksymalnie na 120 dni kuracji. Lek na kolejny okres kuracji może zostać wydany nie wcześniej niż po upływie ¾ poprzedniego okresu.
 
@@ -33,9 +33,11 @@ Taka recepta zostanie odrzucona przez P1 (`REG.WER.13314`). Wyjątkiem jest lek 
 
 ## Elementy schematu dawkowania
 
-1. **Cykle dawkowania** – element `"dosageRepeat"` powtarza kurację opisaną w schematach. Wartość oznacza liczbę **dodatkowych** powtórzeń (domyślnie `0`).
+1. **Cykle dawkowania** – element `"dosageRepeat"` (na poziomie recepty, obok `dosage`) powtarza kurację opisaną w schematach. Wartość oznacza liczbę **dodatkowych** powtórzeń (domyślnie `0`).
 2. **Przerwy w kuracji** – sekwencja z wartością `0` w `"doseQuantity"`/`"quantity"` oznacza przerwę w dawkowaniu.
-3. **Informacja dla pacjenta** – przy schematach dawkowania przekazywana w elemencie `"infoForPatient"`. Element stosowany jest zamiennie z `"dosageInstruction"`, który przekazuje się na receptach bez schematów dawkowania.
+3. **Podsekwencje** – sekwencję można doprecyzować zagnieżdżoną tablicą `"dosage"`. Sekwencja nadrzędna określa `duration` i `period`, a każda podsekwencja – dawkę i porę przyjęcia (`"when"`, np. `MORN` – rano, `EVE` – wieczorem, `ICV` – pomiędzy kolacją a porą snu).
+4. **Zakres dawki** – zamiast stałej dawki (`"doseQuantity"`) można podać zakres od–do (`"doseRange"` z `low` i `high`).
+5. **Informacja dla pacjenta** – przy schematach dawkowania przekazywana w elemencie `"infoForPatient"`. Element stosowany jest zamiennie z `"dosageInstruction"`, który przekazuje się na receptach bez schematów dawkowania.
 
 ## Kodowanie leku na recepcie (słownik → `medication`)
 
@@ -45,23 +47,18 @@ Dane leku integrator uzupełnia na podstawie słownika leków dla wybranego opak
 |---|---|
 | `name` | nazwa produktu |
 | `code` | kod producenta |
-| `ean` | kod EAN opakowania handlowego |
+| `ean` | kod EAN |
 | `kdlek` | kategoria dostępności (Rp, Rpw, Rpz, OTC) |
-| `payment` | odpłatność |
-| `package` | pojemność nadopakowania (patrz niżej) |
+| `payment` | odpłatność – wybierana przez lekarza spośród poziomów dostępnych dla leku i wskazania (`indicationsJson[].paymentLevel`, `reimbursementPrices`) |
+| `package` | pojemność opakowania (patrz niżej) |
 | `superContent` | nadopakowanie (patrz niżej) |
 
 ### Opakowanie i nadopakowanie (`package`, `superContent`)
 
-Lek na recepcie opisują dwa poziomy opakowania:
-- **opakowanie handlowe** – opakowanie z kodem EAN, które wydaje apteka (liczone w `dispenseRequest.quantity`),
-- **nadopakowanie** – opakowanie bezpośrednio stykające się z lekiem, np. blister, ampułka, butelka, saszetka.
+- `package` – pojemność opakowania,
+- `superContent` – nadopakowanie: liczba i rodzaj opakowań; mnoży pojemność podaną w `package`.
 
-Pola na recepcie:
-- `package` – pojemność jednego nadopakowania (ilość leku w jednej ampułce, butelce itp.),
-- `superContent` – liczba i rodzaj nadopakowań w opakowaniu handlowym.
-
-Ilość leku w opakowaniu handlowym = `package.quantity` × `superContent.quantity`, np. Zibor: 0.2 ml × 10 amp.-strzyk. = 2 ml.
+Ilość leku = `package.quantity` × `superContent.quantity`, np. Zibor: 0.2 ml × 10 amp.-strzyk. = 2 ml.
 
 Na tej podstawie P1 sprawdza, czy ilość leku wynikająca z liczby opakowań na recepcie odpowiada ilości wyliczonej ze schematu dawkowania.
 
@@ -74,9 +71,13 @@ Dane pochodzą z elementu `packages` słownika leków:
 | `superContent.quantity` | `packageCount` (brak → `1`) |
 | `superContent.unit` | `packageType` (brak → `""`) |
 
-Jeśli słownik nie zawiera pojemności (`packageVolume`), a zawiera liczbę i rodzaj nadopakowań, to:
-- `package` = liczba i rodzaj nadopakowań (`packageCount` + `packageType`),
+Jeśli słownik nie zawiera pojemności (`packageVolume`), a zawiera liczbę i rodzaj opakowań, to:
+- `package` = liczba i rodzaj opakowań (`packageCount` + `packageType`),
 - `superContent` = `1` bez jednostki.
+
+**Brak danych w `packages`** – jeśli pola w elemencie `packages` w słowniku są puste, należy skorzystać z opisu słownego z elementu `package` w słowniku i samodzielnie rozdzielić go na `package` i `superContent`, np. „10 amp.-strzyk. 0,2 ml” → `package`: `0.2 ml`, `superContent`: `10 amp.-strzyk.`.
+
+Należy pamiętać, że `"packages": null` wskazuje na lek spoza słownika RPL (e-zdrowie) – w takim przypadku dawkowanie strukturalne jest opcjonalne.
 
 Przykłady:
 
@@ -94,7 +95,7 @@ Przykłady:
   "ean": "05909990039296",
   "kdlek": "Rp",
   "payment": "100%",
-  "package": {         // pojemność jednego nadopakowania
+  "package": {         // pojemność opakowania
     "quantity": 0.2,   // packageVolume
     "unit": "ml"       // packageVolumeUnit
   },
@@ -112,7 +113,7 @@ Dla części leków słownik zawiera jednostki alternatywne (element `alternativ
 | Pole w słowniku | Znaczenie |
 |---|---|
 | `packageUnit` | jednostka, w której można podać dawkę |
-| `packageQuantity` | liczba tych jednostek w opakowaniu handlowym |
+| `packageQuantity` | liczba tych jednostek w opakowaniu |
 
 Dawkę (`doseQuantity` / `doseRange`) można podać w:
 1. jednostce opakowania (`package.unit`, np. `sasz.`),
@@ -134,7 +135,7 @@ Przykład – opakowanie 90 saszetek, z których każda zawiera plaster:
 
 ## Jednostki
 
-- **Czas** (`duration`, `period`): `h`, `d`, `wk`, `mo`.
+- **Czas** (`duration`, `period`): `h`, `d`, `wk`, `mo`. Przy wyliczaniu limitów P1 przyjmuje `mo` = 30 dni.
 - **Częstotliwość**: `period` + `frequency`, np. „co 8 h” = `period: 8 h, frequency: 1`; „3× dziennie” = `period: 24 h, frequency: 3`.
 - **Dawka** (`doseQuantity`, `doseRange`): w jednostce zgodnej z opakowaniem (np. `tabl.`, `kropl.`, `sasz.`) lub w jednostce alternatywnej. Ułamki tabletek zapisuje się dziesiętnie: 1/3 → `0.33333`, 2/3 → `0.66666`, „X i 1/3” → `X.33333`.
 - **Ilość do wydania** (`dispenseRequest.quantity`) musi pokrywać ilość leku wyliczoną ze schematu dawkowania.
@@ -197,7 +198,7 @@ Przykład – opakowanie 90 saszetek, z których każda zawiera plaster:
       "kdlek": "Rp", // Rp, Rpw, Rpz, OTC
       "payment": "100%", // opcjonalne (domyślnie 100%) R, B, 30%, 50%, 100%
       "package": {
-        "quantity": 24, // pojemność nadopakowania (packageVolume)
+        "quantity": 24, // pojemność opakowania (packageVolume)
         "unit": "tabl." // packageVolumeUnit
       },
       "superContent": { // nadopakowanie
@@ -225,12 +226,12 @@ Przykład – opakowanie 90 saszetek, z których każda zawiera plaster:
     "kind": "PF", // PA - proauctore, PF - profamiliae, ZW - zwykła (domyślnie)
     "issueMode": "Z", // Z - zwykła, F - farmaceutyczna, P - pielęgniarska, PL - pielęgniarska na zlecenie lekarza
     "substanceAdminSubstitution": "N", // nie pozwalaj na zamienniki
-    "priorityCode": "UR", // CITO, opcjonalne
+    "priorityCode": "UR", // znacznik CITO, opcjonalny
     "infoForPatient": "popić dużą ilością wody", // informacja dla pacjenta przy schematach dawkowania
     "dispenseRequest": {
         "quantity": 4.0, // ile opakowań/unit wydać
         "unit": "op.", // opcjonalny
-        "infoForPerformer": "proszę wymieszać", // opcjonalna informacja dla wydającego
+        "infoForPerformer": "proszę nie wydawać mniejszych opakowań", // opcjonalna informacja dla wydającego
         "validityPeriod": {
           "start": "2024-04-22", // opcjonalnie (domyślnie brak) od kiedy można zrealizować receptę; dla recepty rocznej równa dacie wystawienia
           "end": "2025-04-22" // opcjonalnie, dla recepty 365 (+1 rok od dnia wystawienia)
@@ -252,52 +253,15 @@ Przykład – opakowanie 90 saszetek, z których każda zawiera plaster:
     "type": "prepared", // prepared - gotowy lek, recipe - receptura własna
     "organization": "idabc", // uuid
     "practitioner": "idxyz", // uuid
-    "patient": {
-      "identifier": [
-        {
-          "type": "pesel",
-          "value": "40010151673"
-        }
-      ],
-      "name": [
-        {
-          "family": "Senior",
-          "given": [
-              "Sylwester"
-          ]
-        }
-      ],
-      "telecom": [
-        {
-          "value": "+48131231230" // opcjonalny
-        }
-      ],
-      "address": [{
-          "street": "Wrocławska",
-          "houseNumber": "11A",
-          "unitId": "3", // mieszkanie
-          "city": "Zielona Góra",
-          "postalCode": "00-184",
-          "country": "Polska"
-      }],
-      "nfz": "07", // opcjonalne - jak nie ma to X
-      "gender": "M", // płeć pacjenta
-      "birthDate": "1940-01-01", // data urodzenia pacjenta
-      "entitlements": [
-        {
-          "entitlement": "IB", // uprawnienia dodatkowe pacjenta
-          "document": "Legitymacja nr. 12312321/23" // numer dokumentu upoważniającego do dodatkowych uprawnień
-        }
-      ]
-    },
+    "patient": { … }, // jak w pierwszym przykładzie
     "medication": {
-      "name": "Apap Noc",
-      "code": "100110151", // kod producenta
-      "ean": "05909990960132", // kod EAN leku
+      "name": "Sulpiryd Hasco",
+      "code": "100406970", // kod producenta
+      "ean": "05909991380410", // kod EAN leku
       "kdlek": "Rp", // Rp, Rpw, Rpz, OTC
-      "payment": "30%", // recepta refundowana - schemat dawkowania wymagany
+      "payment": "B", // bezpłatny do limitu - recepta refundowana, schemat dawkowania wymagany
       "package": {
-        "quantity": 24, // pojemność nadopakowania (packageVolume)
+        "quantity": 24, // pojemność opakowania (packageVolume)
         "unit": "tabl." // packageVolumeUnit
       },
       "superContent": { // nadopakowanie
@@ -340,12 +304,12 @@ Przykład – opakowanie 90 saszetek, z których każda zawiera plaster:
     "kind": "PF", // PA - proauctore, PF - profamiliae, ZW - zwykła (domyślnie)
     "issueMode": "Z", // Z - zwykła, F - farmaceutyczna, P - pielęgniarska, PL - pielęgniarska na zlecenie lekarza
     "substanceAdminSubstitution": "N", // nie pozwalaj na zamienniki
-    "priorityCode": "UR", // CITO, opcjonalne
+    "priorityCode": "UR", // znacznik CITO, opcjonalny
     "infoForPatient": "popić dużą ilością wody", // informacja dla pacjenta przy schematach dawkowania
     "dispenseRequest": {
         "quantity": 2, // ile opakowań/unit wydać
         "unit": "op.", // opcjonalny
-        "infoForPerformer": "proszę wymieszać", // opcjonalna informacja dla wydającego
+        "infoForPerformer": "", // opcjonalna informacja dla wydającego
         "validityPeriod": {
           "start": "2024-05-01" // opcjonalnie (domyślnie brak) od kiedy można zrealizować receptę
         }
@@ -368,44 +332,7 @@ Przykład – opakowanie 90 saszetek, z których każda zawiera plaster:
     "type": "prepared", // prepared - gotowy lek, recipe - receptura własna
     "organization": "idabc", // uuid
     "practitioner": "idxyz", // uuid
-    "patient": {
-      "identifier": [
-        {
-          "type": "pesel",
-          "value": "40010151673"
-        }
-      ],
-      "name": [
-        {
-          "family": "Senior",
-          "given": [
-              "Sylwester"
-          ]
-        }
-      ],
-      "telecom": [
-        {
-          "value": "+48131231230" // opcjonalny
-        }
-      ],
-      "address": [{
-          "street": "Wrocławska",
-          "houseNumber": "11A",
-          "unitId": "3", // mieszkanie
-          "city": "Zielona Góra",
-          "postalCode": "00-184",
-          "country": "Polska"
-      }],
-      "nfz": "07", // opcjonalne - jak nie ma to X
-      "gender": "M", // płeć pacjenta
-      "birthDate": "1940-01-01", // data urodzenia pacjenta
-      "entitlements": [
-        {
-          "entitlement": "IB", // uprawnienia dodatkowe pacjenta
-          "document": "Legitymacja nr. 12312321/23" // numer dokumentu upoważniającego do dodatkowych uprawnień
-        }
-      ]
-    },
+    "patient": { … }, // jak w pierwszym przykładzie
     "medication": {
       "name": "Apap Noc",
       "code": "100110151", // kod producenta
@@ -413,7 +340,7 @@ Przykład – opakowanie 90 saszetek, z których każda zawiera plaster:
       "kdlek": "Rp", // Rp, Rpw, Rpz, OTC
       "payment": "100%", // opcjonalne (domyślnie 100%) R, B, 30%, 50%, 100%
       "package": {
-        "quantity": 24, // pojemność nadopakowania (packageVolume)
+        "quantity": 24, // pojemność opakowania (packageVolume)
         "unit": "tabl." // packageVolumeUnit
       },
       "superContent": { // nadopakowanie
@@ -490,11 +417,11 @@ Przykład – opakowanie 90 saszetek, z których każda zawiera plaster:
     "kind": "PF", // PA - proauctore, PF - profamiliae, ZW - zwykła (domyślnie)
     "issueMode": "Z", // Z - zwykła, F - farmaceutyczna, P - pielęgniarska, PL - pielęgniarska na zlecenie lekarza
     "substanceAdminSubstitution": "N", // nie pozwalaj na zamienniki
-    "priorityCode": "UR", // CITO, opcjonalne
+    "priorityCode": "UR", // znacznik CITO, opcjonalny
     "dispenseRequest": {
         "quantity": 3, // ile opakowań/unit wydać
         "unit": "op.", // opcjonalny
-        "infoForPerformer": "proszę wymieszać", // opcjonalna informacja dla wydającego
+        "infoForPerformer": "", // opcjonalna informacja dla wydającego
         "validityPeriod": {
           "start": "2024-04-22", // opcjonalnie (domyślnie brak) od kiedy można zrealizować receptę; dla recepty rocznej równa dacie wystawienia
           "end": "2025-04-22" // opcjonalnie, dla recepty 365 (+1 rok od dnia wystawienia)
@@ -518,44 +445,7 @@ Przykład – opakowanie 90 saszetek, z których każda zawiera plaster:
     "type": "prepared", // prepared - gotowy lek, recipe - receptura własna
     "organization": "idabc",
     "practitioner": "idxyz",
-    "patient": {
-      "identifier": [
-        {
-          "type": "pesel",
-          "value": "40010151673"
-        }
-      ],
-      "name": [
-        {
-          "family": "Senior",
-          "given": [
-              "Sylwester"
-          ]
-        }
-      ],
-      "telecom": [
-        {
-          "value": "+48131231230"
-        }
-      ],
-      "address": [{
-          "street": "Wrocławska",
-          "houseNumber": "11A",
-          "unitId": "3",
-          "city": "Zielona Góra",
-          "postalCode": "00-184",
-          "country": "Polska"
-      }],
-      "nfz": "07",
-      "gender": "M", // płeć pacjenta
-      "birthDate": "1940-01-01", // data urodzenia pacjenta
-      "entitlements": [
-        {
-          "entitlement": "IB",
-          "document": "Legitymacja nr. 12312321/23"
-        }
-      ]
-    },
+    "patient": { … }, // jak w pierwszym przykładzie
     "medication": {
       "name": "Apap Noc",
       "code": "100110151",
@@ -622,10 +512,10 @@ Przykład – opakowanie 90 saszetek, z których każda zawiera plaster:
     "kind": "ZW",
     "issueMode": "Z",
     "substanceAdminSubstitution": "N",
-    "priorityCode": "UR",
+    "priorityCode": "UR", // znacznik CITO, opcjonalny
     "infoForPatient": "w czasie przerwy dużo odpoczywać", // opcjonalnie, przy schematach dawkowania
     "dispenseRequest": {
-        "quantity": 5, // 5 cykli × 22 tabl. = 110 tabl.
+        "quantity": 5, // 5 cykli × 22 tabl. = 110 tabl. → 5 op. × 24 tabl. = 120 tabl.
         "unit": "op.",
         "infoForPerformer": "",
         "validityPeriod": {
