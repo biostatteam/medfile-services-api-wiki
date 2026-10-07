@@ -13,7 +13,7 @@ Kontakt: <integracja@medfile.pl>
    - [Najczęściej zadawane pytania](FAQ.md)
 2. Usługi P1
    - [e-Recepta](Erecepta.md)
-     - [Dawkowanie sekwencyjne \- Przykłady dawkowania dla recept 365](Erecepta365.md)
+     - [Schematy dawkowania i nadzór kuracji (w tym recepta 365)](Erecepta365.md)
      - [Recepta na Wyroby Medyczne](EreceptaWM.md)
      - [Recepta na import docelowy](EreceptaImportDocelowy.md)
    - [e-Skierowanie](Eskierowania.md)
@@ -46,6 +46,11 @@ Kontakt: <integracja@medfile.pl>
 ### Zmiany w 2.3.12 obecne na serwerze dev
 
 1. Wprowadzono zmiany w ramach [obsługi MFA](Ezwm.md#ezwm-mfa) w usłudze eZWM
+2. Zaktualizowano opis [schematów dawkowania](Erecepta365.md) – schematy nie dotyczą już wyłącznie recepty 365:
+     - opisano [receptę roczną (365)](Erecepta365.md#recepta-roczna-365) oraz [wyłączenia spod nadzoru kuracji](Erecepta365.md#wyłączenia-spod-nadzoru-kuracji)
+     - dodano opis [kodowania leku na recepcie](Erecepta365.md#kodowanie-leku-na-recepcie-słownik--medication) na podstawie bazy leków, w tym [opakowania i nadopakowania](Erecepta365.md#opakowanie-i-nadopakowanie-package-supercontent) (`package`, `superContent`)
+     - dodano opis [dawkowania alternatywnego](Erecepta365.md#dawkowanie-alternatywne-alternativedose) (`alternativeDose`)
+     - zaktualizowano przykłady
   
 ### Zmiany w 2.3.11 z dnia 22.06.2026
 

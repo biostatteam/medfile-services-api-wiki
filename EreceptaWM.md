@@ -1,26 +1,33 @@
 # Usługa: e-Recepta na wyroby medyczne
 
-Recepta na wyroby medyczne bazuje na formacie recepty leku gotowego, ale zawiera uproszczoną strukturę schematu dawkowania.
-W ramach struktury - dla wyrobów refundowanych przesyłana jest jedynie informacja o długości czasu trwania kuracji.
-Receptę na wyrób medyczny charakteryzuje: 
+## Recepta na wyrób medyczny (WM)
+
+Na receptę tego typu trafiają wyłącznie wyroby medyczne, czyli pozycje słownika leków oznaczone `"type": "WM"`.
+
+W ramach struktury dla wyrobów refundowanych przesyłana jest jedynie informacja o długości trwania kuracji.
+
+### Cechy recepty na wyrób medyczny
   - element ```"type": "product"```
   - element ```"kdlek": "Rp"```
   - brak elementu opisującego pełne schematy dawkowania ```"dosage"```
+  - brak elementu ```"code"``` - należy wskazać wyłącznie ```"ean"```
 
-Receptę na WM można wystawić na 2 sposoby - wyznacznikiem jest odpłatność ("payment"):
-1. **Recepta refundowana** - cechy:
-    - ```"payment"``` *(opdłatność)* - wszystkie poza 100% (R, B, 30%, 50%)
+#### Warianty recepty
+Receptę na WM można wystawić na 2 sposoby. O wariancie decyduje odpłatność (`"payment"`).
+
+#### 1. **Recepta refundowana** - cechy:
+    - ```"payment"``` *(odpłatność)* - wszystkie poza 100% (R, B, 30%, 50%)
     - ```"duration"``` *(okres dawkowania)* - wymagane dla recepty rocznej
     - informacje dla pacjenta przekazywane są za pomocą elementu:
         - ```"infoForPatient"``` gdy podany jest ```duration``` *(recepta roczna)*
         - ```"dosageInstruction"``` gdy recepta nie zawiera okresu dawkowania
-2. **Recepta nierefundowana** - cechy:
+#### 2. **Recepta nierefundowana** - cechy:
     - ```"payment"``` - odpłatność równa 100%
     - nie może zawierać elementów ```"duration"``` oraz ```"infoForPatient"```
     - informacje dla pacjenta przekazywane za pomocą ```"dosageInstruction"```
 
-Recepta roczna (365) obsługiwana jest analogicznie jak w przypadku recepty na lek gotowy - należy dodać element ```"end"``` w ramach ```"validityPeriod"```.
- 
+#### Recepta roczna (365 dni)
+Obsługujemy ją tak samo jak receptę na lek gotowy, czyli dodajemy element `"end"` w ramach `"validityPeriod"`.
 
 ## Przykłady
 ### Recepta na wyroby medyczne ***refundowana***
