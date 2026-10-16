@@ -43,7 +43,7 @@ Kontakt: <integracja@medfile.pl>
 
 ## Changelog
 
-### Zmiany w 2.3.12 obecne na serwerze dev
+### Zmiany w 2.3.12 z dnia 15.10.2026
 
 1. Wprowadzono zmiany w ramach [obsługi MFA](Ezwm.md#ezwm-mfa) w usłudze eZWM
 2. Zaktualizowano opis [schematów dawkowania](Erecepta365.md) – schematy nie dotyczą już wyłącznie recepty 365:
