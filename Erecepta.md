@@ -290,7 +290,7 @@ Dodając dodatkowy element `organization` - który będzie opisem podmiotu medyc
 - REGON
 - NIP
 
-Sposób dodania nowej organizacji typu _Podmiot_ opisany został dziale [Introduction](Introduction.md#dane-podmiotu-leczniczego---organizationroot).  
+Sposób dodania nowej organizacji typu _Podmiot_ opisany został dziale [Introduction](Introduction.md#dane-podmiotu-leczniczego---organization-typu-podmiot).  
 Sposób wywołania w dokumencie CDA nie ulega zmianie.
 
 ```json
