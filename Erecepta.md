@@ -63,6 +63,15 @@ Element "WSKAZANIE_REFUNDACYJNE" jest przekazywany do platformy e-zdrowie wraz z
 
 Wersja 27.0.2 e-recepty wprowadziła obsługę dodatkowych atrybutów "RODZAJ_SWIADCZENIA" oraz "TRYB_BADANIA".  
 Atrybuty te wymagane są w przypadku recept na leki psychotropowe oraz środki odurzające (wskazane w Rozporządzeniu). 
+Dostępne wartości atrybutów:
+
+RODZAJ_SWIADCZENIA: 
+- POZ
+- NISOZ
+
+TRYB_BADANIA: 
+- BADANIE_OSOBISTE
+- WYWIAD_ZDALNY
 
 Oba atrybuty należy przekazać (zgodnie z wymaganiami) w JSON w elemencie **attributes**. Element ten jest opcjonalny, nie należy go przekazywać bez parametrów *name* oraz *value*.  
 Przykład poniżej:
