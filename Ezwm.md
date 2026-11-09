@@ -64,6 +64,27 @@ Należy wówczas ponownie zalogować użytkownika z użyciem nowego kodu TOTP (p
 }
 ```
 
+
+### Zmiana hasła użytkownika
+
+Usługa eZWM umożliwia zmianę hasła użytkownika za pomocą następującego endpointu:  
+
+```http request
+POST /ezwm/change_password
+```
+
+Zmiana hasła wymaga aktywnej sesji użytkownika - przed wywołaniem endpointu należy zalogować użytkownika do usługi (patrz: [Logowanie użytkownika do usługi](#logowanie-użytkownika-do-usługi)).  
+W przypadku braku sesji zwracany jest [błąd braku sesji](#brak-aktywnej-sesji-użytkownika).  
+
+W tokenie należy przekazać specjalistę powiązanego z usługą eZWM (*practitioner*), a w treści żądania dane w formacie JSON:  
+```json
+{
+  "old": "starehasło",
+  "new": "nowehasło"
+}
+```
+
+
 ### Wyślij dokument eZWM
 Endpoint do przekazania NFZ dokumentu zlecenia na wyroby medyczne:
 ```http request
