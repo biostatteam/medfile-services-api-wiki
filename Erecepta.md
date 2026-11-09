@@ -332,8 +332,8 @@ należy podać:
           "Paraffini liquidi ad 20,0"
 ]
 ```
-
 #### [Przykłady dawkowania dla recept zawierających szablony dawkowania](Erecepta365.md)
+#### [Dawkowanie pełnymi opakowaniami](eRecepta_dawkowanie_opakowaniami.md)
 #### [Opis budowy recepty na Wyroby Medyczne](EreceptaWM.md)
 
 ## Pobieranie pakietu recept
