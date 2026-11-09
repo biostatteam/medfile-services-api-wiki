@@ -87,6 +87,7 @@ Przykłady:
 | Zyrtec | 75 | ml | 1 | butelka | `75 ml` | `1 butelka` |
 | Zibor | 0.2 | ml | 10 | amp.-strzyk. | `0.2 ml` | `10 amp.-strzyk.` |
 | Coldrex MaxGrip | – | – | 14 | sasz. | `14 sasz.` | `1`, `""` |
+| Ryzodeg | 3 | ml | 5 | wkładów | `3 ml` | `5 wkładów` |
 
 ```jsonc
 "medication": {
@@ -521,6 +522,67 @@ Przykład – opakowanie 90 saszetek, z których każda zawiera plaster:
         "validityPeriod": {
           "start": "2024-09-10", // opcjonalnie (domyślnie brak) - recepta roczna
           "end": "2025-09-10" // opcjonalnie (domyślnie brak) - recepta roczna
+        }
+    }
+  }]
+}
+```
+
+### Recepta zwykła refundowana, *lek w wkładach (nadopakowanie)*
+- Sekwencja 1: przez 15 dni 1× dziennie po 1 ml
+
+Opakowanie: 5 wkładów po 3 ml → 1 op. = 15 ml. Schemat: 15 dni × 1 ml = 15 ml → 1 op.
+
+```jsonc
+{
+  "erecepta": [{
+    "id": "MEDFILE0000000009843PR",
+    "date": "2026-10-06",
+    "type": "prepared", // prepared - gotowy lek, recipe - receptura własna
+    "organization": "5b114267-928b-4593-890f-9a3dfd574b42", // uuid
+    "practitioner": "2a336ba1-8d72-40c1-9758-f7173f13c250", // uuid
+    "patient": { … }, // jak w pierwszym przykładzie
+    "medication": {
+      "name": "Ryzodeg",
+      "code": "100316295", // kod producenta
+      "ean": "05909991371562", // kod EAN leku
+      "kdlek": "Rp", // Rp, Rpw, Rpz, OTC
+      "payment": "30%", // recepta refundowana - schemat dawkowania wymagany
+      "form": "Roztwór do wstrzykiwań", // postać
+      "strength": "100 j./ml", // moc
+      "package": { // pojemność opakowania
+        "quantity": 3, // packageVolume
+        "unit": "ml" // packageVolumeUnit
+      },
+      "superContent": { // nadopakowanie
+        "quantity": 5, // packageCount
+        "unit": "wkładów" // packageType
+      }
+    },
+    "dosage": [ // 1× dziennie przez 15 dni po 1 ml
+      {
+        "duration": {
+          "quantity": 15,
+          "unit": "d"
+        },
+        "period": {
+          "quantity": 1,
+          "unit": "d"
+        },
+        "frequency": 1,
+        "doseQuantity": {
+          "quantity": 1,
+          "unit": "ml"
+        }
+      }
+    ],
+    "kind": "ZW", // PA - proauctore, PF - profamiliae, ZW - zwykła (domyślnie)
+    "issueMode": "Z", // Z - zwykła, F - farmaceutyczna, P - pielęgniarska, PL - pielęgniarska na zlecenie lekarza
+    "dispenseRequest": {
+        "quantity": 1, // 15 ml = 1 op. (5 × 3 ml)
+        "unit": "op.", // opcjonalny
+        "validityPeriod": {
+          "start": "2026-10-06" // opcjonalnie (domyślnie brak) od kiedy można zrealizować receptę
         }
     }
   }]
