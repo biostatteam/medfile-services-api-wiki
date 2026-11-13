@@ -14,7 +14,7 @@ Kontakt: <integracja@medfile.pl>
 2. Usługi P1
    - [e-Recepta](Erecepta.md)
      - [Schematy dawkowania i nadzór kuracji (w tym recepta 365)](Erecepta365.md)
-     - [Dawkowanie pełnymi opakowaniami](eRecepta_dawkowanie_opakowaniami.md)
+     - [Dawkowanie pełnymi opakowaniami](EreceptaDawkowanieOpakowaniami.md)
      - [Recepta na Wyroby Medyczne](EreceptaWM.md)
      - [Recepta na import docelowy](EreceptaImportDocelowy.md)
    - [e-Skierowanie](Eskierowania.md)
@@ -46,7 +46,7 @@ Kontakt: <integracja@medfile.pl>
 
 ### Zmiany w 2.3.13 z dnia xxxxxx.11.2026
 
-1. Na recepcie wprowadzono możliwość [dawkowania opakowaniami](eRecepta_dawkowanie_opakowaniami.md)
+1. Na recepcie wprowadzono możliwość [dawkowania opakowaniami](eRecepta_waniami.md)
 2. Umożliwiono przekazanie czasu wystawienia e-eskierowania (analogicznie do e-recepty)
 3. Dodano obsługę [zmiany hasła](Ezwm.md#zmiana-has%C5%82a-u%C5%BCytkownika) dostępowego nfz w usłudze eZWM
 
