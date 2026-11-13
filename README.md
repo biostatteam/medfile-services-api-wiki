@@ -46,7 +46,7 @@ Kontakt: <integracja@medfile.pl>
 
 ### Zmiany w 2.3.13 z dnia xxxxxx.11.2026
 
-1. Na recepcie wprowadzono możliwość [dawkowania opakowaniami](eRecepta_waniami.md)
+1. Na recepcie wprowadzono możliwość [dawkowania opakowaniami](EreceptaDawkowanieOpakowaniami.md)
 2. Umożliwiono przekazanie czasu wystawienia e-eskierowania (analogicznie do e-recepty)
 3. Dodano obsługę [zmiany hasła](Ezwm.md#zmiana-has%C5%82a-u%C5%BCytkownika) dostępowego nfz w usłudze eZWM
 
