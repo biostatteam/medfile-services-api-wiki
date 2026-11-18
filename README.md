@@ -44,7 +44,7 @@ Kontakt: <integracja@medfile.pl>
 
 ## Changelog
 
-### Zmiany w 2.3.13 z dnia xxxxxx.11.2026
+### Zmiany w 2.3.13 z dnia 16.11.2026
 
 1. Na recepcie wprowadzono możliwość [dawkowania opakowaniami](EreceptaDawkowanieOpakowaniami.md)
 2. Umożliwiono przekazanie czasu wystawienia e-eskierowania (analogicznie do e-recepty)
